@@ -48,7 +48,7 @@ class Mandrill_Messages {
      * @return array of structs for each recipient containing the key "email" with the email address and "status" as either "sent", "queued", or "rejected"
      *     - return[] struct the sending results for a single recipient
      *         - email string the email address of the recipient
-     *         - status string the sending status of the recipient - either "sent", "queued", or "rejected"
+     *         - status string the sending status of the recipient - either "sent", "queued", "rejected", or "invalid"
      */
     public function send($message) {
         $_params = array("message" => $message);
@@ -101,7 +101,7 @@ class Mandrill_Messages {
      * @return array of structs for each recipient containing the key "email" with the email address and "status" as either "sent", "queued", or "rejected"
      *     - return[] struct the sending results for a single recipient
      *         - email string the email address of the recipient
-     *         - status string the sending status of the recipient - either "sent", "queued", or "rejected"
+     *         - status string the sending status of the recipient - either "sent", "queued", "rejected", or "invalid"
      */
     public function sendTemplate($template_name, $template_content, $message) {
         $_params = array("template_name" => $template_name, "template_content" => $template_content, "message" => $message);
