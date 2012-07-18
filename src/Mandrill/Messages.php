@@ -22,6 +22,7 @@ class Mandrill_Messages {
      *     - track_clicks boolean whether or not to turn on click tracking for the message
      *     - auto_text boolean whether or not to automatically generate a text part for messages that are not given text
      *     - url_strip_qs boolean whether or not to strip the query string from URLs when aggregating tracked URL data
+     *     - preserve_recipients boolean whether or not to expose all recipients in to "To" header for each email
      *     - bcc_address string an optional address to receive an exact copy of each recipient's email
      *     - merge boolean whether to evaluate merge tags in the message. Will automatically be set to true if either merge_vars or global_merge_vars are provided.
      *     - global_merge_vars array global merge variables to use for all recipients. You can override these per recipient.
@@ -76,6 +77,7 @@ class Mandrill_Messages {
      *     - track_clicks boolean whether or not to turn on click tracking for the message
      *     - auto_text boolean whether or not to automatically generate a text part for messages that are not given text
      *     - url_strip_qs boolean whether or not to strip the query string from URLs when aggregating tracked URL data
+     *     - preserve_recipients boolean whether or not to expose all recipients in to "To" header for each email
      *     - bcc_address string an optional address to receive an exact copy of each recipient's email
      *     - global_merge_vars array global merge variables to use for all recipients. You can override these per recipient.
      *         - global_merge_vars[] struct a single global merge variable
