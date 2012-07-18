@@ -465,7 +465,7 @@ the attachment type<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendRaw">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#162" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#162" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>string|null <var>$from_email</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$from_name</var> = <span class="php-keyword1">null</span></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -485,6 +485,15 @@ sent over the SMTP protocol</p>
 				<div class="list"><dl>
 					<dt><var>$raw_message</var></dt>
 					<dd><code>string</code><br> the full MIME document of an email message</dd>
+					<dt><var>$from_email</var></dt>
+					<dd><code>string|null</code><br> optionally define the sender address - otherwise we'll use the address found in
+the provided headers</dd>
+					<dt><var>$from_name</var></dt>
+					<dd><code>string|null</code><br> optionally define the sender alias</dd>
+					<dt><var>$to</var></dt>
+					<dd><code>array|null</code><br> optionally define the recipients to receive the message - otherwise we'll use
+the To, Cc, and Bcc headers provided in the document - to[] string the email
+address of the recipint</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -493,7 +502,7 @@ sent over the SMTP protocol</p>
 and "status" as either "sent", "queued", or "rejected" - return[] struct the
 sending results for a single recipient - email string the email address of the
 recipient - status string the sending status of the recipient - either "sent",
-"queued", or "rejected"<br />
+"queued", "rejected", or "invalid"<br />
 				</div>
 
 

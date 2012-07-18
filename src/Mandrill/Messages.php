@@ -162,13 +162,17 @@ class Mandrill_Messages {
     /**
      * Take a raw MIME document for a message, and send it exactly as if it were sent over the SMTP protocol
      * @param string $raw_message the full MIME document of an email message
+     * @param string|null $from_email optionally define the sender address - otherwise we'll use the address found in the provided headers
+     * @param string|null $from_name optionally define the sender alias
+     * @param array|null $to optionally define the recipients to receive the message - otherwise we'll use the To, Cc, and Bcc headers provided in the document
+     *     - to[] string the email address of the recipint
      * @return array of structs for each recipient containing the key "email" with the email address and "status" as either "sent", "queued", or "rejected"
      *     - return[] struct the sending results for a single recipient
      *         - email string the email address of the recipient
-     *         - status string the sending status of the recipient - either "sent", "queued", or "rejected"
+     *         - status string the sending status of the recipient - either "sent", "queued", "rejected", or "invalid"
      */
-    public function sendRaw($raw_message) {
-        $_params = array("raw_message" => $raw_message);
+    public function sendRaw($raw_message, $from_email=null, $from_name=null, $to=null) {
+        $_params = array("raw_message" => $raw_message, "from_email" => $from_email, "from_name" => $from_name, "to" => $to);
         return $this->master->call('messages/send-raw', $_params);
     }
 

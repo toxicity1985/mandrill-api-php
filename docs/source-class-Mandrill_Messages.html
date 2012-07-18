@@ -264,20 +264,24 @@
 <a href="#162" id="162" class="l">162: </a>    <span class="php-comment">/**
 </span><a href="#163" id="163" class="l">163: </a><span class="php-comment">     * Take a raw MIME document for a message, and send it exactly as if it were sent over the SMTP protocol
 </span><a href="#164" id="164" class="l">164: </a><span class="php-comment">     * @param string $raw_message the full MIME document of an email message
-</span><a href="#165" id="165" class="l">165: </a><span class="php-comment">     * @return array of structs for each recipient containing the key &quot;email&quot; with the email address and &quot;status&quot; as either &quot;sent&quot;, &quot;queued&quot;, or &quot;rejected&quot;
-</span><a href="#166" id="166" class="l">166: </a><span class="php-comment">     *     - return[] struct the sending results for a single recipient
-</span><a href="#167" id="167" class="l">167: </a><span class="php-comment">     *         - email string the email address of the recipient
-</span><a href="#168" id="168" class="l">168: </a><span class="php-comment">     *         - status string the sending status of the recipient - either &quot;sent&quot;, &quot;queued&quot;, or &quot;rejected&quot;
-</span><a href="#169" id="169" class="l">169: </a><span class="php-comment">     */</span>
-<a href="#170" id="170" class="l">170: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> sendRaw(<span class="php-var">$raw_message</span>) {
-<a href="#171" id="171" class="l">171: </a>        <span class="php-var">$_params</span> = <span class="php-keyword1">array</span>(<span class="php-quote">&quot;raw_message&quot;</span> =&gt; <span class="php-var">$raw_message</span>);
-<a href="#172" id="172" class="l">172: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;master-&gt;call(<span class="php-quote">'messages/send-raw'</span>, <span class="php-var">$_params</span>);
-<a href="#173" id="173" class="l">173: </a>    }
-<a href="#174" id="174" class="l">174: </a>
-<a href="#175" id="175" class="l">175: </a>}
-<a href="#176" id="176" class="l">176: </a>
-<a href="#177" id="177" class="l">177: </a>
-<a href="#178" id="178" class="l">178: </a></code></pre>
+</span><a href="#165" id="165" class="l">165: </a><span class="php-comment">     * @param string|null $from_email optionally define the sender address - otherwise we'll use the address found in the provided headers
+</span><a href="#166" id="166" class="l">166: </a><span class="php-comment">     * @param string|null $from_name optionally define the sender alias
+</span><a href="#167" id="167" class="l">167: </a><span class="php-comment">     * @param array|null $to optionally define the recipients to receive the message - otherwise we'll use the To, Cc, and Bcc headers provided in the document
+</span><a href="#168" id="168" class="l">168: </a><span class="php-comment">     *     - to[] string the email address of the recipint
+</span><a href="#169" id="169" class="l">169: </a><span class="php-comment">     * @return array of structs for each recipient containing the key &quot;email&quot; with the email address and &quot;status&quot; as either &quot;sent&quot;, &quot;queued&quot;, or &quot;rejected&quot;
+</span><a href="#170" id="170" class="l">170: </a><span class="php-comment">     *     - return[] struct the sending results for a single recipient
+</span><a href="#171" id="171" class="l">171: </a><span class="php-comment">     *         - email string the email address of the recipient
+</span><a href="#172" id="172" class="l">172: </a><span class="php-comment">     *         - status string the sending status of the recipient - either &quot;sent&quot;, &quot;queued&quot;, &quot;rejected&quot;, or &quot;invalid&quot;
+</span><a href="#173" id="173" class="l">173: </a><span class="php-comment">     */</span>
+<a href="#174" id="174" class="l">174: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> sendRaw(<span class="php-var">$raw_message</span>, <span class="php-var">$from_email</span>=<span class="php-keyword1">null</span>, <span class="php-var">$from_name</span>=<span class="php-keyword1">null</span>, <span class="php-var">$to</span>=<span class="php-keyword1">null</span>) {
+<a href="#175" id="175" class="l">175: </a>        <span class="php-var">$_params</span> = <span class="php-keyword1">array</span>(<span class="php-quote">&quot;raw_message&quot;</span> =&gt; <span class="php-var">$raw_message</span>, <span class="php-quote">&quot;from_email&quot;</span> =&gt; <span class="php-var">$from_email</span>, <span class="php-quote">&quot;from_name&quot;</span> =&gt; <span class="php-var">$from_name</span>, <span class="php-quote">&quot;to&quot;</span> =&gt; <span class="php-var">$to</span>);
+<a href="#176" id="176" class="l">176: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;master-&gt;call(<span class="php-quote">'messages/send-raw'</span>, <span class="php-var">$_params</span>);
+<a href="#177" id="177" class="l">177: </a>    }
+<a href="#178" id="178" class="l">178: </a>
+<a href="#179" id="179" class="l">179: </a>}
+<a href="#180" id="180" class="l">180: </a>
+<a href="#181" id="181" class="l">181: </a>
+<a href="#182" id="182" class="l">182: </a></code></pre>
 
 	<div id="footer">
 		 API documentation generated by <a href="http://apigen.org">ApiGen 2.6.1</a>
