@@ -41,6 +41,10 @@ class Mandrill_Messages {
      *     - google_analytics_domains array an array of strings indicating for which any matching URLs will automatically have Google Analytics parameters appended to their query string automatically.
      *     - google_analytics_campaign array|string optional string indicating the value to set for the utm_campaign tracking parameter. If this isn't provided the email's from address will be used instead.
      *     - metadata array metadata an associative array of user metadata. Mandrill will store this metadata and make it available for retrieval. In addition, you can select up to 10 metadata fields to index and make searchable using the Mandrill search api.
+     *     - recipient_metadata array Per-recipient metadata that will override the global values specified in the metadata parameter.
+     *         - recipient_metadata[] struct metadata for a single recipient
+     *             - rcpt string the email address of the recipient that the metadata is associated with
+     *             - values array an associated array containing the recipient's unique metadata. If a key exists in both the per-recipient metadata and the global metadata, the per-recipient metadata will be used.
      *     - attachments array an array of supported attachments to add to the message
      *         - attachments[] struct a single supported attachment
      *             - type string the MIME type of the attachment - allowed types are text/*, image/*, and application/pdf
@@ -95,6 +99,10 @@ class Mandrill_Messages {
      *     - google_analytics_domains array an array of strings indicating for which any matching URLs will automatically have Google Analytics parameters appended to their query string automatically.
      *     - google_analytics_campaign array|string optional string indicating the value to set for the utm_campaign tracking parameter. If this isn't provided the email's from address will be used instead.
      *     - metadata array metadata an associative array of user metadata. Mandrill will store this metadata and make it available for retrieval. In addition, you can select up to 10 metadata fields to index and make searchable using the Mandrill search api.
+     *     - recipient_metadata array Per-recipient metadata that will override the global values specified in the metadata parameter.
+     *         - recipient_metadata[] struct metadata for a single recipient
+     *             - rcpt string the email address of the recipient that the metadata is associated with
+     *             - values array an associated array containing the recipient's unique metadata. If a key exists in both the per-recipient metadata and the global metadata, the per-recipient metadata will be used.
      *     - attachments array an array of supported attachments to add to the message
      *         - attachments[] struct a single supported attachment
      *             - type string the MIME type of the attachment - allowed types are text/*, image/*, and application/pdf
