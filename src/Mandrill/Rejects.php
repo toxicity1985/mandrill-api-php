@@ -7,8 +7,11 @@ class Mandrill_Rejects {
 
     /**
      * Retrieves your email rejection blacklist. You can provide an email
-address to limit the results. Returns up to 1000 results.
+address to limit the results. Returns up to 1000 results. By default,
+entries that have expired are excluded from the results; set
+include_expired to true to include them.
      * @param string $email an optional email address to search by
+     * @param boolean $include_expired whether to include rejections that have already expired.
      * @return array Up to 1000 rejection entries
      *     - return[] struct the information for each rejection blacklist entry
      *         - email string the email that is blocked
@@ -18,8 +21,8 @@ address to limit the results. Returns up to 1000 results.
      *         - expired boolean whether the blacklist entry has expired
      *         - Sender struct sender the sender that this blacklist entry applies to, or null if none.
      */
-    public function getList($email=null) {
-        $_params = array("email" => $email);
+    public function getList($email=null, $include_expired=false) {
+        $_params = array("email" => $email, "include_expired" => $include_expired);
         return $this->master->call('rejects/list', $_params);
     }
 

@@ -163,19 +163,23 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getList">#</a>
-		<code><a href="source-class-Mandrill_Rejects.html#8" title="Go to source code">getList</a>( <span>string <var>$email</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Rejects.html#8" title="Go to source code">getList</a>( <span>string <var>$email</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$include_expired</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
 <p>Retrieves your email rejection blacklist. You can provide an email address to
-limit the results. Returns up to 1000 results.</p>
+limit the results. Returns up to 1000 results. By default, entries that have
+expired are excluded from the results; set include_expired to true to include
+them.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
 <p>Retrieves your email rejection blacklist. You can provide an email address to
-limit the results. Returns up to 1000 results.</p>
+limit the results. Returns up to 1000 results. By default, entries that have
+expired are excluded from the results; set include_expired to true to include
+them.</p>
 
 
 
@@ -183,6 +187,8 @@ limit the results. Returns up to 1000 results.</p>
 				<div class="list"><dl>
 					<dt><var>$email</var></dt>
 					<dd><code>string</code><br> an optional email address to search by</dd>
+					<dt><var>$include_expired</var></dt>
+					<dd><code>boolean</code><br> whether to include rejections that have already expired.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -213,7 +219,7 @@ the sender that this blacklist entry applies to, or null if none.<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_delete">#</a>
-		<code><a href="source-class-Mandrill_Rejects.html#26" title="Go to source code">delete</a>( <span>string <var>$email</var></span> )</code>
+		<code><a href="source-class-Mandrill_Rejects.html#29" title="Go to source code">delete</a>( <span>string <var>$email</var></span> )</code>
 
 		<div class="description short">
 			
