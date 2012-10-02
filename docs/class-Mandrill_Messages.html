@@ -163,7 +163,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_send">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#8" title="Go to source code">send</a>( <span>struct <var>$message</var></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#8" title="Go to source code">send</a>( <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
@@ -232,6 +232,13 @@ single supported attachment - type string the MIME type of the attachment -
 allowed types are text/*, image/*, and application/pdf - name string the file
 name of the attachment - content string the content of the attachment as a
 base64-encoded string</dd>
+					<dt><var>$async</var></dt>
+					<dd><code>boolean</code><br> enable a background sending mode that is optimized for bulk sending. In async
+mode, messages/send will immediately return a status of "queued" for every
+recipient. To handle rejections when sending in async mode, set up a webhook for
+the 'reject' event. Defaults to false for messages with fewer than 100
+recipients; messages with more than 100 recipients are always sent
+asynchronously, regardless of the value of async.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -260,7 +267,7 @@ recipient - status string the sending status of the recipient - either "sent",
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendTemplate">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#63" title="Go to source code">sendTemplate</a>( <span>string <var>$template_name</var></span>, <span>array <var>$template_content</var></span>, <span>struct <var>$message</var></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#64" title="Go to source code">sendTemplate</a>( <span>string <var>$template_name</var></span>, <span>array <var>$template_content</var></span>, <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
@@ -336,6 +343,13 @@ message - attachments[] struct a single supported attachment - type string the
 MIME type of the attachment - allowed types are text/*, image/*, and
 application/pdf - name string the file name of the attachment - content string
 the content of the attachment as a base64-encoded string</dd>
+					<dt><var>$async</var></dt>
+					<dd><code>boolean</code><br> enable a background sending mode that is optimized for bulk sending. In async
+mode, messages/sendTemplate will immediately return a status of "queued" for
+every recipient. To handle rejections when sending in async mode, set up a
+webhook for the 'reject' event. Defaults to false for messages with fewer than
+100 recipients; messages with more than 100 recipients are always sent
+asynchronously, regardless of the value of async.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -364,7 +378,7 @@ recipient - status string the sending status of the recipient - either "sent",
 
 		<td class="name"><div>
 		<a class="anchor" href="#_search">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#121" title="Go to source code">search</a>( <span>string <var>$query</var> = <span class="php-quote">'*'</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$limit</var> = <span class="php-num">100</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#123" title="Go to source code">search</a>( <span>string <var>$query</var> = <span class="php-quote">'*'</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$limit</var> = <span class="php-num">100</span></span> )</code>
 
 		<div class="description short">
 			
@@ -427,7 +441,7 @@ of this message: sent, bounced, rejected<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parse">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#146" title="Go to source code">parse</a>( <span>string <var>$raw_message</var></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#148" title="Go to source code">parse</a>( <span>string <var>$raw_message</var></span> )</code>
 
 		<div class="description short">
 			
@@ -484,7 +498,7 @@ the attachment type<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendRaw">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#172" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>string|null <var>$from_email</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$from_name</var> = <span class="php-keyword1">null</span></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#174" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>string|null <var>$from_email</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$from_name</var> = <span class="php-keyword1">null</span></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
@@ -513,6 +527,13 @@ the provided headers</dd>
 					<dd><code>array|null</code><br> optionally define the recipients to receive the message - otherwise we'll use
 the To, Cc, and Bcc headers provided in the document - to[] string the email
 address of the recipint</dd>
+					<dt><var>$async</var></dt>
+					<dd><code>boolean</code><br> enable a background sending mode that is optimized for bulk sending. In async
+mode, messages/sendRaw will immediately return a status of "queued" for every
+recipient. To handle rejections when sending in async mode, set up a webhook for
+the 'reject' event. Defaults to false for messages with fewer than 100
+recipients; messages with more than 100 recipients are always sent
+asynchronously, regardless of the value of async.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>

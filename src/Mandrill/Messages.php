@@ -50,13 +50,14 @@ class Mandrill_Messages {
      *             - type string the MIME type of the attachment - allowed types are text/*, image/*, and application/pdf
      *             - name string the file name of the attachment
      *             - content string the content of the attachment as a base64-encoded string
+     * @param boolean $async enable a background sending mode that is optimized for bulk sending. In async mode, messages/send will immediately return a status of "queued" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with fewer than 100 recipients; messages with more than 100 recipients are always sent asynchronously, regardless of the value of async.
      * @return array of structs for each recipient containing the key "email" with the email address and "status" as either "sent", "queued", or "rejected"
      *     - return[] struct the sending results for a single recipient
      *         - email string the email address of the recipient
      *         - status string the sending status of the recipient - either "sent", "queued", "rejected", or "invalid"
      */
-    public function send($message) {
-        $_params = array("message" => $message);
+    public function send($message, $async=false) {
+        $_params = array("message" => $message, "async" => $async);
         return $this->master->call('messages/send', $_params);
     }
 
@@ -108,13 +109,14 @@ class Mandrill_Messages {
      *             - type string the MIME type of the attachment - allowed types are text/*, image/*, and application/pdf
      *             - name string the file name of the attachment
      *             - content string the content of the attachment as a base64-encoded string
+     * @param boolean $async enable a background sending mode that is optimized for bulk sending. In async mode, messages/sendTemplate will immediately return a status of "queued" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with fewer than 100 recipients; messages with more than 100 recipients are always sent asynchronously, regardless of the value of async.
      * @return array of structs for each recipient containing the key "email" with the email address and "status" as either "sent", "queued", or "rejected"
      *     - return[] struct the sending results for a single recipient
      *         - email string the email address of the recipient
      *         - status string the sending status of the recipient - either "sent", "queued", "rejected", or "invalid"
      */
-    public function sendTemplate($template_name, $template_content, $message) {
-        $_params = array("template_name" => $template_name, "template_content" => $template_content, "message" => $message);
+    public function sendTemplate($template_name, $template_content, $message, $async=false) {
+        $_params = array("template_name" => $template_name, "template_content" => $template_content, "message" => $message, "async" => $async);
         return $this->master->call('messages/send-template', $_params);
     }
 
@@ -176,13 +178,14 @@ class Mandrill_Messages {
      * @param string|null $from_name optionally define the sender alias
      * @param array|null $to optionally define the recipients to receive the message - otherwise we'll use the To, Cc, and Bcc headers provided in the document
      *     - to[] string the email address of the recipint
+     * @param boolean $async enable a background sending mode that is optimized for bulk sending. In async mode, messages/sendRaw will immediately return a status of "queued" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with fewer than 100 recipients; messages with more than 100 recipients are always sent asynchronously, regardless of the value of async.
      * @return array of structs for each recipient containing the key "email" with the email address and "status" as either "sent", "queued", or "rejected"
      *     - return[] struct the sending results for a single recipient
      *         - email string the email address of the recipient
      *         - status string the sending status of the recipient - either "sent", "queued", "rejected", or "invalid"
      */
-    public function sendRaw($raw_message, $from_email=null, $from_name=null, $to=null) {
-        $_params = array("raw_message" => $raw_message, "from_email" => $from_email, "from_name" => $from_name, "to" => $to);
+    public function sendRaw($raw_message, $from_email=null, $from_name=null, $to=null, $async=false) {
+        $_params = array("raw_message" => $raw_message, "from_email" => $from_email, "from_name" => $from_name, "to" => $to, "async" => $async);
         return $this->master->call('messages/send-raw', $_params);
     }
 
