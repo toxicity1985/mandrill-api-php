@@ -131,6 +131,7 @@ class Mandrill_Messages {
      * @return array of structs for each matching message
      *     - return[] struct the information for a single matching message
      *         - ts integer the Unix timestamp from when this message was sent
+     *         - _id string the message's unique id
      *         - sender string the email address of the sender
      *         - subject string the message's subject link
      *         - email string the recipient email address
@@ -139,6 +140,7 @@ class Mandrill_Messages {
      *         - opens integer how many times has this message been opened
      *         - clicks integer how many times has a link been clicked in this message
      *         - state string sending status of this message: sent, bounced, rejected
+     *         - metadata struct any custom metadata provided when the message was sent
      */
     public function search($query='*', $date_from=null, $date_to=null, $tags=null, $senders=null, $limit=100) {
         $_params = array("query" => $query, "date_from" => $date_from, "date_to" => $date_to, "tags" => $tags, "senders" => $senders, "limit" => $limit);

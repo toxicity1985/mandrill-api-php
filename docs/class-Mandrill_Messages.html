@@ -416,12 +416,14 @@ by ANY of the senders</dd>
 				<div class="list">
 					<code>array</code><br>of structs for each matching message - return[] struct the information for a
 single matching message - ts integer the Unix timestamp from when this message
-was sent - sender string the email address of the sender - subject string the
-message's subject link - email string the recipient email address - tags array
-list of tags on this message - tags[] string individual tag on this message -
-opens integer how many times has this message been opened - clicks integer how
-many times has a link been clicked in this message - state string sending status
-of this message: sent, bounced, rejected<br />
+was sent - _id string the message's unique id - sender string the email address
+of the sender - subject string the message's subject link - email string the
+recipient email address - tags array list of tags on this message - tags[]
+string individual tag on this message - opens integer how many times has this
+message been opened - clicks integer how many times has a link been clicked in
+this message - state string sending status of this message: sent, bounced,
+rejected - metadata struct any custom metadata provided when the message was
+sent<br />
 				</div>
 
 
@@ -441,7 +443,7 @@ of this message: sent, bounced, rejected<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parse">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#148" title="Go to source code">parse</a>( <span>string <var>$raw_message</var></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#150" title="Go to source code">parse</a>( <span>string <var>$raw_message</var></span> )</code>
 
 		<div class="description short">
 			
@@ -498,7 +500,7 @@ the attachment type<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendRaw">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#174" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>string|null <var>$from_email</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$from_name</var> = <span class="php-keyword1">null</span></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#176" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>string|null <var>$from_email</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$from_name</var> = <span class="php-keyword1">null</span></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
