@@ -12,7 +12,7 @@ class Mandrill_Urls {
      *         - url string the URL to be tracked
      *         - sent integer the number of emails that contained the URL
      *         - clicks integer the number of times the URL has been clicked from a tracked email
-     *         - unique_clicks integer the number of unique emails that have benerated clicks for this URL
+     *         - unique_clicks integer the number of unique emails that have generated clicks for this URL
      */
     public function getList() {
         $_params = array();
@@ -27,7 +27,7 @@ class Mandrill_Urls {
      *         - url string the URL to be tracked
      *         - sent integer the number of emails that contained the URL
      *         - clicks integer the number of times the URL has been clicked from a tracked email
-     *         - unique_clicks integer the number of unique emails that have benerated clicks for this URL
+     *         - unique_clicks integer the number of unique emails that have generated clicks for this URL
      */
     public function search($q) {
         $_params = array("q" => $q);
