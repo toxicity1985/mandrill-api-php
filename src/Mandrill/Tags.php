@@ -25,6 +25,27 @@ class Mandrill_Tags {
     }
 
     /**
+     * Deletes a tag permanently. Deleting a tag removes the tag from any messages
+that have been sent, and also deletes the tag's stats. There is no way to
+undo this operation, so use it carefully.
+     * @param string $tag a tag name
+     * @return struct the tag that was deleted
+     *     - tag string the actual tag as a string
+     *     - sent integer the total number of messages sent with this tag
+     *     - hard_bounces integer the total number of hard bounces by messages with this tag
+     *     - soft_bounces integer the total number of soft bounces by messages with this tag
+     *     - rejects integer the total number of rejected messages with this tag
+     *     - complaints integer the total number of spam complaints received for messages with this tag
+     *     - unsubs integer the total number of unsubscribe requests received for messages with this tag
+     *     - opens integer the total number of times messages with this tag have been opened
+     *     - clicks integer the total number of times tracked URLs in messages with this tag have been clicked
+     */
+    public function delete($tag) {
+        $_params = array("tag" => $tag);
+        return $this->master->call('tags/delete', $_params);
+    }
+
+    /**
      * Return more detailed information about a single tag, including aggregates of recent stats
      * @param string $tag an existing tag name
      * @return struct the detailed information on the tag
