@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="generator" content="ApiGen 2.7.0" />
 
-	<title>Class Mandrill_Rejects</title>
+	<title>Class Mandrill_Inbound</title>
 
 	<script type="text/javascript" src="resources/combined.js?2398159053"></script>
 	<script type="text/javascript" src="elementlist.js?524601114"></script>
@@ -35,10 +35,10 @@
 			<h3>Classes</h3>
 			<ul>
 				<li><a href="class-Mandrill.html">Mandrill</a></li>
-				<li><a href="class-Mandrill_Inbound.html">Mandrill_Inbound</a></li>
+				<li class="active"><a href="class-Mandrill_Inbound.html">Mandrill_Inbound</a></li>
 				<li><a href="class-Mandrill_Internal.html">Mandrill_Internal</a></li>
 				<li><a href="class-Mandrill_Messages.html">Mandrill_Messages</a></li>
-				<li class="active"><a href="class-Mandrill_Rejects.html">Mandrill_Rejects</a></li>
+				<li><a href="class-Mandrill_Rejects.html">Mandrill_Rejects</a></li>
 				<li><a href="class-Mandrill_Senders.html">Mandrill_Senders</a></li>
 				<li><a href="class-Mandrill_Tags.html">Mandrill_Tags</a></li>
 				<li><a href="class-Mandrill_Templates.html">Mandrill_Templates</a></li>
@@ -102,7 +102,7 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class Mandrill_Rejects</h1>
+	<h1>Class Mandrill_Inbound</h1>
 
 
 
@@ -120,7 +120,7 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-Mandrill_Rejects.html#3" title="Go to source code">Mandrill/Rejects.php</a><br />
+		<b>Located at</b> <a href="source-class-Mandrill_Inbound.html#3" title="Go to source code">Mandrill/Inbound.php</a><br />
 	</div>
 
 
@@ -137,7 +137,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Mandrill_Rejects.html#4" title="Go to source code">__construct</a>( <span><code><a href="class-Mandrill.html">Mandrill</a></code> <var>$master</var></span> )</code>
+		<code><a href="source-class-Mandrill_Inbound.html#4" title="Go to source code">__construct</a>( <span><code><a href="class-Mandrill.html">Mandrill</a></code> <var>$master</var></span> )</code>
 
 		<div class="description short">
 			
@@ -155,7 +155,7 @@
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="getList" id="_getList">
+	<tr data-order="domains" id="_domains">
 
 		<td class="attributes"><code>
 			 public 
@@ -165,44 +165,26 @@
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_getList">#</a>
-		<code><a href="source-class-Mandrill_Rejects.html#8" title="Go to source code">getList</a>( <span>string <var>$email</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$include_expired</var> = <span class="php-keyword1">false</span></span> )</code>
+		<a class="anchor" href="#_domains">#</a>
+		<code><a href="source-class-Mandrill_Inbound.html#8" title="Go to source code">domains</a>( )</code>
 
 		<div class="description short">
 			
-<p>Retrieves your email rejection blacklist. You can provide an email address to
-limit the results. Returns up to 1000 results. By default, entries that have
-expired are excluded from the results; set include_expired to true to include
-them.</p>
+<p>List the domains that have been configured for inbound delivery</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Retrieves your email rejection blacklist. You can provide an email address to
-limit the results. Returns up to 1000 results. By default, entries that have
-expired are excluded from the results; set include_expired to true to include
-them.</p>
+<p>List the domains that have been configured for inbound delivery</p>
 
 
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$email</var></dt>
-					<dd><code>string</code><br> an optional email address to search by</dd>
-					<dt><var>$include_expired</var></dt>
-					<dd><code>boolean</code><br> whether to include rejections that have already expired.</dd>
-				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>array</code><br>Up to 1000 rejection entries - return[] struct the information for each
-rejection blacklist entry - email string the email that is blocked - reason
-string the type of event (hard-bounce, soft-bounce, spam, unsub) that caused
-this rejection - created_at string when the email was added to the blacklist -
-expires_at string when the blacklist entry will expire (this may be in the past)
-- expired boolean whether the blacklist entry has expired - Sender struct sender
-the sender that this blacklist entry applies to, or null if none.<br />
+					<code>array</code><br>the inbound domains associated with the account - return[] array the individual
+domain info<br />
 				</div>
 
 
@@ -211,46 +193,95 @@ the sender that this blacklist entry applies to, or null if none.<br />
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="delete" id="_delete">
+	<tr data-order="routes" id="_routes">
 
 		<td class="attributes"><code>
 			 public 
-			struct
+			array
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_delete">#</a>
-		<code><a href="source-class-Mandrill_Rejects.html#29" title="Go to source code">delete</a>( <span>string <var>$email</var></span> )</code>
+		<a class="anchor" href="#_routes">#</a>
+		<code><a href="source-class-Mandrill_Inbound.html#18" title="Go to source code">routes</a>( <span>string <var>$domain</var></span> )</code>
 
 		<div class="description short">
 			
-<p>Deletes an email rejection. There is no limit to how many rejections you can
-remove from your blacklist, but keep in mind that each deletion has an affect on
-your reputation.</p>
+<p>List the mailbox routes defined for an inbound domain</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Deletes an email rejection. There is no limit to how many rejections you can
-remove from your blacklist, but keep in mind that each deletion has an affect on
-your reputation.</p>
+<p>List the mailbox routes defined for an inbound domain</p>
 
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$email</var></dt>
-					<dd><code>string</code><br> an email address</dd>
+					<dt><var>$domain</var></dt>
+					<dd><code>string</code><br> the domain to check</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>struct</code><br>a status object containing the address and whether the deletion succeeded. -
-email string the email address that was removed from the blacklist - deleted
-boolean whether the address was deleted successfully.<br />
+					<code>array</code><br>the routes associated with the domain - return[] struct the individual mailbox
+route - pattern string the search pattern that the mailbox name should match -
+url string the webhook URL where inbound messages will be published<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="sendRaw" id="_sendRaw">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_sendRaw">#</a>
+		<code><a href="source-class-Mandrill_Inbound.html#31" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Take a raw MIME document destined for a domain with inbound domains set up,
+and send it to the inbound hook exactly as if it had been sent over SMTP $sparam
+string $to[] the email address of the recipient @validate trim</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Take a raw MIME document destined for a domain with inbound domains set up,
+and send it to the inbound hook exactly as if it had been sent over SMTP $sparam
+string $to[] the email address of the recipient @validate trim</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$raw_message</var></dt>
+					<dd><code>string</code><br> the full MIME document of an email message</dd>
+					<dt><var>$to</var></dt>
+					<dd><code>array|null</code><br> optionally define the recipients to receive the message - otherwise we'll use
+the To, Cc, and Bcc headers provided in the document</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>an array of the information for each recipient in the message (usually one) that
+matched an inbound route - return[] struct the individual recipient information
+- email struct the email address of the matching recipient - pattern struct the
+mailbox route pattern that the recipient matched - url struct the webhook URL
+that the message was posted to<br />
 				</div>
 
 

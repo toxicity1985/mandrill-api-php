@@ -11,9 +11,10 @@ class Mandrill_Templates {
      * @param string $code the HTML code for the template with mc:edit attributes for the editable elements
      * @param boolean $publish set to false to add a draft template without publishing
      * @return struct the information saved about the new template
-     *     - name string the name of the template - draft version
+     *     - slug string the immutable unique code name of the template
+     *     - name string the name of the template
      *     - code string the full HTML code of the template, with mc:edit attributes marking the editable elements - draft version
-     *     - publish_name string the name that the template was published as, if it has been published
+     *     - publish_name string the same as the template name - kept as a separate field for backwards compatibility
      *     - publish_code string the full HTML code of the template, with mc:edit attributes marking the editable elements that are available as published, if it has been published
      *     - published_at string the date and time the template was last published as a UTC string in YYYY-MM-DD HH:MM:SS format, or null if it has not been published
      *     - created_at string the date and time the template was first created as a UTC string in YYYY-MM-DD HH:MM:SS format
@@ -26,11 +27,12 @@ class Mandrill_Templates {
 
     /**
      * Get the information for an existing template
-     * @param string $name the name of an existing template
+     * @param string $name the immutable name of an existing template
      * @return struct the requested template information
-     *     - name string the name of the template - draft version
+     *     - slug string the immutable unique code name of the template
+     *     - name string the name of the template
      *     - code string the full HTML code of the template, with mc:edit attributes marking the editable elements - draft version
-     *     - publish_name string the name that the template was published as, if it has been published
+     *     - publish_name string the same as the template name - kept as a separate field for backwards compatibility
      *     - publish_code string the full HTML code of the template, with mc:edit attributes marking the editable elements that are available as published, if it has been published
      *     - published_at string the date and time the template was last published as a UTC string in YYYY-MM-DD HH:MM:SS format, or null if it has not been published
      *     - created_at string the date and time the template was first created as a UTC string in YYYY-MM-DD HH:MM:SS format
@@ -43,13 +45,14 @@ class Mandrill_Templates {
 
     /**
      * Update the code for an existing template
-     * @param string $name the name of an existing template
+     * @param string $name the immutable name of an existing template
      * @param string $code the new code for the template
      * @param boolean $publish set to false to update the draft version of the template without publishing
      * @return struct the template that was updated
-     *     - name string the name of the template - draft version
+     *     - slug string the immutable unique code name of the template
+     *     - name string the name of the template
      *     - code string the full HTML code of the template, with mc:edit attributes marking the editable elements - draft version
-     *     - publish_name string the name that the template was published as, if it has been published
+     *     - publish_name string the same as the template name - kept as a separate field for backwards compatibility
      *     - publish_code string the full HTML code of the template, with mc:edit attributes marking the editable elements that are available as published, if it has been published
      *     - published_at string the date and time the template was last published as a UTC string in YYYY-MM-DD HH:MM:SS format, or null if it has not been published
      *     - created_at string the date and time the template was first created as a UTC string in YYYY-MM-DD HH:MM:SS format
@@ -62,11 +65,12 @@ class Mandrill_Templates {
 
     /**
      * Publish the content for the template. Any new messages sent using this template will start using the content that was previously in draft.
-     * @param string $name the name of an existing template
+     * @param string $name the immutable name of an existing template
      * @return struct the template that was published
-     *     - name string the name of the template - draft version
+     *     - slug string the immutable unique code name of the template
+     *     - name string the name of the template
      *     - code string the full HTML code of the template, with mc:edit attributes marking the editable elements - draft version
-     *     - publish_name string the name that the template was published as, if it has been published
+     *     - publish_name string the same as the template name - kept as a separate field for backwards compatibility
      *     - publish_code string the full HTML code of the template, with mc:edit attributes marking the editable elements that are available as published, if it has been published
      *     - published_at string the date and time the template was last published as a UTC string in YYYY-MM-DD HH:MM:SS format, or null if it has not been published
      *     - created_at string the date and time the template was first created as a UTC string in YYYY-MM-DD HH:MM:SS format
@@ -79,11 +83,12 @@ class Mandrill_Templates {
 
     /**
      * Delete a template
-     * @param string $name the name of an existing template
+     * @param string $name the immutable name of an existing template
      * @return struct the template that was deleted
-     *     - name string the name of the template - draft version
+     *     - slug string the immutable unique code name of the template
+     *     - name string the name of the template
      *     - code string the full HTML code of the template, with mc:edit attributes marking the editable elements - draft version
-     *     - publish_name string the name that the template was published as, if it has been published
+     *     - publish_name string the same as the template name - kept as a separate field for backwards compatibility
      *     - publish_code string the full HTML code of the template, with mc:edit attributes marking the editable elements that are available as published, if it has been published
      *     - published_at string the date and time the template was last published as a UTC string in YYYY-MM-DD HH:MM:SS format, or null if it has not been published
      *     - created_at string the date and time the template was first created as a UTC string in YYYY-MM-DD HH:MM:SS format
@@ -98,9 +103,10 @@ class Mandrill_Templates {
      * Return a list of all the templates available to this user
      * @return array an array of structs with information about each template
      *     - return[] struct the information on each template in the account
-     *         - name string the name of the template - draft version
+     *         - slug string the immutable unique code name of the template
+     *         - name string the name of the template
      *         - code string the full HTML code of the template, with mc:edit attributes marking the editable elements - draft version
-     *         - publish_name string the name that the template was published as, if it has been published
+     *         - publish_name string the same as the template name - kept as a separate field for backwards compatibility
      *         - publish_code string the full HTML code of the template, with mc:edit attributes marking the editable elements that are available as published, if it has been published
      *         - published_at string the date and time the template was last published as a UTC string in YYYY-MM-DD HH:MM:SS format, or null if it has not been published
      *         - created_at string the date and time the template was first created as a UTC string in YYYY-MM-DD HH:MM:SS format
@@ -134,7 +140,7 @@ class Mandrill_Templates {
 
     /**
      * Inject content and optionally merge fields into a template, returning the HTML that results
-     * @param string $template_name the name of a template that exists in the user's account
+     * @param string $template_name the immutable name of a template that exists in the user's account
      * @param array $template_content an array of template content to render.  Each item in the array should be a struct with two keys - name: the name of the content block to set the content for, and content: the actual content to put into the block
      *     - template_content[] struct the injection of a single piece of content into a single editable region
      *         - name string the name of the mc:edit editable region to inject into

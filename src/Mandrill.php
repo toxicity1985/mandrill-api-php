@@ -3,8 +3,10 @@
 require_once 'Mandrill/Templates.php';
 require_once 'Mandrill/Users.php';
 require_once 'Mandrill/Rejects.php';
+require_once 'Mandrill/Inbound.php';
 require_once 'Mandrill/Tags.php';
 require_once 'Mandrill/Messages.php';
+require_once 'Mandrill/Internal.php';
 require_once 'Mandrill/Urls.php';
 require_once 'Mandrill/Webhooks.php';
 require_once 'Mandrill/Senders.php';
@@ -26,7 +28,8 @@ class Mandrill {
         "Unknown_Sender" => "Mandrill_Unknown_Sender",
         "Unknown_Url" => "Mandrill_Unknown_Url",
         "Invalid_Template" => "Mandrill_Invalid_Template",
-        "Unknown_Webhook" => "Mandrill_Unknown_Webhook"
+        "Unknown_Webhook" => "Mandrill_Unknown_Webhook",
+        "Unknown_InboundDomain" => "Mandrill_Unknown_InboundDomain"
     );
 
     public function __construct($apikey=null) {
@@ -36,7 +39,7 @@ class Mandrill {
         $this->apikey = $apikey;
 
         $this->ch = curl_init();
-        curl_setopt($this->ch, CURLOPT_USERAGENT, 'Mandrill-PHP/1.0.10');
+        curl_setopt($this->ch, CURLOPT_USERAGENT, 'Mandrill-PHP/1.0.11');
         curl_setopt($this->ch, CURLOPT_POST, true);
         curl_setopt($this->ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($this->ch, CURLOPT_HEADER, false);
@@ -49,8 +52,10 @@ class Mandrill {
         $this->templates = new Mandrill_Templates($this);
         $this->users = new Mandrill_Users($this);
         $this->rejects = new Mandrill_Rejects($this);
+        $this->inbound = new Mandrill_Inbound($this);
         $this->tags = new Mandrill_Tags($this);
         $this->messages = new Mandrill_Messages($this);
+        $this->internal = new Mandrill_Internal($this);
         $this->urls = new Mandrill_Urls($this);
         $this->webhooks = new Mandrill_Webhooks($this);
         $this->senders = new Mandrill_Senders($this);
