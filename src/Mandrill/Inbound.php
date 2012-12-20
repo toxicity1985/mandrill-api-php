@@ -8,7 +8,10 @@ class Mandrill_Inbound {
     /**
      * List the domains that have been configured for inbound delivery
      * @return array the inbound domains associated with the account
-     *     - return[] array the individual domain info
+     *     - return[] struct the individual domain info
+     *         - domain string the domain name that is accepting mail
+     *         - created_at string the date and time that the inbound domain was added as a UTC string in YYYY-MM-DD HH:MM:SS format
+     *         - valid_mx boolean true if this inbound domain has successfully set up an MX record to deliver mail to the Mandrill servers
      */
     public function domains() {
         $_params = array();
@@ -35,9 +38,9 @@ $sparam string $to[] the email address of the recipient @validate trim
      * @param array|null $to optionally define the recipients to receive the message - otherwise we'll use the To, Cc, and Bcc headers provided in the document
      * @return array an array of the information for each recipient in the message (usually one) that matched an inbound route
      *     - return[] struct the individual recipient information
-     *         - email struct the email address of the matching recipient
-     *         - pattern struct the mailbox route pattern that the recipient matched
-     *         - url struct the webhook URL that the message was posted to
+     *         - email string the email address of the matching recipient
+     *         - pattern string the mailbox route pattern that the recipient matched
+     *         - url string the webhook URL that the message was posted to
      */
     public function sendRaw($raw_message, $to=null) {
         $_params = array("raw_message" => $raw_message, "to" => $to);

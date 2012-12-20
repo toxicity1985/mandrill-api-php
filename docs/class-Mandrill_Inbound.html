@@ -183,8 +183,11 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>array</code><br>the inbound domains associated with the account - return[] array the individual
-domain info<br />
+					<code>array</code><br>the inbound domains associated with the account - return[] struct the individual
+domain info - domain string the domain name that is accepting mail - created_at
+string the date and time that the inbound domain was added as a UTC string in
+YYYY-MM-DD HH:MM:SS format - valid_mx boolean true if this inbound domain has
+successfully set up an MX record to deliver mail to the Mandrill servers<br />
 				</div>
 
 
@@ -204,7 +207,7 @@ domain info<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_routes">#</a>
-		<code><a href="source-class-Mandrill_Inbound.html#18" title="Go to source code">routes</a>( <span>string <var>$domain</var></span> )</code>
+		<code><a href="source-class-Mandrill_Inbound.html#21" title="Go to source code">routes</a>( <span>string <var>$domain</var></span> )</code>
 
 		<div class="description short">
 			
@@ -248,7 +251,7 @@ url string the webhook URL where inbound messages will be published<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendRaw">#</a>
-		<code><a href="source-class-Mandrill_Inbound.html#31" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Inbound.html#34" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -279,8 +282,8 @@ the To, Cc, and Bcc headers provided in the document</dd>
 				<div class="list">
 					<code>array</code><br>an array of the information for each recipient in the message (usually one) that
 matched an inbound route - return[] struct the individual recipient information
-- email struct the email address of the matching recipient - pattern struct the
-mailbox route pattern that the recipient matched - url struct the webhook URL
+- email string the email address of the matching recipient - pattern string the
+mailbox route pattern that the recipient matched - url string the webhook URL
 that the message was posted to<br />
 				</div>
 
