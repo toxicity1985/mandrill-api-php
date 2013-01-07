@@ -50,7 +50,7 @@ class Mandrill_Messages {
      *             - type string the MIME type of the attachment - allowed types are text/*, image/*, and application/pdf
      *             - name string the file name of the attachment
      *             - content string the content of the attachment as a base64-encoded string
-     * @param boolean $async enable a background sending mode that is optimized for bulk sending. In async mode, messages/send will immediately return a status of "queued" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with fewer than 100 recipients; messages with more than 100 recipients are always sent asynchronously, regardless of the value of async.
+     * @param boolean $async enable a background sending mode that is optimized for bulk sending. In async mode, messages/send will immediately return a status of "queued" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with no more than 10 recipients; messages with more than 10 recipients are always sent asynchronously, regardless of the value of async.
      * @return array of structs for each recipient containing the key "email" with the email address and "status" as either "sent", "queued", or "rejected"
      *     - return[] struct the sending results for a single recipient
      *         - email string the email address of the recipient
@@ -109,7 +109,7 @@ class Mandrill_Messages {
      *             - type string the MIME type of the attachment - allowed types are text/*, image/*, and application/pdf
      *             - name string the file name of the attachment
      *             - content string the content of the attachment as a base64-encoded string
-     * @param boolean $async enable a background sending mode that is optimized for bulk sending. In async mode, messages/sendTemplate will immediately return a status of "queued" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with fewer than 100 recipients; messages with more than 100 recipients are always sent asynchronously, regardless of the value of async.
+     * @param boolean $async enable a background sending mode that is optimized for bulk sending. In async mode, messages/sendTemplate will immediately return a status of "queued" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with no more than 10 recipients; messages with more than 10 recipients are always sent asynchronously, regardless of the value of async.
      * @return array of structs for each recipient containing the key "email" with the email address and "status" as either "sent", "queued", or "rejected"
      *     - return[] struct the sending results for a single recipient
      *         - email string the email address of the recipient
@@ -180,7 +180,7 @@ class Mandrill_Messages {
      * @param string|null $from_name optionally define the sender alias
      * @param array|null $to optionally define the recipients to receive the message - otherwise we'll use the To, Cc, and Bcc headers provided in the document
      *     - to[] string the email address of the recipint
-     * @param boolean $async enable a background sending mode that is optimized for bulk sending. In async mode, messages/sendRaw will immediately return a status of "queued" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with fewer than 100 recipients; messages with more than 100 recipients are always sent asynchronously, regardless of the value of async.
+     * @param boolean $async enable a background sending mode that is optimized for bulk sending. In async mode, messages/sendRaw will immediately return a status of "queued" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with no more than 10 recipients; messages with more than 10 recipients are always sent asynchronously, regardless of the value of async.
      * @return array of structs for each recipient containing the key "email" with the email address and "status" as either "sent", "queued", or "rejected"
      *     - return[] struct the sending results for a single recipient
      *         - email string the email address of the recipient
