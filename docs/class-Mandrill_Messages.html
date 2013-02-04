@@ -231,10 +231,14 @@ associated with - values array an associated array containing the recipient's
 unique metadata. If a key exists in both the per-recipient metadata and the
 global metadata, the per-recipient metadata will be used. - attachments array an
 array of supported attachments to add to the message - attachments[] struct a
-single supported attachment - type string the MIME type of the attachment -
-allowed types are text/*, image/*, and application/pdf - name string the file
-name of the attachment - content string the content of the attachment as a
-base64-encoded string</dd>
+single supported attachment - type string the MIME type of the attachment - name
+string the file name of the attachment - content string the content of the
+attachment as a base64-encoded string - images array an array of embedded images
+to add to the message - images[] struct a single embedded image - type string
+the MIME type of the image - must start with "image/" - name string the Content
+ID of the image - use &lt;img src="cid:THIS_VALUE"&gt; to reference the image in
+your HTML content - content string the content of the image as a base64-encoded
+string</dd>
 					<dt><var>$async</var></dt>
 					<dd><code>boolean</code><br> enable a background sending mode that is optimized for bulk sending. In async
 mode, messages/send will immediately return a status of "queued" for every
@@ -270,7 +274,7 @@ recipient - status string the sending status of the recipient - either "sent",
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendTemplate">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#64" title="Go to source code">sendTemplate</a>( <span>string <var>$template_name</var></span>, <span>array <var>$template_content</var></span>, <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#69" title="Go to source code">sendTemplate</a>( <span>string <var>$template_name</var></span>, <span>array <var>$template_content</var></span>, <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
@@ -343,9 +347,13 @@ array containing the recipient's unique metadata. If a key exists in both the
 per-recipient metadata and the global metadata, the per-recipient metadata will
 be used. - attachments array an array of supported attachments to add to the
 message - attachments[] struct a single supported attachment - type string the
-MIME type of the attachment - allowed types are text/*, image/*, and
-application/pdf - name string the file name of the attachment - content string
-the content of the attachment as a base64-encoded string</dd>
+MIME type of the attachment - name string the file name of the attachment -
+content string the content of the attachment as a base64-encoded string - images
+array an array of embedded images to add to the message - images[] struct a
+single embedded image - type string the MIME type of the image - must start with
+"image/" - name string the Content ID of the image - use &lt;img
+src="cid:THIS_VALUE"&gt; to reference the image in your HTML content - content
+string the content of the image as a base64-encoded string</dd>
 					<dt><var>$async</var></dt>
 					<dd><code>boolean</code><br> enable a background sending mode that is optimized for bulk sending. In async
 mode, messages/sendTemplate will immediately return a status of "queued" for
@@ -381,7 +389,7 @@ recipient - status string the sending status of the recipient - either "sent",
 
 		<td class="name"><div>
 		<a class="anchor" href="#_search">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#123" title="Go to source code">search</a>( <span>string <var>$query</var> = <span class="php-quote">'*'</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$limit</var> = <span class="php-num">100</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#133" title="Go to source code">search</a>( <span>string <var>$query</var> = <span class="php-quote">'*'</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$limit</var> = <span class="php-num">100</span></span> )</code>
 
 		<div class="description short">
 			
@@ -446,7 +454,7 @@ sent<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parse">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#150" title="Go to source code">parse</a>( <span>string <var>$raw_message</var></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#160" title="Go to source code">parse</a>( <span>string <var>$raw_message</var></span> )</code>
 
 		<div class="description short">
 			
@@ -483,7 +491,10 @@ attachment - name string the file name of the attachment - type string the MIME
 type of the attachment - binary boolean if this is set to true, the attachment
 is not pure-text, and the content will be base64 encoded - content string the
 content of the attachment as a text string or a base64 encoded string based on
-the attachment type<br />
+the attachment type - images array an array of any embedded images that can be
+found in the message - images[] struct information about an individual image -
+name string the Content-ID of the embedded image - type string the MIME type of
+the image - content string the content of the image as a base64 encoded string<br />
 				</div>
 
 
@@ -503,7 +514,7 @@ the attachment type<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendRaw">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#176" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>string|null <var>$from_email</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$from_name</var> = <span class="php-keyword1">null</span></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#191" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>string|null <var>$from_email</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$from_name</var> = <span class="php-keyword1">null</span></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
