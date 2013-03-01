@@ -21,6 +21,7 @@ class Mandrill_Messages {
      *     - track_opens boolean whether or not to turn on open tracking for the message
      *     - track_clicks boolean whether or not to turn on click tracking for the message
      *     - auto_text boolean whether or not to automatically generate a text part for messages that are not given text
+     *     - inline_css boolean whether or not to automatically inline all CSS styles provided in the message HTML - only for HTML documents less than 256KB in size
      *     - url_strip_qs boolean whether or not to strip the query string from URLs when aggregating tracked URL data
      *     - preserve_recipients boolean whether or not to expose all recipients in to "To" header for each email
      *     - bcc_address string an optional address to receive an exact copy of each recipient's email
@@ -86,6 +87,7 @@ class Mandrill_Messages {
      *     - track_opens boolean whether or not to turn on open tracking for the message
      *     - track_clicks boolean whether or not to turn on click tracking for the message
      *     - auto_text boolean whether or not to automatically generate a text part for messages that are not given text
+     *     - inline_css boolean whether or not to automatically inline all CSS styles provided in the message HTML - only for HTML documents less than 256KB in size
      *     - url_strip_qs boolean whether or not to strip the query string from URLs when aggregating tracked URL data
      *     - preserve_recipients boolean whether or not to expose all recipients in to "To" header for each email
      *     - bcc_address string an optional address to receive an exact copy of each recipient's email

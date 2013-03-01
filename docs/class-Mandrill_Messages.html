@@ -194,12 +194,14 @@ recipient - headers struct optional extra headers to add to the message
 whether or not to turn on open tracking for the message - track_clicks boolean
 whether or not to turn on click tracking for the message - auto_text boolean
 whether or not to automatically generate a text part for messages that are not
-given text - url_strip_qs boolean whether or not to strip the query string from
-URLs when aggregating tracked URL data - preserve_recipients boolean whether or
-not to expose all recipients in to "To" header for each email - bcc_address
-string an optional address to receive an exact copy of each recipient's email -
-merge boolean whether to evaluate merge tags in the message. Will automatically
-be set to true if either merge_vars or global_merge_vars are provided. -
+given text - inline_css boolean whether or not to automatically inline all CSS
+styles provided in the message HTML - only for HTML documents less than 256KB in
+size - url_strip_qs boolean whether or not to strip the query string from URLs
+when aggregating tracked URL data - preserve_recipients boolean whether or not
+to expose all recipients in to "To" header for each email - bcc_address string
+an optional address to receive an exact copy of each recipient's email - merge
+boolean whether to evaluate merge tags in the message. Will automatically be set
+to true if either merge_vars or global_merge_vars are provided. -
 global_merge_vars array global merge variables to use for all recipients. You
 can override these per recipient. - global_merge_vars[] struct a single global
 merge variable - name string the global merge variable's name. Merge variable
@@ -274,7 +276,7 @@ recipient - status string the sending status of the recipient - either "sent",
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendTemplate">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#69" title="Go to source code">sendTemplate</a>( <span>string <var>$template_name</var></span>, <span>array <var>$template_content</var></span>, <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#70" title="Go to source code">sendTemplate</a>( <span>string <var>$template_name</var></span>, <span>array <var>$template_content</var></span>, <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
@@ -311,8 +313,10 @@ the message (currently only Reply-To and X-* headers are allowed) - track_opens
 boolean whether or not to turn on open tracking for the message - track_clicks
 boolean whether or not to turn on click tracking for the message - auto_text
 boolean whether or not to automatically generate a text part for messages that
-are not given text - url_strip_qs boolean whether or not to strip the query
-string from URLs when aggregating tracked URL data - preserve_recipients boolean
+are not given text - inline_css boolean whether or not to automatically inline
+all CSS styles provided in the message HTML - only for HTML documents less than
+256KB in size - url_strip_qs boolean whether or not to strip the query string
+from URLs when aggregating tracked URL data - preserve_recipients boolean
 whether or not to expose all recipients in to "To" header for each email -
 bcc_address string an optional address to receive an exact copy of each
 recipient's email - global_merge_vars array global merge variables to use for
@@ -389,7 +393,7 @@ recipient - status string the sending status of the recipient - either "sent",
 
 		<td class="name"><div>
 		<a class="anchor" href="#_search">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#133" title="Go to source code">search</a>( <span>string <var>$query</var> = <span class="php-quote">'*'</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$limit</var> = <span class="php-num">100</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#135" title="Go to source code">search</a>( <span>string <var>$query</var> = <span class="php-quote">'*'</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$limit</var> = <span class="php-num">100</span></span> )</code>
 
 		<div class="description short">
 			
@@ -454,7 +458,7 @@ sent<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parse">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#160" title="Go to source code">parse</a>( <span>string <var>$raw_message</var></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#162" title="Go to source code">parse</a>( <span>string <var>$raw_message</var></span> )</code>
 
 		<div class="description short">
 			
@@ -514,7 +518,7 @@ the image - content string the content of the image as a base64 encoded string<b
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendRaw">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#191" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>string|null <var>$from_email</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$from_name</var> = <span class="php-keyword1">null</span></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#193" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>string|null <var>$from_email</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$from_name</var> = <span class="php-keyword1">null</span></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
