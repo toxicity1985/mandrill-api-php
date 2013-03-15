@@ -194,56 +194,58 @@ recipient - headers struct optional extra headers to add to the message
 whether or not to turn on open tracking for the message - track_clicks boolean
 whether or not to turn on click tracking for the message - auto_text boolean
 whether or not to automatically generate a text part for messages that are not
-given text - inline_css boolean whether or not to automatically inline all CSS
-styles provided in the message HTML - only for HTML documents less than 256KB in
-size - url_strip_qs boolean whether or not to strip the query string from URLs
-when aggregating tracked URL data - preserve_recipients boolean whether or not
-to expose all recipients in to "To" header for each email - bcc_address string
-an optional address to receive an exact copy of each recipient's email -
-tracking_domain string a custom domain to use for tracking opens and clicks
-instead of mandrillapp.com - signing_domain string a custom domain to use for
-SPF/DKIM signing instead of mandrill (for "via" or "on behalf of" in email
-clients) - merge boolean whether to evaluate merge tags in the message. Will
-automatically be set to true if either merge_vars or global_merge_vars are
-provided. - global_merge_vars array global merge variables to use for all
-recipients. You can override these per recipient. - global_merge_vars[] struct a
-single global merge variable - name string the global merge variable's name.
-Merge variable names are case-insensitive and may not start with _ - content
-string the global merge variable's content - merge_vars array per-recipient
-merge variables, which override global merge variables with the same name. -
-merge_vars[] struct per-recipient merge variables - rcpt string the email
-address of the recipient that the merge variables should apply to - vars array
-the recipient's merge variables - vars[] struct a single merge variable - name
-string the merge variable's name. Merge variable names are case-insensitive and
-may not start with _ - content string the merge variable's content - tags array
-an array of string to tag the message with. Stats are accumulated using tags,
-though we only store the first 100 we see, so this should not be unique or
-change frequently. Tags should be 50 characters or less. Any tags starting with
-an underscore are reserved for internal use and will cause errors. - tags[]
-string a single tag - must not start with an underscore -
-google_analytics_domains array an array of strings indicating for which any
-matching URLs will automatically have Google Analytics parameters appended to
-their query string automatically. - google_analytics_campaign array|string
-optional string indicating the value to set for the utm_campaign tracking
-parameter. If this isn't provided the email's from address will be used instead.
-- metadata array metadata an associative array of user metadata. Mandrill will
-store this metadata and make it available for retrieval. In addition, you can
-select up to 10 metadata fields to index and make searchable using the Mandrill
-search api. - recipient_metadata array Per-recipient metadata that will override
-the global values specified in the metadata parameter. - recipient_metadata[]
-struct metadata for a single recipient - rcpt string the email address of the
-recipient that the metadata is associated with - values array an associated
-array containing the recipient's unique metadata. If a key exists in both the
-per-recipient metadata and the global metadata, the per-recipient metadata will
-be used. - attachments array an array of supported attachments to add to the
-message - attachments[] struct a single supported attachment - type string the
-MIME type of the attachment - name string the file name of the attachment -
-content string the content of the attachment as a base64-encoded string - images
-array an array of embedded images to add to the message - images[] struct a
-single embedded image - type string the MIME type of the image - must start with
-"image/" - name string the Content ID of the image - use &lt;img
-src="cid:THIS_VALUE"&gt; to reference the image in your HTML content - content
-string the content of the image as a base64-encoded string</dd>
+given text - auto_html boolean whether or not to automatically generate an HTML
+part for messages that are not given HTML - inline_css boolean whether or not to
+automatically inline all CSS styles provided in the message HTML - only for HTML
+documents less than 256KB in size - url_strip_qs boolean whether or not to strip
+the query string from URLs when aggregating tracked URL data -
+preserve_recipients boolean whether or not to expose all recipients in to "To"
+header for each email - bcc_address string an optional address to receive an
+exact copy of each recipient's email - tracking_domain string a custom domain to
+use for tracking opens and clicks instead of mandrillapp.com - signing_domain
+string a custom domain to use for SPF/DKIM signing instead of mandrill (for
+"via" or "on behalf of" in email clients) - merge boolean whether to evaluate
+merge tags in the message. Will automatically be set to true if either
+merge_vars or global_merge_vars are provided. - global_merge_vars array global
+merge variables to use for all recipients. You can override these per recipient.
+- global_merge_vars[] struct a single global merge variable - name string the
+global merge variable's name. Merge variable names are case-insensitive and may
+not start with _ - content string the global merge variable's content -
+merge_vars array per-recipient merge variables, which override global merge
+variables with the same name. - merge_vars[] struct per-recipient merge
+variables - rcpt string the email address of the recipient that the merge
+variables should apply to - vars array the recipient's merge variables - vars[]
+struct a single merge variable - name string the merge variable's name. Merge
+variable names are case-insensitive and may not start with _ - content string
+the merge variable's content - tags array an array of string to tag the message
+with. Stats are accumulated using tags, though we only store the first 100 we
+see, so this should not be unique or change frequently. Tags should be 50
+characters or less. Any tags starting with an underscore are reserved for
+internal use and will cause errors. - tags[] string a single tag - must not
+start with an underscore - google_analytics_domains array an array of strings
+indicating for which any matching URLs will automatically have Google Analytics
+parameters appended to their query string automatically. -
+google_analytics_campaign array|string optional string indicating the value to
+set for the utm_campaign tracking parameter. If this isn't provided the email's
+from address will be used instead. - metadata array metadata an associative
+array of user metadata. Mandrill will store this metadata and make it available
+for retrieval. In addition, you can select up to 10 metadata fields to index and
+make searchable using the Mandrill search api. - recipient_metadata array
+Per-recipient metadata that will override the global values specified in the
+metadata parameter. - recipient_metadata[] struct metadata for a single
+recipient - rcpt string the email address of the recipient that the metadata is
+associated with - values array an associated array containing the recipient's
+unique metadata. If a key exists in both the per-recipient metadata and the
+global metadata, the per-recipient metadata will be used. - attachments array an
+array of supported attachments to add to the message - attachments[] struct a
+single supported attachment - type string the MIME type of the attachment - name
+string the file name of the attachment - content string the content of the
+attachment as a base64-encoded string - images array an array of embedded images
+to add to the message - images[] struct a single embedded image - type string
+the MIME type of the image - must start with "image/" - name string the Content
+ID of the image - use &lt;img src="cid:THIS_VALUE"&gt; to reference the image in
+your HTML content - content string the content of the image as a base64-encoded
+string</dd>
 					<dt><var>$async</var></dt>
 					<dd><code>boolean</code><br> enable a background sending mode that is optimized for bulk sending. In async
 mode, messages/send will immediately return a status of "queued" for every
@@ -279,7 +281,7 @@ recipient - status string the sending status of the recipient - either "sent",
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendTemplate">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#73" title="Go to source code">sendTemplate</a>( <span>string <var>$template_name</var></span>, <span>array <var>$template_content</var></span>, <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#74" title="Go to source code">sendTemplate</a>( <span>string <var>$template_name</var></span>, <span>array <var>$template_content</var></span>, <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
@@ -316,54 +318,56 @@ the message (currently only Reply-To and X-* headers are allowed) - track_opens
 boolean whether or not to turn on open tracking for the message - track_clicks
 boolean whether or not to turn on click tracking for the message - auto_text
 boolean whether or not to automatically generate a text part for messages that
-are not given text - inline_css boolean whether or not to automatically inline
-all CSS styles provided in the message HTML - only for HTML documents less than
-256KB in size - url_strip_qs boolean whether or not to strip the query string
-from URLs when aggregating tracked URL data - preserve_recipients boolean
-whether or not to expose all recipients in to "To" header for each email -
-bcc_address string an optional address to receive an exact copy of each
-recipient's email - tracking_domain string a custom domain to use for tracking
-opens and clicks instead of mandrillapp.com - signing_domain string a custom
-domain to use for SPF/DKIM signing instead of mandrill (for "via" or "on behalf
-of" in email clients) - global_merge_vars array global merge variables to use
-for all recipients. You can override these per recipient. - global_merge_vars[]
-struct a single global merge variable - name string the global merge variable's
-name. Merge variable names are case-insensitive and may not start with _ -
-content string the global merge variable's content - merge_vars array
-per-recipient merge variables, which override global merge variables with the
-same name. - merge_vars[] struct per-recipient merge variables - rcpt string the
-email address of the recipient that the merge variables should apply to - vars
-array the recipient's merge variables - vars[] struct a single merge variable -
-name string the merge variable's name. Merge variable names are case-insensitive
-and may not start with _ - content string the merge variable's content - tags
-array an array of string to tag the message with. Stats are accumulated using
-tags, though we only store the first 100 we see, so this should not be unique or
-change frequently. Tags should be 50 characters or less. Any tags starting with
-an underscore are reserved for internal use and will cause errors. - tags[]
-string a single tag - must not start with an underscore -
-google_analytics_domains array an array of strings indicating for which any
-matching URLs will automatically have Google Analytics parameters appended to
-their query string automatically. - google_analytics_campaign array|string
-optional string indicating the value to set for the utm_campaign tracking
-parameter. If this isn't provided the email's from address will be used instead.
-- metadata array metadata an associative array of user metadata. Mandrill will
-store this metadata and make it available for retrieval. In addition, you can
-select up to 10 metadata fields to index and make searchable using the Mandrill
-search api. - recipient_metadata array Per-recipient metadata that will override
-the global values specified in the metadata parameter. - recipient_metadata[]
-struct metadata for a single recipient - rcpt string the email address of the
-recipient that the metadata is associated with - values array an associated
-array containing the recipient's unique metadata. If a key exists in both the
-per-recipient metadata and the global metadata, the per-recipient metadata will
-be used. - attachments array an array of supported attachments to add to the
-message - attachments[] struct a single supported attachment - type string the
-MIME type of the attachment - name string the file name of the attachment -
-content string the content of the attachment as a base64-encoded string - images
-array an array of embedded images to add to the message - images[] struct a
-single embedded image - type string the MIME type of the image - must start with
-"image/" - name string the Content ID of the image - use &lt;img
-src="cid:THIS_VALUE"&gt; to reference the image in your HTML content - content
-string the content of the image as a base64-encoded string</dd>
+are not given text - auto_html boolean whether or not to automatically generate
+an HTML part for messages that are not given HTML - inline_css boolean whether
+or not to automatically inline all CSS styles provided in the message HTML -
+only for HTML documents less than 256KB in size - url_strip_qs boolean whether
+or not to strip the query string from URLs when aggregating tracked URL data -
+preserve_recipients boolean whether or not to expose all recipients in to "To"
+header for each email - bcc_address string an optional address to receive an
+exact copy of each recipient's email - tracking_domain string a custom domain to
+use for tracking opens and clicks instead of mandrillapp.com - signing_domain
+string a custom domain to use for SPF/DKIM signing instead of mandrill (for
+"via" or "on behalf of" in email clients) - global_merge_vars array global merge
+variables to use for all recipients. You can override these per recipient. -
+global_merge_vars[] struct a single global merge variable - name string the
+global merge variable's name. Merge variable names are case-insensitive and may
+not start with _ - content string the global merge variable's content -
+merge_vars array per-recipient merge variables, which override global merge
+variables with the same name. - merge_vars[] struct per-recipient merge
+variables - rcpt string the email address of the recipient that the merge
+variables should apply to - vars array the recipient's merge variables - vars[]
+struct a single merge variable - name string the merge variable's name. Merge
+variable names are case-insensitive and may not start with _ - content string
+the merge variable's content - tags array an array of string to tag the message
+with. Stats are accumulated using tags, though we only store the first 100 we
+see, so this should not be unique or change frequently. Tags should be 50
+characters or less. Any tags starting with an underscore are reserved for
+internal use and will cause errors. - tags[] string a single tag - must not
+start with an underscore - google_analytics_domains array an array of strings
+indicating for which any matching URLs will automatically have Google Analytics
+parameters appended to their query string automatically. -
+google_analytics_campaign array|string optional string indicating the value to
+set for the utm_campaign tracking parameter. If this isn't provided the email's
+from address will be used instead. - metadata array metadata an associative
+array of user metadata. Mandrill will store this metadata and make it available
+for retrieval. In addition, you can select up to 10 metadata fields to index and
+make searchable using the Mandrill search api. - recipient_metadata array
+Per-recipient metadata that will override the global values specified in the
+metadata parameter. - recipient_metadata[] struct metadata for a single
+recipient - rcpt string the email address of the recipient that the metadata is
+associated with - values array an associated array containing the recipient's
+unique metadata. If a key exists in both the per-recipient metadata and the
+global metadata, the per-recipient metadata will be used. - attachments array an
+array of supported attachments to add to the message - attachments[] struct a
+single supported attachment - type string the MIME type of the attachment - name
+string the file name of the attachment - content string the content of the
+attachment as a base64-encoded string - images array an array of embedded images
+to add to the message - images[] struct a single embedded image - type string
+the MIME type of the image - must start with "image/" - name string the Content
+ID of the image - use &lt;img src="cid:THIS_VALUE"&gt; to reference the image in
+your HTML content - content string the content of the image as a base64-encoded
+string</dd>
 					<dt><var>$async</var></dt>
 					<dd><code>boolean</code><br> enable a background sending mode that is optimized for bulk sending. In async
 mode, messages/sendTemplate will immediately return a status of "queued" for
@@ -399,7 +403,7 @@ recipient - status string the sending status of the recipient - either "sent",
 
 		<td class="name"><div>
 		<a class="anchor" href="#_search">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#141" title="Go to source code">search</a>( <span>string <var>$query</var> = <span class="php-quote">'*'</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$limit</var> = <span class="php-num">100</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#143" title="Go to source code">search</a>( <span>string <var>$query</var> = <span class="php-quote">'*'</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$limit</var> = <span class="php-num">100</span></span> )</code>
 
 		<div class="description short">
 			
@@ -464,7 +468,7 @@ sent<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parse">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#168" title="Go to source code">parse</a>( <span>string <var>$raw_message</var></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#170" title="Go to source code">parse</a>( <span>string <var>$raw_message</var></span> )</code>
 
 		<div class="description short">
 			
@@ -524,7 +528,7 @@ the image - content string the content of the image as a base64 encoded string<b
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendRaw">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#199" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>string|null <var>$from_email</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$from_name</var> = <span class="php-keyword1">null</span></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#201" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>string|null <var>$from_email</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$from_name</var> = <span class="php-keyword1">null</span></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
