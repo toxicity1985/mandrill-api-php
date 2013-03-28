@@ -2,13 +2,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.7.0" />
+	<meta name="generator" content="ApiGen 2.8.0" />
 
 	<title>Class Mandrill_Inbound</title>
 
-	<script type="text/javascript" src="resources/combined.js?2398159053"></script>
+	<script type="text/javascript" src="resources/combined.js?394153670"></script>
 	<script type="text/javascript" src="elementlist.js?524601114"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
 
@@ -120,8 +120,9 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-Mandrill_Inbound.html#3" title="Go to source code">Mandrill/Inbound.php</a><br />
+		<b>Located at</b> <a href="source-class-Mandrill_Inbound.html#3-53" title="Go to source code">Mandrill/Inbound.php</a><br />
 	</div>
+
 
 
 	<table class="summary" id="methods">
@@ -137,7 +138,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Mandrill_Inbound.html#4" title="Go to source code">__construct</a>( <span><code><a href="class-Mandrill.html">Mandrill</a></code> <var>$master</var></span> )</code>
+		<code><a href="source-class-Mandrill_Inbound.html#4-6" title="Go to source code">__construct</a>( <span><code><a href="class-Mandrill.html">Mandrill</a></code> <var>$master</var></span> )</code>
 
 		<div class="description short">
 			
@@ -166,7 +167,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_domains">#</a>
-		<code><a href="source-class-Mandrill_Inbound.html#8" title="Go to source code">domains</a>( )</code>
+		<code><a href="source-class-Mandrill_Inbound.html#8-19" title="Go to source code">domains</a>( )</code>
 
 		<div class="description short">
 			
@@ -207,7 +208,7 @@ successfully set up an MX record to deliver mail to the Mandrill servers<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_routes">#</a>
-		<code><a href="source-class-Mandrill_Inbound.html#21" title="Go to source code">routes</a>( <span>string <var>$domain</var></span> )</code>
+		<code><a href="source-class-Mandrill_Inbound.html#21-32" title="Go to source code">routes</a>( <span>string <var>$domain</var></span> )</code>
 
 		<div class="description short">
 			
@@ -224,7 +225,7 @@ successfully set up an MX record to deliver mail to the Mandrill servers<br />
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$domain</var></dt>
-					<dd><code>string</code><br> the domain to check</dd>
+					<dd><code>string</code><br>$domain the domain to check</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -251,13 +252,19 @@ url string the webhook URL where inbound messages will be published<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendRaw">#</a>
-		<code><a href="source-class-Mandrill_Inbound.html#34" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Inbound.html#34-51" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
 <p>Take a raw MIME document destined for a domain with inbound domains set up,
 and send it to the inbound hook exactly as if it had been sent over SMTP $sparam
-string $to[] the email address of the recipient @validate trim</p>
+string $to[] the email address of the recipient @validate trim $sparam string
+$mail_from the address specified in the MAIL FROM stage of the SMTP conversation
+@validate email. Optional; required for the SPF check. $sparam string $helo the
+identification provided by the client mta in the MTA state of the SMTP
+conversation. Optional; required for the SPF check. $sparam string
+$client_address the remote MTA's ip address. Optional; required for the SPF
+check.</p>
 
 		</div>
 
@@ -265,17 +272,23 @@ string $to[] the email address of the recipient @validate trim</p>
 			
 <p>Take a raw MIME document destined for a domain with inbound domains set up,
 and send it to the inbound hook exactly as if it had been sent over SMTP $sparam
-string $to[] the email address of the recipient @validate trim</p>
+string $to[] the email address of the recipient @validate trim $sparam string
+$mail_from the address specified in the MAIL FROM stage of the SMTP conversation
+@validate email. Optional; required for the SPF check. $sparam string $helo the
+identification provided by the client mta in the MTA state of the SMTP
+conversation. Optional; required for the SPF check. $sparam string
+$client_address the remote MTA's ip address. Optional; required for the SPF
+check.</p>
 
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$raw_message</var></dt>
-					<dd><code>string</code><br> the full MIME document of an email message</dd>
+					<dd><code>string</code><br>$raw_message the full MIME document of an email message</dd>
 					<dt><var>$to</var></dt>
-					<dd><code>array|null</code><br> optionally define the recipients to receive the message - otherwise we'll use
-the To, Cc, and Bcc headers provided in the document</dd>
+					<dd><code>array|null</code><br>$to optionally define the recipients to receive the message - otherwise we'll
+use the To, Cc, and Bcc headers provided in the document</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -304,10 +317,18 @@ that the message was posted to<br />
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 	<div id="footer">
-		 API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
 </div>
 </div>

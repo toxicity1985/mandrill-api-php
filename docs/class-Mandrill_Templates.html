@@ -2,13 +2,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.7.0" />
+	<meta name="generator" content="ApiGen 2.8.0" />
 
 	<title>Class Mandrill_Templates</title>
 
-	<script type="text/javascript" src="resources/combined.js?2398159053"></script>
+	<script type="text/javascript" src="resources/combined.js?394153670"></script>
 	<script type="text/javascript" src="elementlist.js?524601114"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
 
@@ -120,8 +120,9 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-Mandrill_Templates.html#3" title="Go to source code">Mandrill/Templates.php</a><br />
+		<b>Located at</b> <a href="source-class-Mandrill_Templates.html#3-160" title="Go to source code">Mandrill/Templates.php</a><br />
 	</div>
+
 
 
 	<table class="summary" id="methods">
@@ -137,7 +138,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Mandrill_Templates.html#4" title="Go to source code">__construct</a>( <span><code><a href="class-Mandrill.html">Mandrill</a></code> <var>$master</var></span> )</code>
+		<code><a href="source-class-Mandrill_Templates.html#4-6" title="Go to source code">__construct</a>( <span><code><a href="class-Mandrill.html">Mandrill</a></code> <var>$master</var></span> )</code>
 
 		<div class="description short">
 			
@@ -166,7 +167,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_add">#</a>
-		<code><a href="source-class-Mandrill_Templates.html#8" title="Go to source code">add</a>( <span>string <var>$name</var></span>, <span>string <var>$code</var></span>, <span>boolean <var>$publish</var> = <span class="php-keyword1">true</span></span> )</code>
+		<code><a href="source-class-Mandrill_Templates.html#8-26" title="Go to source code">add</a>( <span>string <var>$name</var></span>, <span>string <var>$code</var></span>, <span>boolean <var>$publish</var> = <span class="php-keyword1">true</span></span> )</code>
 
 		<div class="description short">
 			
@@ -183,12 +184,12 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$name</var></dt>
-					<dd><code>string</code><br> the name for the new template - must be unique</dd>
+					<dd><code>string</code><br>$name the name for the new template - must be unique</dd>
 					<dt><var>$code</var></dt>
-					<dd><code>string</code><br> the HTML code for the template with mc:edit attributes for the editable
+					<dd><code>string</code><br>$code the HTML code for the template with mc:edit attributes for the editable
 elements</dd>
 					<dt><var>$publish</var></dt>
-					<dd><code>boolean</code><br> set to false to add a draft template without publishing</dd>
+					<dd><code>boolean</code><br>$publish set to false to add a draft template without publishing</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -224,7 +225,7 @@ template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_info">#</a>
-		<code><a href="source-class-Mandrill_Templates.html#28" title="Go to source code">info</a>( <span>string <var>$name</var></span> )</code>
+		<code><a href="source-class-Mandrill_Templates.html#28-44" title="Go to source code">info</a>( <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
 			
@@ -241,7 +242,7 @@ template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$name</var></dt>
-					<dd><code>string</code><br> the immutable name of an existing template</dd>
+					<dd><code>string</code><br>$name the immutable name of an existing template</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -277,7 +278,7 @@ modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_update">#</a>
-		<code><a href="source-class-Mandrill_Templates.html#46" title="Go to source code">update</a>( <span>string <var>$name</var></span>, <span>string <var>$code</var></span>, <span>boolean <var>$publish</var> = <span class="php-keyword1">true</span></span> )</code>
+		<code><a href="source-class-Mandrill_Templates.html#46-64" title="Go to source code">update</a>( <span>string <var>$name</var></span>, <span>string <var>$code</var></span>, <span>boolean <var>$publish</var> = <span class="php-keyword1">true</span></span> )</code>
 
 		<div class="description short">
 			
@@ -294,11 +295,12 @@ modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$name</var></dt>
-					<dd><code>string</code><br> the immutable name of an existing template</dd>
+					<dd><code>string</code><br>$name the immutable name of an existing template</dd>
 					<dt><var>$code</var></dt>
-					<dd><code>string</code><br> the new code for the template</dd>
+					<dd><code>string</code><br>$code the new code for the template</dd>
 					<dt><var>$publish</var></dt>
-					<dd><code>boolean</code><br> set to false to update the draft version of the template without publishing</dd>
+					<dd><code>boolean</code><br>$publish set to false to update the draft version of the template without
+publishing</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -334,7 +336,7 @@ modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_publish">#</a>
-		<code><a href="source-class-Mandrill_Templates.html#66" title="Go to source code">publish</a>( <span>string <var>$name</var></span> )</code>
+		<code><a href="source-class-Mandrill_Templates.html#66-82" title="Go to source code">publish</a>( <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
 			
@@ -353,7 +355,7 @@ template will start using the content that was previously in draft.</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$name</var></dt>
-					<dd><code>string</code><br> the immutable name of an existing template</dd>
+					<dd><code>string</code><br>$name the immutable name of an existing template</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -389,7 +391,7 @@ modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_delete">#</a>
-		<code><a href="source-class-Mandrill_Templates.html#84" title="Go to source code">delete</a>( <span>string <var>$name</var></span> )</code>
+		<code><a href="source-class-Mandrill_Templates.html#84-100" title="Go to source code">delete</a>( <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
 			
@@ -406,7 +408,7 @@ modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$name</var></dt>
-					<dd><code>string</code><br> the immutable name of an existing template</dd>
+					<dd><code>string</code><br>$name the immutable name of an existing template</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -442,7 +444,7 @@ modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getList">#</a>
-		<code><a href="source-class-Mandrill_Templates.html#102" title="Go to source code">getList</a>( )</code>
+		<code><a href="source-class-Mandrill_Templates.html#102-118" title="Go to source code">getList</a>( )</code>
 
 		<div class="description short">
 			
@@ -491,7 +493,7 @@ template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_timeSeries">#</a>
-		<code><a href="source-class-Mandrill_Templates.html#120" title="Go to source code">timeSeries</a>( <span>string <var>$name</var></span> )</code>
+		<code><a href="source-class-Mandrill_Templates.html#120-139" title="Go to source code">timeSeries</a>( <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
 			
@@ -510,7 +512,7 @@ template</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$name</var></dt>
-					<dd><code>string</code><br> the name of an existing template</dd>
+					<dd><code>string</code><br>$name the name of an existing template</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -545,7 +547,7 @@ unique clicks generated by messages sent during the hour<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_render">#</a>
-		<code><a href="source-class-Mandrill_Templates.html#141" title="Go to source code">render</a>( <span>string <var>$template_name</var></span>, <span>array <var>$template_content</var></span>, <span>array <var>$merge_vars</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Templates.html#141-158" title="Go to source code">render</a>( <span>string <var>$template_name</var></span>, <span>array <var>$template_content</var></span>, <span>array <var>$merge_vars</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -564,20 +566,21 @@ HTML that results</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$template_name</var></dt>
-					<dd><code>string</code><br> the immutable name of a template that exists in the user's account</dd>
+					<dd><code>string</code><br>$template_name the immutable name of a template that exists in the user's
+account</dd>
 					<dt><var>$template_content</var></dt>
-					<dd><code>array</code><br> an array of template content to render. Each item in the array should be a
-struct with two keys - name: the name of the content block to set the content
-for, and content: the actual content to put into the block - template_content[]
-struct the injection of a single piece of content into a single editable region
-- name string the name of the mc:edit editable region to inject into - content
-string the content to inject</dd>
+					<dd><code>array</code><br>$template_content an array of template content to render. Each item in the array
+should be a struct with two keys - name: the name of the content block to set
+the content for, and content: the actual content to put into the block -
+template_content[] struct the injection of a single piece of content into a
+single editable region - name string the name of the mc:edit editable region to
+inject into - content string the content to inject</dd>
 					<dt><var>$merge_vars</var></dt>
-					<dd><code>array</code><br> optional merge variables to use for injecting merge field content. If this is
-not provided, no merge fields will be replaced. - merge_vars[] struct a single
-merge variable - name string the merge variable's name. Merge variable names are
-case-insensitive and may not start with _ - content string the merge variable's
-content</dd>
+					<dd><code>array</code><br>$merge_vars optional merge variables to use for injecting merge field content.
+If this is not provided, no merge fields will be replaced. - merge_vars[] struct
+a single merge variable - name string the merge variable's name. Merge variable
+names are case-insensitive and may not start with _ - content string the merge
+variable's content</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -603,10 +606,18 @@ values injected - html string the rendered HTML as a string<br />
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 	<div id="footer">
-		 API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
 </div>
 </div>
