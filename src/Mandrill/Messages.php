@@ -80,6 +80,7 @@ class Mandrill_Messages {
      *         - name string the name of the mc:edit editable region to inject into
      *         - content string the content to inject
      * @param struct $message the other information on the message to send - same as /messages/send, but without the html content
+     *     - html string optional full HTML content to be sent if not in template
      *     - text string optional full text content to be sent
      *     - subject string the message subject
      *     - from_email string the sender email address.

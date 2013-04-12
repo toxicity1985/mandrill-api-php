@@ -8,20 +8,32 @@ class Mandrill_Templates {
     /**
      * Add a new template
      * @param string $name the name for the new template - must be unique
+     * @param string $from_email a default sending address for emails sent using this template
+     * @param string $from_name a default from name to be used
+     * @param string $subject a default subject line to be used
      * @param string $code the HTML code for the template with mc:edit attributes for the editable elements
+     * @param string $text a default text part to be used when sending with this template
      * @param boolean $publish set to false to add a draft template without publishing
      * @return struct the information saved about the new template
      *     - slug string the immutable unique code name of the template
      *     - name string the name of the template
      *     - code string the full HTML code of the template, with mc:edit attributes marking the editable elements - draft version
+     *     - subject string the subject line of the template, if provided - draft version
+     *     - from_email string the default sender address for the template, if provided - draft version
+     *     - from_name string the default sender from name for the template, if provided - draft version
+     *     - text string the default text part of messages sent with the template, if provided - draft version
      *     - publish_name string the same as the template name - kept as a separate field for backwards compatibility
      *     - publish_code string the full HTML code of the template, with mc:edit attributes marking the editable elements that are available as published, if it has been published
+     *     - publish_subject string the subject line of the template, if provided
+     *     - publish_from_email string the default sender address for the template, if provided
+     *     - publish_from_name string the default sender from name for the template, if provided
+     *     - publish_text string the default text part of messages sent with the template, if provided
      *     - published_at string the date and time the template was last published as a UTC string in YYYY-MM-DD HH:MM:SS format, or null if it has not been published
      *     - created_at string the date and time the template was first created as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - updated_at string the date and time the template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format
      */
-    public function add($name, $code, $publish=true) {
-        $_params = array("name" => $name, "code" => $code, "publish" => $publish);
+    public function add($name, $from_email=null, $from_name=null, $subject=null, $code=null, $text=null, $publish=true) {
+        $_params = array("name" => $name, "from_email" => $from_email, "from_name" => $from_name, "subject" => $subject, "code" => $code, "text" => $text, "publish" => $publish);
         return $this->master->call('templates/add', $_params);
     }
 
@@ -32,8 +44,16 @@ class Mandrill_Templates {
      *     - slug string the immutable unique code name of the template
      *     - name string the name of the template
      *     - code string the full HTML code of the template, with mc:edit attributes marking the editable elements - draft version
+     *     - subject string the subject line of the template, if provided - draft version
+     *     - from_email string the default sender address for the template, if provided - draft version
+     *     - from_name string the default sender from name for the template, if provided - draft version
+     *     - text string the default text part of messages sent with the template, if provided - draft version
      *     - publish_name string the same as the template name - kept as a separate field for backwards compatibility
      *     - publish_code string the full HTML code of the template, with mc:edit attributes marking the editable elements that are available as published, if it has been published
+     *     - publish_subject string the subject line of the template, if provided
+     *     - publish_from_email string the default sender address for the template, if provided
+     *     - publish_from_name string the default sender from name for the template, if provided
+     *     - publish_text string the default text part of messages sent with the template, if provided
      *     - published_at string the date and time the template was last published as a UTC string in YYYY-MM-DD HH:MM:SS format, or null if it has not been published
      *     - created_at string the date and time the template was first created as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - updated_at string the date and time the template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format
@@ -46,20 +66,32 @@ class Mandrill_Templates {
     /**
      * Update the code for an existing template
      * @param string $name the immutable name of an existing template
+     * @param string $from_email the new default sending address
+     * @param string $from_name the new default from name
+     * @param string $subject the new default subject line
      * @param string $code the new code for the template
+     * @param string $text the new default text part to be used
      * @param boolean $publish set to false to update the draft version of the template without publishing
      * @return struct the template that was updated
      *     - slug string the immutable unique code name of the template
      *     - name string the name of the template
      *     - code string the full HTML code of the template, with mc:edit attributes marking the editable elements - draft version
+     *     - subject string the subject line of the template, if provided - draft version
+     *     - from_email string the default sender address for the template, if provided - draft version
+     *     - from_name string the default sender from name for the template, if provided - draft version
+     *     - text string the default text part of messages sent with the template, if provided - draft version
      *     - publish_name string the same as the template name - kept as a separate field for backwards compatibility
      *     - publish_code string the full HTML code of the template, with mc:edit attributes marking the editable elements that are available as published, if it has been published
+     *     - publish_subject string the subject line of the template, if provided
+     *     - publish_from_email string the default sender address for the template, if provided
+     *     - publish_from_name string the default sender from name for the template, if provided
+     *     - publish_text string the default text part of messages sent with the template, if provided
      *     - published_at string the date and time the template was last published as a UTC string in YYYY-MM-DD HH:MM:SS format, or null if it has not been published
      *     - created_at string the date and time the template was first created as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - updated_at string the date and time the template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format
      */
-    public function update($name, $code, $publish=true) {
-        $_params = array("name" => $name, "code" => $code, "publish" => $publish);
+    public function update($name, $from_email=null, $from_name=null, $subject=null, $code=null, $text=null, $publish=true) {
+        $_params = array("name" => $name, "from_email" => $from_email, "from_name" => $from_name, "subject" => $subject, "code" => $code, "text" => $text, "publish" => $publish);
         return $this->master->call('templates/update', $_params);
     }
 
@@ -70,8 +102,16 @@ class Mandrill_Templates {
      *     - slug string the immutable unique code name of the template
      *     - name string the name of the template
      *     - code string the full HTML code of the template, with mc:edit attributes marking the editable elements - draft version
+     *     - subject string the subject line of the template, if provided - draft version
+     *     - from_email string the default sender address for the template, if provided - draft version
+     *     - from_name string the default sender from name for the template, if provided - draft version
+     *     - text string the default text part of messages sent with the template, if provided - draft version
      *     - publish_name string the same as the template name - kept as a separate field for backwards compatibility
      *     - publish_code string the full HTML code of the template, with mc:edit attributes marking the editable elements that are available as published, if it has been published
+     *     - publish_subject string the subject line of the template, if provided
+     *     - publish_from_email string the default sender address for the template, if provided
+     *     - publish_from_name string the default sender from name for the template, if provided
+     *     - publish_text string the default text part of messages sent with the template, if provided
      *     - published_at string the date and time the template was last published as a UTC string in YYYY-MM-DD HH:MM:SS format, or null if it has not been published
      *     - created_at string the date and time the template was first created as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - updated_at string the date and time the template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format
@@ -88,8 +128,16 @@ class Mandrill_Templates {
      *     - slug string the immutable unique code name of the template
      *     - name string the name of the template
      *     - code string the full HTML code of the template, with mc:edit attributes marking the editable elements - draft version
+     *     - subject string the subject line of the template, if provided - draft version
+     *     - from_email string the default sender address for the template, if provided - draft version
+     *     - from_name string the default sender from name for the template, if provided - draft version
+     *     - text string the default text part of messages sent with the template, if provided - draft version
      *     - publish_name string the same as the template name - kept as a separate field for backwards compatibility
      *     - publish_code string the full HTML code of the template, with mc:edit attributes marking the editable elements that are available as published, if it has been published
+     *     - publish_subject string the subject line of the template, if provided
+     *     - publish_from_email string the default sender address for the template, if provided
+     *     - publish_from_name string the default sender from name for the template, if provided
+     *     - publish_text string the default text part of messages sent with the template, if provided
      *     - published_at string the date and time the template was last published as a UTC string in YYYY-MM-DD HH:MM:SS format, or null if it has not been published
      *     - created_at string the date and time the template was first created as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - updated_at string the date and time the template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format
@@ -106,8 +154,16 @@ class Mandrill_Templates {
      *         - slug string the immutable unique code name of the template
      *         - name string the name of the template
      *         - code string the full HTML code of the template, with mc:edit attributes marking the editable elements - draft version
+     *         - subject string the subject line of the template, if provided - draft version
+     *         - from_email string the default sender address for the template, if provided - draft version
+     *         - from_name string the default sender from name for the template, if provided - draft version
+     *         - text string the default text part of messages sent with the template, if provided - draft version
      *         - publish_name string the same as the template name - kept as a separate field for backwards compatibility
      *         - publish_code string the full HTML code of the template, with mc:edit attributes marking the editable elements that are available as published, if it has been published
+     *         - publish_subject string the subject line of the template, if provided
+     *         - publish_from_email string the default sender address for the template, if provided
+     *         - publish_from_name string the default sender from name for the template, if provided
+     *         - publish_text string the default text part of messages sent with the template, if provided
      *         - published_at string the date and time the template was last published as a UTC string in YYYY-MM-DD HH:MM:SS format, or null if it has not been published
      *         - created_at string the date and time the template was first created as a UTC string in YYYY-MM-DD HH:MM:SS format
      *         - updated_at string the date and time the template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format

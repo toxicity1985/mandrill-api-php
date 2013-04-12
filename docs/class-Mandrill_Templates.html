@@ -120,7 +120,7 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-Mandrill_Templates.html#3-160" title="Go to source code">Mandrill/Templates.php</a><br />
+		<b>Located at</b> <a href="source-class-Mandrill_Templates.html#3-216" title="Go to source code">Mandrill/Templates.php</a><br />
 	</div>
 
 
@@ -167,7 +167,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_add">#</a>
-		<code><a href="source-class-Mandrill_Templates.html#8-26" title="Go to source code">add</a>( <span>string <var>$name</var></span>, <span>string <var>$code</var></span>, <span>boolean <var>$publish</var> = <span class="php-keyword1">true</span></span> )</code>
+		<code><a href="source-class-Mandrill_Templates.html#8-38" title="Go to source code">add</a>( <span>string <var>$name</var></span>, <span>string <var>$from_email</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$from_name</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$subject</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$code</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$text</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$publish</var> = <span class="php-keyword1">true</span></span> )</code>
 
 		<div class="description short">
 			
@@ -185,9 +185,17 @@
 				<div class="list"><dl>
 					<dt><var>$name</var></dt>
 					<dd><code>string</code><br>$name the name for the new template - must be unique</dd>
+					<dt><var>$from_email</var></dt>
+					<dd><code>string</code><br>$from_email a default sending address for emails sent using this template</dd>
+					<dt><var>$from_name</var></dt>
+					<dd><code>string</code><br>$from_name a default from name to be used</dd>
+					<dt><var>$subject</var></dt>
+					<dd><code>string</code><br>$subject a default subject line to be used</dd>
 					<dt><var>$code</var></dt>
 					<dd><code>string</code><br>$code the HTML code for the template with mc:edit attributes for the editable
 elements</dd>
+					<dt><var>$text</var></dt>
+					<dd><code>string</code><br>$text a default text part to be used when sending with this template</dd>
 					<dt><var>$publish</var></dt>
 					<dd><code>boolean</code><br>$publish set to false to add a draft template without publishing</dd>
 				</dl></div>
@@ -197,10 +205,19 @@ elements</dd>
 					<code>struct</code><br>the information saved about the new template - slug string the immutable unique
 code name of the template - name string the name of the template - code string
 the full HTML code of the template, with mc:edit attributes marking the editable
-elements - draft version - publish_name string the same as the template name -
-kept as a separate field for backwards compatibility - publish_code string the
-full HTML code of the template, with mc:edit attributes marking the editable
-elements that are available as published, if it has been published -
+elements - draft version - subject string the subject line of the template, if
+provided - draft version - from_email string the default sender address for the
+template, if provided - draft version - from_name string the default sender from
+name for the template, if provided - draft version - text string the default
+text part of messages sent with the template, if provided - draft version -
+publish_name string the same as the template name - kept as a separate field for
+backwards compatibility - publish_code string the full HTML code of the
+template, with mc:edit attributes marking the editable elements that are
+available as published, if it has been published - publish_subject string the
+subject line of the template, if provided - publish_from_email string the
+default sender address for the template, if provided - publish_from_name string
+the default sender from name for the template, if provided - publish_text string
+the default text part of messages sent with the template, if provided -
 published_at string the date and time the template was last published as a UTC
 string in YYYY-MM-DD HH:MM:SS format, or null if it has not been published -
 created_at string the date and time the template was first created as a UTC
@@ -225,7 +242,7 @@ template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_info">#</a>
-		<code><a href="source-class-Mandrill_Templates.html#28-44" title="Go to source code">info</a>( <span>string <var>$name</var></span> )</code>
+		<code><a href="source-class-Mandrill_Templates.html#40-64" title="Go to source code">info</a>( <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
 			
@@ -250,15 +267,24 @@ template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
 					<code>struct</code><br>the requested template information - slug string the immutable unique code name
 of the template - name string the name of the template - code string the full
 HTML code of the template, with mc:edit attributes marking the editable elements
-- draft version - publish_name string the same as the template name - kept as a
-separate field for backwards compatibility - publish_code string the full HTML
-code of the template, with mc:edit attributes marking the editable elements that
-are available as published, if it has been published - published_at string the
-date and time the template was last published as a UTC string in YYYY-MM-DD
-HH:MM:SS format, or null if it has not been published - created_at string the
-date and time the template was first created as a UTC string in YYYY-MM-DD
-HH:MM:SS format - updated_at string the date and time the template was last
-modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
+- draft version - subject string the subject line of the template, if provided -
+draft version - from_email string the default sender address for the template,
+if provided - draft version - from_name string the default sender from name for
+the template, if provided - draft version - text string the default text part of
+messages sent with the template, if provided - draft version - publish_name
+string the same as the template name - kept as a separate field for backwards
+compatibility - publish_code string the full HTML code of the template, with
+mc:edit attributes marking the editable elements that are available as
+published, if it has been published - publish_subject string the subject line of
+the template, if provided - publish_from_email string the default sender address
+for the template, if provided - publish_from_name string the default sender from
+name for the template, if provided - publish_text string the default text part
+of messages sent with the template, if provided - published_at string the date
+and time the template was last published as a UTC string in YYYY-MM-DD HH:MM:SS
+format, or null if it has not been published - created_at string the date and
+time the template was first created as a UTC string in YYYY-MM-DD HH:MM:SS
+format - updated_at string the date and time the template was last modified as a
+UTC string in YYYY-MM-DD HH:MM:SS format<br />
 				</div>
 
 
@@ -278,7 +304,7 @@ modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_update">#</a>
-		<code><a href="source-class-Mandrill_Templates.html#46-64" title="Go to source code">update</a>( <span>string <var>$name</var></span>, <span>string <var>$code</var></span>, <span>boolean <var>$publish</var> = <span class="php-keyword1">true</span></span> )</code>
+		<code><a href="source-class-Mandrill_Templates.html#66-96" title="Go to source code">update</a>( <span>string <var>$name</var></span>, <span>string <var>$from_email</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$from_name</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$subject</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$code</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$text</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$publish</var> = <span class="php-keyword1">true</span></span> )</code>
 
 		<div class="description short">
 			
@@ -296,8 +322,16 @@ modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
 				<div class="list"><dl>
 					<dt><var>$name</var></dt>
 					<dd><code>string</code><br>$name the immutable name of an existing template</dd>
+					<dt><var>$from_email</var></dt>
+					<dd><code>string</code><br>$from_email the new default sending address</dd>
+					<dt><var>$from_name</var></dt>
+					<dd><code>string</code><br>$from_name the new default from name</dd>
+					<dt><var>$subject</var></dt>
+					<dd><code>string</code><br>$subject the new default subject line</dd>
 					<dt><var>$code</var></dt>
 					<dd><code>string</code><br>$code the new code for the template</dd>
+					<dt><var>$text</var></dt>
+					<dd><code>string</code><br>$text the new default text part to be used</dd>
 					<dt><var>$publish</var></dt>
 					<dd><code>boolean</code><br>$publish set to false to update the draft version of the template without
 publishing</dd>
@@ -308,15 +342,24 @@ publishing</dd>
 					<code>struct</code><br>the template that was updated - slug string the immutable unique code name of
 the template - name string the name of the template - code string the full HTML
 code of the template, with mc:edit attributes marking the editable elements -
-draft version - publish_name string the same as the template name - kept as a
-separate field for backwards compatibility - publish_code string the full HTML
-code of the template, with mc:edit attributes marking the editable elements that
-are available as published, if it has been published - published_at string the
-date and time the template was last published as a UTC string in YYYY-MM-DD
-HH:MM:SS format, or null if it has not been published - created_at string the
-date and time the template was first created as a UTC string in YYYY-MM-DD
-HH:MM:SS format - updated_at string the date and time the template was last
-modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
+draft version - subject string the subject line of the template, if provided -
+draft version - from_email string the default sender address for the template,
+if provided - draft version - from_name string the default sender from name for
+the template, if provided - draft version - text string the default text part of
+messages sent with the template, if provided - draft version - publish_name
+string the same as the template name - kept as a separate field for backwards
+compatibility - publish_code string the full HTML code of the template, with
+mc:edit attributes marking the editable elements that are available as
+published, if it has been published - publish_subject string the subject line of
+the template, if provided - publish_from_email string the default sender address
+for the template, if provided - publish_from_name string the default sender from
+name for the template, if provided - publish_text string the default text part
+of messages sent with the template, if provided - published_at string the date
+and time the template was last published as a UTC string in YYYY-MM-DD HH:MM:SS
+format, or null if it has not been published - created_at string the date and
+time the template was first created as a UTC string in YYYY-MM-DD HH:MM:SS
+format - updated_at string the date and time the template was last modified as a
+UTC string in YYYY-MM-DD HH:MM:SS format<br />
 				</div>
 
 
@@ -336,7 +379,7 @@ modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_publish">#</a>
-		<code><a href="source-class-Mandrill_Templates.html#66-82" title="Go to source code">publish</a>( <span>string <var>$name</var></span> )</code>
+		<code><a href="source-class-Mandrill_Templates.html#98-122" title="Go to source code">publish</a>( <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
 			
@@ -363,15 +406,24 @@ template will start using the content that was previously in draft.</p>
 					<code>struct</code><br>the template that was published - slug string the immutable unique code name of
 the template - name string the name of the template - code string the full HTML
 code of the template, with mc:edit attributes marking the editable elements -
-draft version - publish_name string the same as the template name - kept as a
-separate field for backwards compatibility - publish_code string the full HTML
-code of the template, with mc:edit attributes marking the editable elements that
-are available as published, if it has been published - published_at string the
-date and time the template was last published as a UTC string in YYYY-MM-DD
-HH:MM:SS format, or null if it has not been published - created_at string the
-date and time the template was first created as a UTC string in YYYY-MM-DD
-HH:MM:SS format - updated_at string the date and time the template was last
-modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
+draft version - subject string the subject line of the template, if provided -
+draft version - from_email string the default sender address for the template,
+if provided - draft version - from_name string the default sender from name for
+the template, if provided - draft version - text string the default text part of
+messages sent with the template, if provided - draft version - publish_name
+string the same as the template name - kept as a separate field for backwards
+compatibility - publish_code string the full HTML code of the template, with
+mc:edit attributes marking the editable elements that are available as
+published, if it has been published - publish_subject string the subject line of
+the template, if provided - publish_from_email string the default sender address
+for the template, if provided - publish_from_name string the default sender from
+name for the template, if provided - publish_text string the default text part
+of messages sent with the template, if provided - published_at string the date
+and time the template was last published as a UTC string in YYYY-MM-DD HH:MM:SS
+format, or null if it has not been published - created_at string the date and
+time the template was first created as a UTC string in YYYY-MM-DD HH:MM:SS
+format - updated_at string the date and time the template was last modified as a
+UTC string in YYYY-MM-DD HH:MM:SS format<br />
 				</div>
 
 
@@ -391,7 +443,7 @@ modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_delete">#</a>
-		<code><a href="source-class-Mandrill_Templates.html#84-100" title="Go to source code">delete</a>( <span>string <var>$name</var></span> )</code>
+		<code><a href="source-class-Mandrill_Templates.html#124-148" title="Go to source code">delete</a>( <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
 			
@@ -416,15 +468,24 @@ modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
 					<code>struct</code><br>the template that was deleted - slug string the immutable unique code name of
 the template - name string the name of the template - code string the full HTML
 code of the template, with mc:edit attributes marking the editable elements -
-draft version - publish_name string the same as the template name - kept as a
-separate field for backwards compatibility - publish_code string the full HTML
-code of the template, with mc:edit attributes marking the editable elements that
-are available as published, if it has been published - published_at string the
-date and time the template was last published as a UTC string in YYYY-MM-DD
-HH:MM:SS format, or null if it has not been published - created_at string the
-date and time the template was first created as a UTC string in YYYY-MM-DD
-HH:MM:SS format - updated_at string the date and time the template was last
-modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
+draft version - subject string the subject line of the template, if provided -
+draft version - from_email string the default sender address for the template,
+if provided - draft version - from_name string the default sender from name for
+the template, if provided - draft version - text string the default text part of
+messages sent with the template, if provided - draft version - publish_name
+string the same as the template name - kept as a separate field for backwards
+compatibility - publish_code string the full HTML code of the template, with
+mc:edit attributes marking the editable elements that are available as
+published, if it has been published - publish_subject string the subject line of
+the template, if provided - publish_from_email string the default sender address
+for the template, if provided - publish_from_name string the default sender from
+name for the template, if provided - publish_text string the default text part
+of messages sent with the template, if provided - published_at string the date
+and time the template was last published as a UTC string in YYYY-MM-DD HH:MM:SS
+format, or null if it has not been published - created_at string the date and
+time the template was first created as a UTC string in YYYY-MM-DD HH:MM:SS
+format - updated_at string the date and time the template was last modified as a
+UTC string in YYYY-MM-DD HH:MM:SS format<br />
 				</div>
 
 
@@ -444,7 +505,7 @@ modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getList">#</a>
-		<code><a href="source-class-Mandrill_Templates.html#102-118" title="Go to source code">getList</a>( )</code>
+		<code><a href="source-class-Mandrill_Templates.html#150-174" title="Go to source code">getList</a>( )</code>
 
 		<div class="description short">
 			
@@ -465,10 +526,19 @@ modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
 information on each template in the account - slug string the immutable unique
 code name of the template - name string the name of the template - code string
 the full HTML code of the template, with mc:edit attributes marking the editable
-elements - draft version - publish_name string the same as the template name -
-kept as a separate field for backwards compatibility - publish_code string the
-full HTML code of the template, with mc:edit attributes marking the editable
-elements that are available as published, if it has been published -
+elements - draft version - subject string the subject line of the template, if
+provided - draft version - from_email string the default sender address for the
+template, if provided - draft version - from_name string the default sender from
+name for the template, if provided - draft version - text string the default
+text part of messages sent with the template, if provided - draft version -
+publish_name string the same as the template name - kept as a separate field for
+backwards compatibility - publish_code string the full HTML code of the
+template, with mc:edit attributes marking the editable elements that are
+available as published, if it has been published - publish_subject string the
+subject line of the template, if provided - publish_from_email string the
+default sender address for the template, if provided - publish_from_name string
+the default sender from name for the template, if provided - publish_text string
+the default text part of messages sent with the template, if provided -
 published_at string the date and time the template was last published as a UTC
 string in YYYY-MM-DD HH:MM:SS format, or null if it has not been published -
 created_at string the date and time the template was first created as a UTC
@@ -493,7 +563,7 @@ template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_timeSeries">#</a>
-		<code><a href="source-class-Mandrill_Templates.html#120-139" title="Go to source code">timeSeries</a>( <span>string <var>$name</var></span> )</code>
+		<code><a href="source-class-Mandrill_Templates.html#176-195" title="Go to source code">timeSeries</a>( <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
 			
@@ -547,7 +617,7 @@ unique clicks generated by messages sent during the hour<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_render">#</a>
-		<code><a href="source-class-Mandrill_Templates.html#141-158" title="Go to source code">render</a>( <span>string <var>$template_name</var></span>, <span>array <var>$template_content</var></span>, <span>array <var>$merge_vars</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Templates.html#197-214" title="Go to source code">render</a>( <span>string <var>$template_name</var></span>, <span>array <var>$template_content</var></span>, <span>array <var>$merge_vars</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
