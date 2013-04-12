@@ -18,6 +18,7 @@ class Mandrill_Messages {
      *             - email string the email address of the recipient
      *             - name string the optional display name to use for the recipient
      *     - headers struct optional extra headers to add to the message (currently only Reply-To and X-* headers are allowed)
+     *     - important boolean whether or not this message is important, and should be delivered ahead of non-important messages
      *     - track_opens boolean whether or not to turn on open tracking for the message
      *     - track_clicks boolean whether or not to turn on click tracking for the message
      *     - auto_text boolean whether or not to automatically generate a text part for messages that are not given text
@@ -88,6 +89,7 @@ class Mandrill_Messages {
      *             - email string the email address of the recipient
      *             - name string the optional display name to use for the recipient
      *     - headers struct optional extra headers to add to the message (currently only Reply-To and X-* headers are allowed)
+     *     - important boolean whether or not this message is important, and should be delivered ahead of non-important messages
      *     - track_opens boolean whether or not to turn on open tracking for the message
      *     - track_clicks boolean whether or not to turn on click tracking for the message
      *     - auto_text boolean whether or not to automatically generate a text part for messages that are not given text
@@ -98,6 +100,7 @@ class Mandrill_Messages {
      *     - bcc_address string an optional address to receive an exact copy of each recipient's email
      *     - tracking_domain string a custom domain to use for tracking opens and clicks instead of mandrillapp.com
      *     - signing_domain string a custom domain to use for SPF/DKIM signing instead of mandrill (for "via" or "on behalf of" in email clients)
+     *     - merge boolean whether to evaluate merge tags in the message. Will automatically be set to true if either merge_vars or global_merge_vars are provided.
      *     - global_merge_vars array global merge variables to use for all recipients. You can override these per recipient.
      *         - global_merge_vars[] struct a single global merge variable
      *             - name string the global merge variable's name. Merge variable names are case-insensitive and may not start with _
@@ -128,7 +131,7 @@ class Mandrill_Messages {
      *             - type string the MIME type of the image - must start with "image/"
      *             - name string the Content ID of the image - use <img src="cid:THIS_VALUE"> to reference the image in your HTML content
      *             - content string the content of the image as a base64-encoded string
-     * @param boolean $async enable a background sending mode that is optimized for bulk sending. In async mode, messages/sendTemplate will immediately return a status of "queued" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with no more than 10 recipients; messages with more than 10 recipients are always sent asynchronously, regardless of the value of async.
+     * @param boolean $async enable a background sending mode that is optimized for bulk sending. In async mode, messages/send will immediately return a status of "queued" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with no more than 10 recipients; messages with more than 10 recipients are always sent asynchronously, regardless of the value of async.
      * @return array of structs for each recipient containing the key "email" with the email address and "status" as either "sent", "queued", or "rejected"
      *     - return[] struct the sending results for a single recipient
      *         - email string the email address of the recipient

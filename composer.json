@@ -1,7 +1,7 @@
 {
     "name": "mandrill/mandrill",
     "type": "library",
-    "version": "1.0.19",
+    "version": "1.0.20",
     "description": "API client library for the Mandrill email as a service platform",
     "keywords": ["email", "api"],
     "homepage": "https://bitbucket.org/mailchimp/mandrill-api-php",

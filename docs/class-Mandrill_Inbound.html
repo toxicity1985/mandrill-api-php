@@ -252,33 +252,19 @@ url string the webhook URL where inbound messages will be published<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendRaw">#</a>
-		<code><a href="source-class-Mandrill_Inbound.html#34-51" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Inbound.html#34-51" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$mail_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$helo</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$client_address</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
 <p>Take a raw MIME document destined for a domain with inbound domains set up,
-and send it to the inbound hook exactly as if it had been sent over SMTP $sparam
-string $to[] the email address of the recipient @validate trim $sparam string
-$mail_from the address specified in the MAIL FROM stage of the SMTP conversation
-@validate email. Optional; required for the SPF check. $sparam string $helo the
-identification provided by the client mta in the MTA state of the SMTP
-conversation. Optional; required for the SPF check. $sparam string
-$client_address the remote MTA's ip address. Optional; required for the SPF
-check.</p>
+and send it to the inbound hook exactly as if it had been sent over SMTP</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
 <p>Take a raw MIME document destined for a domain with inbound domains set up,
-and send it to the inbound hook exactly as if it had been sent over SMTP $sparam
-string $to[] the email address of the recipient @validate trim $sparam string
-$mail_from the address specified in the MAIL FROM stage of the SMTP conversation
-@validate email. Optional; required for the SPF check. $sparam string $helo the
-identification provided by the client mta in the MTA state of the SMTP
-conversation. Optional; required for the SPF check. $sparam string
-$client_address the remote MTA's ip address. Optional; required for the SPF
-check.</p>
+and send it to the inbound hook exactly as if it had been sent over SMTP</p>
 
 
 
@@ -288,7 +274,17 @@ check.</p>
 					<dd><code>string</code><br>$raw_message the full MIME document of an email message</dd>
 					<dt><var>$to</var></dt>
 					<dd><code>array|null</code><br>$to optionally define the recipients to receive the message - otherwise we'll
-use the To, Cc, and Bcc headers provided in the document</dd>
+use the To, Cc, and Bcc headers provided in the document - to[] string the email
+address of the recipient</dd>
+					<dt><var>$mail_from</var></dt>
+					<dd><code>string</code><br>$mail_from the address specified in the MAIL FROM stage of the SMTP
+conversation. Required for the SPF check.</dd>
+					<dt><var>$helo</var></dt>
+					<dd><code>string</code><br>$helo the identification provided by the client mta in the MTA state of the SMTP
+conversation. Required for the SPF check.</dd>
+					<dt><var>$client_address</var></dt>
+					<dd><code>string</code><br>$client_address the remote MTA's ip address. Optional; required for the SPF
+check.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>

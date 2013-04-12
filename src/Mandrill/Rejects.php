@@ -19,7 +19,17 @@ include_expired to true to include them.
      *         - created_at string when the email was added to the blacklist
      *         - expires_at string when the blacklist entry will expire (this may be in the past)
      *         - expired boolean whether the blacklist entry has expired
-     *         - Sender struct sender the sender that this blacklist entry applies to, or null if none.
+     *         - sender struct the sender that this blacklist entry applies to, or null if none.
+     *             - address string the sender's email address
+     *             - created_at string the date and time that the sender was first seen by Mandrill as a UTC date string in YYYY-MM-DD HH:MM:SS format
+     *             - sent integer the total number of messages sent by this sender
+     *             - hard_bounces integer the total number of hard bounces by messages by this sender
+     *             - soft_bounces integer the total number of soft bounces by messages by this sender
+     *             - rejects integer the total number of rejected messages by this sender
+     *             - complaints integer the total number of spam complaints received for messages by this sender
+     *             - unsubs integer the total number of unsubscribe requests received for messages by this sender
+     *             - opens integer the total number of times messages by this sender have been opened
+     *             - clicks integer the total number of times tracked URLs in messages by this sender have been clicked
      */
     public function getList($email=null, $include_expired=false) {
         $_params = array("email" => $email, "include_expired" => $include_expired);
