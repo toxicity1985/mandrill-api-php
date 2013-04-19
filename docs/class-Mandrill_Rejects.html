@@ -120,7 +120,7 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-Mandrill_Rejects.html#3-53" title="Go to source code">Mandrill/Rejects.php</a><br />
+		<b>Located at</b> <a href="source-class-Mandrill_Rejects.html#3-55" title="Go to source code">Mandrill/Rejects.php</a><br />
 	</div>
 
 
@@ -167,7 +167,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getList">#</a>
-		<code><a href="source-class-Mandrill_Rejects.html#8-37" title="Go to source code">getList</a>( <span>string <var>$email</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$include_expired</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-Mandrill_Rejects.html#8-39" title="Go to source code">getList</a>( <span>string <var>$email</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$include_expired</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
@@ -200,21 +200,24 @@ them.</p>
 					<code>array</code><br>Up to 1000 rejection entries - return[] struct the information for each
 rejection blacklist entry - email string the email that is blocked - reason
 string the type of event (hard-bounce, soft-bounce, spam, unsub) that caused
-this rejection - created_at string when the email was added to the blacklist -
-expires_at string when the blacklist entry will expire (this may be in the past)
-- expired boolean whether the blacklist entry has expired - sender struct the
-sender that this blacklist entry applies to, or null if none. - address string
-the sender's email address - created_at string the date and time that the sender
-was first seen by Mandrill as a UTC date string in YYYY-MM-DD HH:MM:SS format -
-sent integer the total number of messages sent by this sender - hard_bounces
-integer the total number of hard bounces by messages by this sender -
-soft_bounces integer the total number of soft bounces by messages by this sender
-- rejects integer the total number of rejected messages by this sender -
-complaints integer the total number of spam complaints received for messages by
-this sender - unsubs integer the total number of unsubscribe requests received
-for messages by this sender - opens integer the total number of times messages
-by this sender have been opened - clicks integer the total number of times
-tracked URLs in messages by this sender have been clicked<br />
+this rejection - detail string extended details about the event, such as the
+SMTP diagnostic for bounces or the comment for manually-created rejections -
+created_at string when the email was added to the blacklist - last_event_at
+string the timestamp of the most recent event that either created or renewed
+this rejection - expires_at string when the blacklist entry will expire (this
+may be in the past) - expired boolean whether the blacklist entry has expired -
+sender struct the sender that this blacklist entry applies to, or null if none.
+- address string the sender's email address - created_at string the date and
+time that the sender was first seen by Mandrill as a UTC date string in
+YYYY-MM-DD HH:MM:SS format - sent integer the total number of messages sent by
+this sender - hard_bounces integer the total number of hard bounces by messages
+by this sender - soft_bounces integer the total number of soft bounces by
+messages by this sender - rejects integer the total number of rejected messages
+by this sender - complaints integer the total number of spam complaints received
+for messages by this sender - unsubs integer the total number of unsubscribe
+requests received for messages by this sender - opens integer the total number
+of times messages by this sender have been opened - clicks integer the total
+number of times tracked URLs in messages by this sender have been clicked<br />
 				</div>
 
 
@@ -234,7 +237,7 @@ tracked URLs in messages by this sender have been clicked<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_delete">#</a>
-		<code><a href="source-class-Mandrill_Rejects.html#39-51" title="Go to source code">delete</a>( <span>string <var>$email</var></span> )</code>
+		<code><a href="source-class-Mandrill_Rejects.html#41-53" title="Go to source code">delete</a>( <span>string <var>$email</var></span> )</code>
 
 		<div class="description short">
 			

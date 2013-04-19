@@ -16,7 +16,9 @@ include_expired to true to include them.
      *     - return[] struct the information for each rejection blacklist entry
      *         - email string the email that is blocked
      *         - reason string the type of event (hard-bounce, soft-bounce, spam, unsub) that caused this rejection
+     *         - detail string extended details about the event, such as the SMTP diagnostic for bounces or the comment for manually-created rejections
      *         - created_at string when the email was added to the blacklist
+     *         - last_event_at string the timestamp of the most recent event that either created or renewed this rejection
      *         - expires_at string when the blacklist entry will expire (this may be in the past)
      *         - expired boolean whether the blacklist entry has expired
      *         - sender struct the sender that this blacklist entry applies to, or null if none.
