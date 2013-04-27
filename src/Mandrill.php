@@ -6,6 +6,7 @@ require_once 'Mandrill/Rejects.php';
 require_once 'Mandrill/Inbound.php';
 require_once 'Mandrill/Tags.php';
 require_once 'Mandrill/Messages.php';
+require_once 'Mandrill/Whitelists.php';
 require_once 'Mandrill/Internal.php';
 require_once 'Mandrill/Urls.php';
 require_once 'Mandrill/Webhooks.php';
@@ -39,7 +40,7 @@ class Mandrill {
         $this->apikey = $apikey;
 
         $this->ch = curl_init();
-        curl_setopt($this->ch, CURLOPT_USERAGENT, 'Mandrill-PHP/1.0.23');
+        curl_setopt($this->ch, CURLOPT_USERAGENT, 'Mandrill-PHP/1.0.24');
         curl_setopt($this->ch, CURLOPT_POST, true);
         curl_setopt($this->ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($this->ch, CURLOPT_HEADER, false);
@@ -55,6 +56,7 @@ class Mandrill {
         $this->inbound = new Mandrill_Inbound($this);
         $this->tags = new Mandrill_Tags($this);
         $this->messages = new Mandrill_Messages($this);
+        $this->whitelists = new Mandrill_Whitelists($this);
         $this->internal = new Mandrill_Internal($this);
         $this->urls = new Mandrill_Urls($this);
         $this->webhooks = new Mandrill_Webhooks($this);

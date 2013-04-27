@@ -6,6 +6,21 @@ class Mandrill_Rejects {
     }
 
     /**
+     * Adds an email to your email rejection blacklist. Addresses that you
+add manually will never expire and there is no reputation penalty
+for removing them from your blacklist. Attempting to blacklist an
+address that has been whitelisted will have no effect.
+     * @param string $email an email address to block
+     * @return struct a status object containing the address and the result of the operation
+     *     - email string the email address you provided
+     *     - added boolean whether the operation succeeded
+     */
+    public function add($email) {
+        $_params = array("email" => $email);
+        return $this->master->call('rejects/add', $_params);
+    }
+
+    /**
      * Retrieves your email rejection blacklist. You can provide an email
 address to limit the results. Returns up to 1000 results. By default,
 entries that have expired are excluded from the results; set
