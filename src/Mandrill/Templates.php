@@ -64,7 +64,7 @@ class Mandrill_Templates {
     }
 
     /**
-     * Update the code for an existing template
+     * Update the code for an existing template. If null is provided for any fields, the values will remain unchanged.
      * @param string $name the immutable name of an existing template
      * @param string $from_email the new default sending address
      * @param string $from_name the new default from name
