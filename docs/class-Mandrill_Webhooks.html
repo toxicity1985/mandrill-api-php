@@ -121,7 +121,7 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-Mandrill_Webhooks.html#3-115" title="Go to source code">Mandrill/Webhooks.php</a><br />
+		<b>Located at</b> <a href="source-class-Mandrill_Webhooks.html#3-120" title="Go to source code">Mandrill/Webhooks.php</a><br />
 	</div>
 
 
@@ -168,7 +168,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getList">#</a>
-		<code><a href="source-class-Mandrill_Webhooks.html#8-26" title="Go to source code">getList</a>( )</code>
+		<code><a href="source-class-Mandrill_Webhooks.html#8-27" title="Go to source code">getList</a>( )</code>
 
 		<div class="description short">
 			
@@ -188,16 +188,17 @@
 					<code>array</code><br>the webhooks associated with the account - return[] struct the inidividual
 webhook info - id integer a unique integer indentifier for the webhook - url
 string The URL that the event data will be posted to - description string a
-description of the webhook - events array The message events that will be posted
-to the hook - events[] string the individual message event (send, hard_bounce,
-soft_bounce, open, click, spam, unsub, or reject) - created_at string the date
-and time that the webhook was created as a UTC string in YYYY-MM-DD HH:MM:SS
-format - last_sent_at string the date and time that the webhook last
-successfully received events as a UTC string in YYYY-MM-DD HH:MM:SS format -
-batches_sent integer the number of event batches that have ever been sent to
-this webhook - events_sent integer the total number of events that have ever
-been sent to this webhook - last_error string if we've ever gotten an error
-trying to post to this webhook, the last error that we've seen<br />
+description of the webhook - auth_key string the key used to requests for this
+webhook - events array The message events that will be posted to the hook -
+events[] string the individual message event (send, hard_bounce, soft_bounce,
+open, click, spam, unsub, or reject) - created_at string the date and time that
+the webhook was created as a UTC string in YYYY-MM-DD HH:MM:SS format -
+last_sent_at string the date and time that the webhook last successfully
+received events as a UTC string in YYYY-MM-DD HH:MM:SS format - batches_sent
+integer the number of event batches that have ever been sent to this webhook -
+events_sent integer the total number of events that have ever been sent to this
+webhook - last_error string if we've ever gotten an error trying to post to this
+webhook, the last error that we've seen<br />
 				</div>
 
 
@@ -217,7 +218,7 @@ trying to post to this webhook, the last error that we've seen<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_add">#</a>
-		<code><a href="source-class-Mandrill_Webhooks.html#28-49" title="Go to source code">add</a>( <span>string <var>$url</var></span>, <span>string <var>$description</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$events</var> = <span class="php-keyword1">array</span>()</span> )</code>
+		<code><a href="source-class-Mandrill_Webhooks.html#29-51" title="Go to source code">add</a>( <span>string <var>$url</var></span>, <span>string <var>$description</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$events</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 		<div class="description short">
 			
@@ -246,16 +247,17 @@ string the individual event to listen for</dd>
 				<div class="list">
 					<code>struct</code><br>the information saved about the new webhook - id integer a unique integer
 indentifier for the webhook - url string The URL that the event data will be
-posted to - description string a description of the webhook - events array The
-message events that will be posted to the hook - events[] string the individual
-message event (send, hard_bounce, soft_bounce, open, click, spam, unsub, or
-reject) - created_at string the date and time that the webhook was created as a
-UTC string in YYYY-MM-DD HH:MM:SS format - last_sent_at string the date and time
-that the webhook last successfully received events as a UTC string in YYYY-MM-DD
-HH:MM:SS format - batches_sent integer the number of event batches that have
-ever been sent to this webhook - events_sent integer the total number of events
-that have ever been sent to this webhook - last_error string if we've ever
-gotten an error trying to post to this webhook, the last error that we've seen<br />
+posted to - description string a description of the webhook - auth_key string
+the key used to requests for this webhook - events array The message events that
+will be posted to the hook - events[] string the individual message event (send,
+hard_bounce, soft_bounce, open, click, spam, unsub, or reject) - created_at
+string the date and time that the webhook was created as a UTC string in
+YYYY-MM-DD HH:MM:SS format - last_sent_at string the date and time that the
+webhook last successfully received events as a UTC string in YYYY-MM-DD HH:MM:SS
+format - batches_sent integer the number of event batches that have ever been
+sent to this webhook - events_sent integer the total number of events that have
+ever been sent to this webhook - last_error string if we've ever gotten an error
+trying to post to this webhook, the last error that we've seen<br />
 				</div>
 
 
@@ -275,7 +277,7 @@ gotten an error trying to post to this webhook, the last error that we've seen<b
 
 		<td class="name"><div>
 		<a class="anchor" href="#_info">#</a>
-		<code><a href="source-class-Mandrill_Webhooks.html#51-69" title="Go to source code">info</a>( <span>integer <var>$id</var></span> )</code>
+		<code><a href="source-class-Mandrill_Webhooks.html#53-72" title="Go to source code">info</a>( <span>integer <var>$id</var></span> )</code>
 
 		<div class="description short">
 			
@@ -299,11 +301,12 @@ gotten an error trying to post to this webhook, the last error that we've seen<b
 				<div class="list">
 					<code>struct</code><br>the information about the webhook - id integer a unique integer indentifier for
 the webhook - url string The URL that the event data will be posted to -
-description string a description of the webhook - events array The message
-events that will be posted to the hook - events[] string the individual message
-event (send, hard_bounce, soft_bounce, open, click, spam, unsub, or reject) -
-created_at string the date and time that the webhook was created as a UTC string
-in YYYY-MM-DD HH:MM:SS format - last_sent_at string the date and time that the
+description string a description of the webhook - auth_key string the key used
+to requests for this webhook - events array The message events that will be
+posted to the hook - events[] string the individual message event (send,
+hard_bounce, soft_bounce, open, click, spam, unsub, or reject) - created_at
+string the date and time that the webhook was created as a UTC string in
+YYYY-MM-DD HH:MM:SS format - last_sent_at string the date and time that the
 webhook last successfully received events as a UTC string in YYYY-MM-DD HH:MM:SS
 format - batches_sent integer the number of event batches that have ever been
 sent to this webhook - events_sent integer the total number of events that have
@@ -328,7 +331,7 @@ trying to post to this webhook, the last error that we've seen<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_update">#</a>
-		<code><a href="source-class-Mandrill_Webhooks.html#71-93" title="Go to source code">update</a>( <span>integer <var>$id</var></span>, <span>string <var>$url</var></span>, <span>string <var>$description</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$events</var> = <span class="php-keyword1">array</span>()</span> )</code>
+		<code><a href="source-class-Mandrill_Webhooks.html#74-97" title="Go to source code">update</a>( <span>integer <var>$id</var></span>, <span>string <var>$url</var></span>, <span>string <var>$description</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$events</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 		<div class="description short">
 			
@@ -359,16 +362,17 @@ string the individual event to listen for</dd>
 				<div class="list">
 					<code>struct</code><br>the information for the updated webhook - id integer a unique integer
 indentifier for the webhook - url string The URL that the event data will be
-posted to - description string a description of the webhook - events array The
-message events that will be posted to the hook - events[] string the individual
-message event (send, hard_bounce, soft_bounce, open, click, spam, unsub, or
-reject) - created_at string the date and time that the webhook was created as a
-UTC string in YYYY-MM-DD HH:MM:SS format - last_sent_at string the date and time
-that the webhook last successfully received events as a UTC string in YYYY-MM-DD
-HH:MM:SS format - batches_sent integer the number of event batches that have
-ever been sent to this webhook - events_sent integer the total number of events
-that have ever been sent to this webhook - last_error string if we've ever
-gotten an error trying to post to this webhook, the last error that we've seen<br />
+posted to - description string a description of the webhook - auth_key string
+the key used to requests for this webhook - events array The message events that
+will be posted to the hook - events[] string the individual message event (send,
+hard_bounce, soft_bounce, open, click, spam, unsub, or reject) - created_at
+string the date and time that the webhook was created as a UTC string in
+YYYY-MM-DD HH:MM:SS format - last_sent_at string the date and time that the
+webhook last successfully received events as a UTC string in YYYY-MM-DD HH:MM:SS
+format - batches_sent integer the number of event batches that have ever been
+sent to this webhook - events_sent integer the total number of events that have
+ever been sent to this webhook - last_error string if we've ever gotten an error
+trying to post to this webhook, the last error that we've seen<br />
 				</div>
 
 
@@ -388,7 +392,7 @@ gotten an error trying to post to this webhook, the last error that we've seen<b
 
 		<td class="name"><div>
 		<a class="anchor" href="#_delete">#</a>
-		<code><a href="source-class-Mandrill_Webhooks.html#95-113" title="Go to source code">delete</a>( <span>integer <var>$id</var></span> )</code>
+		<code><a href="source-class-Mandrill_Webhooks.html#99-118" title="Go to source code">delete</a>( <span>integer <var>$id</var></span> )</code>
 
 		<div class="description short">
 			
@@ -412,16 +416,17 @@ gotten an error trying to post to this webhook, the last error that we've seen<b
 				<div class="list">
 					<code>struct</code><br>the information for the deleted webhook - id integer a unique integer
 indentifier for the webhook - url string The URL that the event data will be
-posted to - description string a description of the webhook - events array The
-message events that will be posted to the hook - events[] string the individual
-message event (send, hard_bounce, soft_bounce, open, click, spam, unsub, or
-reject) - created_at string the date and time that the webhook was created as a
-UTC string in YYYY-MM-DD HH:MM:SS format - last_sent_at string the date and time
-that the webhook last successfully received events as a UTC string in YYYY-MM-DD
-HH:MM:SS format - batches_sent integer the number of event batches that have
-ever been sent to this webhook - events_sent integer the total number of events
-that have ever been sent to this webhook - last_error string if we've ever
-gotten an error trying to post to this webhook, the last error that we've seen<br />
+posted to - description string a description of the webhook - auth_key string
+the key used to requests for this webhook - events array The message events that
+will be posted to the hook - events[] string the individual message event (send,
+hard_bounce, soft_bounce, open, click, spam, unsub, or reject) - created_at
+string the date and time that the webhook was created as a UTC string in
+YYYY-MM-DD HH:MM:SS format - last_sent_at string the date and time that the
+webhook last successfully received events as a UTC string in YYYY-MM-DD HH:MM:SS
+format - batches_sent integer the number of event batches that have ever been
+sent to this webhook - events_sent integer the total number of events that have
+ever been sent to this webhook - last_error string if we've ever gotten an error
+trying to post to this webhook, the last error that we've seen<br />
 				</div>
 
 

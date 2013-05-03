@@ -12,6 +12,7 @@ class Mandrill_Webhooks {
      *         - id integer a unique integer indentifier for the webhook
      *         - url string The URL that the event data will be posted to
      *         - description string a description of the webhook
+     *         - auth_key string the key used to requests for this webhook
      *         - events array The message events that will be posted to the hook
      *             - events[] string the individual message event (send, hard_bounce, soft_bounce, open, click, spam, unsub, or reject)
      *         - created_at string the date and time that the webhook was created as a UTC string in YYYY-MM-DD HH:MM:SS format
@@ -35,6 +36,7 @@ class Mandrill_Webhooks {
      *     - id integer a unique integer indentifier for the webhook
      *     - url string The URL that the event data will be posted to
      *     - description string a description of the webhook
+     *     - auth_key string the key used to requests for this webhook
      *     - events array The message events that will be posted to the hook
      *         - events[] string the individual message event (send, hard_bounce, soft_bounce, open, click, spam, unsub, or reject)
      *     - created_at string the date and time that the webhook was created as a UTC string in YYYY-MM-DD HH:MM:SS format
@@ -55,6 +57,7 @@ class Mandrill_Webhooks {
      *     - id integer a unique integer indentifier for the webhook
      *     - url string The URL that the event data will be posted to
      *     - description string a description of the webhook
+     *     - auth_key string the key used to requests for this webhook
      *     - events array The message events that will be posted to the hook
      *         - events[] string the individual message event (send, hard_bounce, soft_bounce, open, click, spam, unsub, or reject)
      *     - created_at string the date and time that the webhook was created as a UTC string in YYYY-MM-DD HH:MM:SS format
@@ -79,6 +82,7 @@ class Mandrill_Webhooks {
      *     - id integer a unique integer indentifier for the webhook
      *     - url string The URL that the event data will be posted to
      *     - description string a description of the webhook
+     *     - auth_key string the key used to requests for this webhook
      *     - events array The message events that will be posted to the hook
      *         - events[] string the individual message event (send, hard_bounce, soft_bounce, open, click, spam, unsub, or reject)
      *     - created_at string the date and time that the webhook was created as a UTC string in YYYY-MM-DD HH:MM:SS format
@@ -99,6 +103,7 @@ class Mandrill_Webhooks {
      *     - id integer a unique integer indentifier for the webhook
      *     - url string The URL that the event data will be posted to
      *     - description string a description of the webhook
+     *     - auth_key string the key used to requests for this webhook
      *     - events array The message events that will be posted to the hook
      *         - events[] string the individual message event (send, hard_bounce, soft_bounce, open, click, spam, unsub, or reject)
      *     - created_at string the date and time that the webhook was created as a UTC string in YYYY-MM-DD HH:MM:SS format
