@@ -53,4 +53,9 @@ class Mandrill_Unknown_Webhook extends Mandrill_Error {}
  */
 class Mandrill_Unknown_InboundDomain extends Mandrill_Error {}
 
+/**
+ * The requested export job does not exist
+ */
+class Mandrill_Unknown_Export extends Mandrill_Error {}
+
 

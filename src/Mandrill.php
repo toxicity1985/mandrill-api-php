@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Mandrill/Templates.php';
+require_once 'Mandrill/Exports.php';
 require_once 'Mandrill/Users.php';
 require_once 'Mandrill/Rejects.php';
 require_once 'Mandrill/Inbound.php';
@@ -30,7 +31,8 @@ class Mandrill {
         "Unknown_Url" => "Mandrill_Unknown_Url",
         "Invalid_Template" => "Mandrill_Invalid_Template",
         "Unknown_Webhook" => "Mandrill_Unknown_Webhook",
-        "Unknown_InboundDomain" => "Mandrill_Unknown_InboundDomain"
+        "Unknown_InboundDomain" => "Mandrill_Unknown_InboundDomain",
+        "Unknown_Export" => "Mandrill_Unknown_Export"
     );
 
     public function __construct($apikey=null) {
@@ -40,7 +42,7 @@ class Mandrill {
         $this->apikey = $apikey;
 
         $this->ch = curl_init();
-        curl_setopt($this->ch, CURLOPT_USERAGENT, 'Mandrill-PHP/1.0.26');
+        curl_setopt($this->ch, CURLOPT_USERAGENT, 'Mandrill-PHP/1.0.27');
         curl_setopt($this->ch, CURLOPT_POST, true);
         curl_setopt($this->ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($this->ch, CURLOPT_HEADER, false);
@@ -51,6 +53,7 @@ class Mandrill {
         $this->root = rtrim($this->root, '/') . '/';
 
         $this->templates = new Mandrill_Templates($this);
+        $this->exports = new Mandrill_Exports($this);
         $this->users = new Mandrill_Users($this);
         $this->rejects = new Mandrill_Rejects($this);
         $this->inbound = new Mandrill_Inbound($this);
