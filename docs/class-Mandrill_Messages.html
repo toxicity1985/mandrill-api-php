@@ -303,7 +303,9 @@ recipient - status string the sending status of the recipient - either "sent",
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$template_name</var></dt>
-					<dd><code>string</code><br>$template_name the name of a template that exists in the user's account</dd>
+					<dd><code>string</code><br>$template_name the immutable name or slug of a template that exists in the
+user's account. For backwards-compatibility, the template name may also be used
+but the immutable slug is preferred.</dd>
 					<dt><var>$template_content</var></dt>
 					<dd><code>array</code><br>$template_content an array of template content to send. Each item in the array
 should be a struct with two keys - name: the name of the content block to set

@@ -74,7 +74,7 @@ class Mandrill_Messages {
 
     /**
      * Send a new transactional message through Mandrill using a template
-     * @param string $template_name the name of a template that exists in the user's account
+     * @param string $template_name the immutable name or slug of a template that exists in the user's account. For backwards-compatibility, the template name may also be used but the immutable slug is preferred.
      * @param array $template_content an array of template content to send.  Each item in the array should be a struct with two keys - name: the name of the content block to set the content for, and content: the actual content to put into the block
      *     - template_content[] struct the injection of a single piece of content into a single editable region
      *         - name string the name of the mc:edit editable region to inject into
