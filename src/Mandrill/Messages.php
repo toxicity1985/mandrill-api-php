@@ -65,6 +65,7 @@ class Mandrill_Messages {
      *     - return[] struct the sending results for a single recipient
      *         - email string the email address of the recipient
      *         - status string the sending status of the recipient - either "sent", "queued", "rejected", or "invalid"
+     *         - reject_reason string the reason for the rejection if the recipient status is "rejected"
      *         - _id string the message's unique id
      */
     public function send($message, $async=false) {
@@ -137,6 +138,7 @@ class Mandrill_Messages {
      *     - return[] struct the sending results for a single recipient
      *         - email string the email address of the recipient
      *         - status string the sending status of the recipient - either "sent", "queued", "rejected", or "invalid"
+     *         - reject_reason string the reason for the rejection if the recipient status is "rejected"
      *         - _id string the message's unique id
      */
     public function sendTemplate($template_name, $template_content, $message, $async=false) {
@@ -214,6 +216,7 @@ class Mandrill_Messages {
      *     - return[] struct the sending results for a single recipient
      *         - email string the email address of the recipient
      *         - status string the sending status of the recipient - either "sent", "queued", "rejected", or "invalid"
+     *         - reject_reason string the reason for the rejection if the recipient status is "rejected"
      *         - _id string the message's unique id
      */
     public function sendRaw($raw_message, $from_email=null, $from_name=null, $to=null, $async=false) {
