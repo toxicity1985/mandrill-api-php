@@ -78,7 +78,7 @@ email, detail, created_at.
     }
 
     /**
-     * Begins an export of your activity history. The activity will be exported to a zaip archive
+     * Begins an export of your activity history. The activity will be exported to a zip archive
 containing a single file named activity.csv in the same format as you would be able to export
 from your account's activity view. It includes the following fields: Date, Email Address,
 Sender, Subject, Status, Tags, Opens, Clicks, Bounce Detail. If you have configured any custom
