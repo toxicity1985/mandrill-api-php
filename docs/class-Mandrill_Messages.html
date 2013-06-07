@@ -124,7 +124,7 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-Mandrill_Messages.html#3-227" title="Go to source code">Mandrill/Messages.php</a><br />
+		<b>Located at</b> <a href="source-class-Mandrill_Messages.html#3-230" title="Go to source code">Mandrill/Messages.php</a><br />
 	</div>
 
 
@@ -171,7 +171,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_send">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#8-74" title="Go to source code">send</a>( <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#8-75" title="Go to source code">send</a>( <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -259,6 +259,10 @@ recipient. To handle rejections when sending in async mode, set up a webhook for
 the 'reject' event. Defaults to false for messages with no more than 10
 recipients; messages with more than 10 recipients are always sent
 asynchronously, regardless of the value of async.</dd>
+					<dt><var>$ip_pool</var></dt>
+					<dd><code>string</code><br>$ip_pool the name of the dedicated ip pool that should be used to send the
+message. If you do not have any dedicated IPs, this parameter has no effect. If
+you specify a pool that does not exist, your default pool will be used instead.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -289,7 +293,7 @@ unique id<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendTemplate">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#76-147" title="Go to source code">sendTemplate</a>( <span>string <var>$template_name</var></span>, <span>array <var>$template_content</var></span>, <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#77-149" title="Go to source code">sendTemplate</a>( <span>string <var>$template_name</var></span>, <span>array <var>$template_content</var></span>, <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -389,6 +393,10 @@ recipient. To handle rejections when sending in async mode, set up a webhook for
 the 'reject' event. Defaults to false for messages with no more than 10
 recipients; messages with more than 10 recipients are always sent
 asynchronously, regardless of the value of async.</dd>
+					<dt><var>$ip_pool</var></dt>
+					<dd><code>string</code><br>$ip_pool the name of the dedicated ip pool that should be used to send the
+message. If you do not have any dedicated IPs, this parameter has no effect. If
+you specify a pool that does not exist, your default pool will be used instead.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -419,7 +427,7 @@ unique id<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_search">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#149-174" title="Go to source code">search</a>( <span>string <var>$query</var> = <span class="php-quote">'*'</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$limit</var> = <span class="php-num">100</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#151-176" title="Go to source code">search</a>( <span>string <var>$query</var> = <span class="php-quote">'*'</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$limit</var> = <span class="php-num">100</span></span> )</code>
 
 		<div class="description short">
 			
@@ -485,7 +493,7 @@ sent<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parse">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#176-205" title="Go to source code">parse</a>( <span>string <var>$raw_message</var></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#178-207" title="Go to source code">parse</a>( <span>string <var>$raw_message</var></span> )</code>
 
 		<div class="description short">
 			
@@ -545,7 +553,7 @@ the image - content string the content of the image as a base64 encoded string<b
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendRaw">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#207-225" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>string|null <var>$from_email</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$from_name</var> = <span class="php-keyword1">null</span></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#209-228" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>string|null <var>$from_email</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$from_name</var> = <span class="php-keyword1">null</span></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -581,6 +589,10 @@ every recipient. To handle rejections when sending in async mode, set up a
 webhook for the 'reject' event. Defaults to false for messages with no more than
 10 recipients; messages with more than 10 recipients are always sent
 asynchronously, regardless of the value of async.</dd>
+					<dt><var>$ip_pool</var></dt>
+					<dd><code>string</code><br>$ip_pool the name of the dedicated ip pool that should be used to send the
+message. If you do not have any dedicated IPs, this parameter has no effect. If
+you specify a pool that does not exist, your default pool will be used instead.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>

@@ -61,6 +61,7 @@ class Mandrill_Messages {
      *             - name string the Content ID of the image - use <img src="cid:THIS_VALUE"> to reference the image in your HTML content
      *             - content string the content of the image as a base64-encoded string
      * @param boolean $async enable a background sending mode that is optimized for bulk sending. In async mode, messages/send will immediately return a status of "queued" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with no more than 10 recipients; messages with more than 10 recipients are always sent asynchronously, regardless of the value of async.
+     * @param string $ip_pool the name of the dedicated ip pool that should be used to send the message. If you do not have any dedicated IPs, this parameter has no effect. If you specify a pool that does not exist, your default pool will be used instead.
      * @return array of structs for each recipient containing the key "email" with the email address and "status" as either "sent", "queued", or "rejected"
      *     - return[] struct the sending results for a single recipient
      *         - email string the email address of the recipient
@@ -68,8 +69,8 @@ class Mandrill_Messages {
      *         - reject_reason string the reason for the rejection if the recipient status is "rejected"
      *         - _id string the message's unique id
      */
-    public function send($message, $async=false) {
-        $_params = array("message" => $message, "async" => $async);
+    public function send($message, $async=false, $ip_pool=null) {
+        $_params = array("message" => $message, "async" => $async, "ip_pool" => $ip_pool);
         return $this->master->call('messages/send', $_params);
     }
 
@@ -134,6 +135,7 @@ class Mandrill_Messages {
      *             - name string the Content ID of the image - use <img src="cid:THIS_VALUE"> to reference the image in your HTML content
      *             - content string the content of the image as a base64-encoded string
      * @param boolean $async enable a background sending mode that is optimized for bulk sending. In async mode, messages/send will immediately return a status of "queued" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with no more than 10 recipients; messages with more than 10 recipients are always sent asynchronously, regardless of the value of async.
+     * @param string $ip_pool the name of the dedicated ip pool that should be used to send the message. If you do not have any dedicated IPs, this parameter has no effect. If you specify a pool that does not exist, your default pool will be used instead.
      * @return array of structs for each recipient containing the key "email" with the email address and "status" as either "sent", "queued", or "rejected"
      *     - return[] struct the sending results for a single recipient
      *         - email string the email address of the recipient
@@ -141,8 +143,8 @@ class Mandrill_Messages {
      *         - reject_reason string the reason for the rejection if the recipient status is "rejected"
      *         - _id string the message's unique id
      */
-    public function sendTemplate($template_name, $template_content, $message, $async=false) {
-        $_params = array("template_name" => $template_name, "template_content" => $template_content, "message" => $message, "async" => $async);
+    public function sendTemplate($template_name, $template_content, $message, $async=false, $ip_pool=null) {
+        $_params = array("template_name" => $template_name, "template_content" => $template_content, "message" => $message, "async" => $async, "ip_pool" => $ip_pool);
         return $this->master->call('messages/send-template', $_params);
     }
 
@@ -212,6 +214,7 @@ class Mandrill_Messages {
      * @param array|null $to optionally define the recipients to receive the message - otherwise we'll use the To, Cc, and Bcc headers provided in the document
      *     - to[] string the email address of the recipint
      * @param boolean $async enable a background sending mode that is optimized for bulk sending. In async mode, messages/sendRaw will immediately return a status of "queued" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with no more than 10 recipients; messages with more than 10 recipients are always sent asynchronously, regardless of the value of async.
+     * @param string $ip_pool the name of the dedicated ip pool that should be used to send the message. If you do not have any dedicated IPs, this parameter has no effect. If you specify a pool that does not exist, your default pool will be used instead.
      * @return array of structs for each recipient containing the key "email" with the email address and "status" as either "sent", "queued", or "rejected"
      *     - return[] struct the sending results for a single recipient
      *         - email string the email address of the recipient
@@ -219,8 +222,8 @@ class Mandrill_Messages {
      *         - reject_reason string the reason for the rejection if the recipient status is "rejected"
      *         - _id string the message's unique id
      */
-    public function sendRaw($raw_message, $from_email=null, $from_name=null, $to=null, $async=false) {
-        $_params = array("raw_message" => $raw_message, "from_email" => $from_email, "from_name" => $from_name, "to" => $to, "async" => $async);
+    public function sendRaw($raw_message, $from_email=null, $from_name=null, $to=null, $async=false, $ip_pool=null) {
+        $_params = array("raw_message" => $raw_message, "from_email" => $from_email, "from_name" => $from_name, "to" => $to, "async" => $async, "ip_pool" => $ip_pool);
         return $this->master->call('messages/send-raw', $_params);
     }
 
