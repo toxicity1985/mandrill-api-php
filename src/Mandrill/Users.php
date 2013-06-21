@@ -119,6 +119,8 @@ class Mandrill_Users {
      *         - unsubs integer the total number of unsubscribe requests received for messages by this sender
      *         - opens integer the total number of times messages by this sender have been opened
      *         - clicks integer the total number of times tracked URLs in messages by this sender have been clicked
+     *         - unique_opens integer the number of unique opens for emails sent for this sender
+     *         - unique_clicks integer the number of unique clicks for emails sent for this sender
      */
     public function senders() {
         $_params = array();

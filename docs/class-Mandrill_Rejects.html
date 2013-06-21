@@ -7,7 +7,7 @@
 	<title>Class Mandrill_Rejects</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?2913460517"></script>
+	<script type="text/javascript" src="elementlist.js?769092232"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -59,9 +59,11 @@
 				<li><a href="class-Mandrill_Invalid_Reject.html">Mandrill_Invalid_Reject</a></li>
 				<li><a href="class-Mandrill_Invalid_Tag_Name.html">Mandrill_Invalid_Tag_Name</a></li>
 				<li><a href="class-Mandrill_Invalid_Template.html">Mandrill_Invalid_Template</a></li>
+				<li><a href="class-Mandrill_PaymentRequired.html">Mandrill_PaymentRequired</a></li>
 				<li><a href="class-Mandrill_ServiceUnavailable.html">Mandrill_ServiceUnavailable</a></li>
 				<li><a href="class-Mandrill_Unknown_Export.html">Mandrill_Unknown_Export</a></li>
 				<li><a href="class-Mandrill_Unknown_InboundDomain.html">Mandrill_Unknown_InboundDomain</a></li>
+				<li><a href="class-Mandrill_Unknown_Message.html">Mandrill_Unknown_Message</a></li>
 				<li><a href="class-Mandrill_Unknown_Sender.html">Mandrill_Unknown_Sender</a></li>
 				<li><a href="class-Mandrill_Unknown_Template.html">Mandrill_Unknown_Template</a></li>
 				<li><a href="class-Mandrill_Unknown_Url.html">Mandrill_Unknown_Url</a></li>
@@ -124,7 +126,7 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-Mandrill_Rejects.html#3-70" title="Go to source code">Mandrill/Rejects.php</a><br />
+		<b>Located at</b> <a href="source-class-Mandrill_Rejects.html#3-72" title="Go to source code">Mandrill/Rejects.php</a><br />
 	</div>
 
 
@@ -221,7 +223,7 @@ succeeded<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getList">#</a>
-		<code><a href="source-class-Mandrill_Rejects.html#23-54" title="Go to source code">getList</a>( <span>string <var>$email</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$include_expired</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-Mandrill_Rejects.html#23-56" title="Go to source code">getList</a>( <span>string <var>$email</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$include_expired</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
@@ -271,7 +273,10 @@ by this sender - complaints integer the total number of spam complaints received
 for messages by this sender - unsubs integer the total number of unsubscribe
 requests received for messages by this sender - opens integer the total number
 of times messages by this sender have been opened - clicks integer the total
-number of times tracked URLs in messages by this sender have been clicked<br />
+number of times tracked URLs in messages by this sender have been clicked -
+unique_opens integer the number of unique opens for emails sent for this sender
+- unique_clicks integer the number of unique clicks for emails sent for this
+sender<br />
 				</div>
 
 
@@ -291,7 +296,7 @@ number of times tracked URLs in messages by this sender have been clicked<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_delete">#</a>
-		<code><a href="source-class-Mandrill_Rejects.html#56-68" title="Go to source code">delete</a>( <span>string <var>$email</var></span> )</code>
+		<code><a href="source-class-Mandrill_Rejects.html#58-70" title="Go to source code">delete</a>( <span>string <var>$email</var></span> )</code>
 
 		<div class="description short">
 			

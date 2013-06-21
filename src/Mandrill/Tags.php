@@ -18,6 +18,8 @@ class Mandrill_Tags {
      *         - unsubs integer the total number of unsubscribe requests received for messages with this tag
      *         - opens integer the total number of times messages with this tag have been opened
      *         - clicks integer the total number of times tracked URLs in messages with this tag have been clicked
+     *         - unique_opens integer the number of unique opens for emails sent with this tag
+     *         - unique_clicks integer the number of unique clicks for emails sent with this tag
      */
     public function getList() {
         $_params = array();
@@ -39,6 +41,8 @@ undo this operation, so use it carefully.
      *     - unsubs integer the total number of unsubscribe requests received for messages with this tag
      *     - opens integer the total number of times messages with this tag have been opened
      *     - clicks integer the total number of times tracked URLs in messages with this tag have been clicked
+     *     - unique_opens integer the number of unique opens for emails sent with this tag
+     *     - unique_clicks integer the number of unique clicks for emails sent with this tag
      */
     public function delete($tag) {
         $_params = array("tag" => $tag);

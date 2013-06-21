@@ -62,15 +62,16 @@ class Mandrill_Messages {
      *             - content string the content of the image as a base64-encoded string
      * @param boolean $async enable a background sending mode that is optimized for bulk sending. In async mode, messages/send will immediately return a status of "queued" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with no more than 10 recipients; messages with more than 10 recipients are always sent asynchronously, regardless of the value of async.
      * @param string $ip_pool the name of the dedicated ip pool that should be used to send the message. If you do not have any dedicated IPs, this parameter has no effect. If you specify a pool that does not exist, your default pool will be used instead.
+     * @param string $send_at when this message should be sent as a UTC timestamp in YYYY-MM-DD HH:MM:SS format. If you specify a time in the past, the message will be sent immediately.
      * @return array of structs for each recipient containing the key "email" with the email address and "status" as either "sent", "queued", or "rejected"
      *     - return[] struct the sending results for a single recipient
      *         - email string the email address of the recipient
-     *         - status string the sending status of the recipient - either "sent", "queued", "rejected", or "invalid"
+     *         - status string the sending status of the recipient - either "sent", "queued", "scheduled", "rejected", or "invalid"
      *         - reject_reason string the reason for the rejection if the recipient status is "rejected"
      *         - _id string the message's unique id
      */
-    public function send($message, $async=false, $ip_pool=null) {
-        $_params = array("message" => $message, "async" => $async, "ip_pool" => $ip_pool);
+    public function send($message, $async=false, $ip_pool=null, $send_at=null) {
+        $_params = array("message" => $message, "async" => $async, "ip_pool" => $ip_pool, "send_at" => $send_at);
         return $this->master->call('messages/send', $_params);
     }
 
@@ -136,15 +137,16 @@ class Mandrill_Messages {
      *             - content string the content of the image as a base64-encoded string
      * @param boolean $async enable a background sending mode that is optimized for bulk sending. In async mode, messages/send will immediately return a status of "queued" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with no more than 10 recipients; messages with more than 10 recipients are always sent asynchronously, regardless of the value of async.
      * @param string $ip_pool the name of the dedicated ip pool that should be used to send the message. If you do not have any dedicated IPs, this parameter has no effect. If you specify a pool that does not exist, your default pool will be used instead.
-     * @return array of structs for each recipient containing the key "email" with the email address and "status" as either "sent", "queued", or "rejected"
+     * @param string $send_at when this message should be sent as a UTC timestamp in YYYY-MM-DD HH:MM:SS format. If you specify a time in the past, the message will be sent immediately.
+     * @return array of structs for each recipient containing the key "email" with the email address and "status" as either "sent", "queued", "scheduled", or "rejected"
      *     - return[] struct the sending results for a single recipient
      *         - email string the email address of the recipient
      *         - status string the sending status of the recipient - either "sent", "queued", "rejected", or "invalid"
      *         - reject_reason string the reason for the rejection if the recipient status is "rejected"
      *         - _id string the message's unique id
      */
-    public function sendTemplate($template_name, $template_content, $message, $async=false, $ip_pool=null) {
-        $_params = array("template_name" => $template_name, "template_content" => $template_content, "message" => $message, "async" => $async, "ip_pool" => $ip_pool);
+    public function sendTemplate($template_name, $template_content, $message, $async=false, $ip_pool=null, $send_at=null) {
+        $_params = array("template_name" => $template_name, "template_content" => $template_content, "message" => $message, "async" => $async, "ip_pool" => $ip_pool, "send_at" => $send_at);
         return $this->master->call('messages/send-template', $_params);
     }
 
@@ -215,16 +217,67 @@ class Mandrill_Messages {
      *     - to[] string the email address of the recipint
      * @param boolean $async enable a background sending mode that is optimized for bulk sending. In async mode, messages/sendRaw will immediately return a status of "queued" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with no more than 10 recipients; messages with more than 10 recipients are always sent asynchronously, regardless of the value of async.
      * @param string $ip_pool the name of the dedicated ip pool that should be used to send the message. If you do not have any dedicated IPs, this parameter has no effect. If you specify a pool that does not exist, your default pool will be used instead.
+     * @param string $send_at when this message should be sent as a UTC timestamp in YYYY-MM-DD HH:MM:SS format. If you specify a time in the past, the message will be sent immediately.
      * @return array of structs for each recipient containing the key "email" with the email address and "status" as either "sent", "queued", or "rejected"
      *     - return[] struct the sending results for a single recipient
      *         - email string the email address of the recipient
-     *         - status string the sending status of the recipient - either "sent", "queued", "rejected", or "invalid"
+     *         - status string the sending status of the recipient - either "sent", "queued", "scheduled", "rejected", or "invalid"
      *         - reject_reason string the reason for the rejection if the recipient status is "rejected"
      *         - _id string the message's unique id
      */
-    public function sendRaw($raw_message, $from_email=null, $from_name=null, $to=null, $async=false, $ip_pool=null) {
-        $_params = array("raw_message" => $raw_message, "from_email" => $from_email, "from_name" => $from_name, "to" => $to, "async" => $async, "ip_pool" => $ip_pool);
+    public function sendRaw($raw_message, $from_email=null, $from_name=null, $to=null, $async=false, $ip_pool=null, $send_at=null) {
+        $_params = array("raw_message" => $raw_message, "from_email" => $from_email, "from_name" => $from_name, "to" => $to, "async" => $async, "ip_pool" => $ip_pool, "send_at" => $send_at);
         return $this->master->call('messages/send-raw', $_params);
+    }
+
+    /**
+     * Queries your scheduled emails by sender or recipient, or both.
+     * @param string $to an optional recipient address to restrict results to
+     * @return array a list of up to 1000 scheduled emails
+     *     - return[] struct a scheduled email
+     *         - _id string the scheduled message id
+     *         - created_at string the UTC timestamp when the message was created, in YYYY-MM-DD HH:MM:SS format
+     *         - send_at string the UTC timestamp when the message will be sent, in YYYY-MM-DD HH:MM:SS format
+     *         - from_email string the email's sender address
+     *         - to string the email's recipient
+     *         - subject string the email's subject
+     */
+    public function listScheduled($to=null) {
+        $_params = array("to" => $to);
+        return $this->master->call('messages/list-scheduled', $_params);
+    }
+
+    /**
+     * Cancels a scheduled email.
+     * @param string $id a scheduled email id, as returned by any of the messages/send calls or messages/list-scheduled
+     * @return struct information about the scheduled email that was cancelled.
+     *     - _id string the scheduled message id
+     *     - created_at string the UTC timestamp when the message was created, in YYYY-MM-DD HH:MM:SS format
+     *     - send_at string the UTC timestamp when the message will be sent, in YYYY-MM-DD HH:MM:SS format
+     *     - from_email string the email's sender address
+     *     - to string the email's recipient
+     *     - subject string the email's subject
+     */
+    public function cancelScheduled($id) {
+        $_params = array("id" => $id);
+        return $this->master->call('messages/cancel-scheduled', $_params);
+    }
+
+    /**
+     * Reschedules a scheduled email.
+     * @param string $id a scheduled email id, as returned by any of the messages/send calls or messages/list-scheduled
+     * @param string $send_at the new UTC timestamp when the message should sent. Mandrill can't time travel, so if you specify a time in past the message will be sent immediately
+     * @return struct information about the scheduled email that was rescheduled.
+     *     - _id string the scheduled message id
+     *     - created_at string the UTC timestamp when the message was created, in YYYY-MM-DD HH:MM:SS format
+     *     - send_at string the UTC timestamp when the message will be sent, in YYYY-MM-DD HH:MM:SS format
+     *     - from_email string the email's sender address
+     *     - to string the email's recipient
+     *     - subject string the email's subject
+     */
+    public function reschedule($id, $send_at) {
+        $_params = array("id" => $id, "send_at" => $send_at);
+        return $this->master->call('messages/reschedule', $_params);
     }
 
 }

@@ -24,8 +24,10 @@ class Mandrill {
     public static $error_map = array(
         "ValidationError" => "Mandrill_ValidationError",
         "Invalid_Key" => "Mandrill_Invalid_Key",
+        "PaymentRequired" => "Mandrill_PaymentRequired",
         "Unknown_Template" => "Mandrill_Unknown_Template",
         "ServiceUnavailable" => "Mandrill_ServiceUnavailable",
+        "Unknown_Message" => "Mandrill_Unknown_Message",
         "Invalid_Tag_Name" => "Mandrill_Invalid_Tag_Name",
         "Invalid_Reject" => "Mandrill_Invalid_Reject",
         "Unknown_Sender" => "Mandrill_Unknown_Sender",
@@ -43,7 +45,7 @@ class Mandrill {
         $this->apikey = $apikey;
 
         $this->ch = curl_init();
-        curl_setopt($this->ch, CURLOPT_USERAGENT, 'Mandrill-PHP/1.0.32');
+        curl_setopt($this->ch, CURLOPT_USERAGENT, 'Mandrill-PHP/1.0.33');
         curl_setopt($this->ch, CURLOPT_POST, true);
         curl_setopt($this->ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($this->ch, CURLOPT_HEADER, false);

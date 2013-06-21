@@ -7,7 +7,7 @@
 	<title>Class Mandrill_Messages</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?2913460517"></script>
+	<script type="text/javascript" src="elementlist.js?769092232"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -59,9 +59,11 @@
 				<li><a href="class-Mandrill_Invalid_Reject.html">Mandrill_Invalid_Reject</a></li>
 				<li><a href="class-Mandrill_Invalid_Tag_Name.html">Mandrill_Invalid_Tag_Name</a></li>
 				<li><a href="class-Mandrill_Invalid_Template.html">Mandrill_Invalid_Template</a></li>
+				<li><a href="class-Mandrill_PaymentRequired.html">Mandrill_PaymentRequired</a></li>
 				<li><a href="class-Mandrill_ServiceUnavailable.html">Mandrill_ServiceUnavailable</a></li>
 				<li><a href="class-Mandrill_Unknown_Export.html">Mandrill_Unknown_Export</a></li>
 				<li><a href="class-Mandrill_Unknown_InboundDomain.html">Mandrill_Unknown_InboundDomain</a></li>
+				<li><a href="class-Mandrill_Unknown_Message.html">Mandrill_Unknown_Message</a></li>
 				<li><a href="class-Mandrill_Unknown_Sender.html">Mandrill_Unknown_Sender</a></li>
 				<li><a href="class-Mandrill_Unknown_Template.html">Mandrill_Unknown_Template</a></li>
 				<li><a href="class-Mandrill_Unknown_Url.html">Mandrill_Unknown_Url</a></li>
@@ -124,7 +126,7 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-Mandrill_Messages.html#3-230" title="Go to source code">Mandrill/Messages.php</a><br />
+		<b>Located at</b> <a href="source-class-Mandrill_Messages.html#3-283" title="Go to source code">Mandrill/Messages.php</a><br />
 	</div>
 
 
@@ -171,7 +173,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_send">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#8-75" title="Go to source code">send</a>( <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#8-76" title="Go to source code">send</a>( <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$send_at</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -263,6 +265,10 @@ asynchronously, regardless of the value of async.</dd>
 					<dd><code>string</code><br>$ip_pool the name of the dedicated ip pool that should be used to send the
 message. If you do not have any dedicated IPs, this parameter has no effect. If
 you specify a pool that does not exist, your default pool will be used instead.</dd>
+					<dt><var>$send_at</var></dt>
+					<dd><code>string</code><br>$send_at when this message should be sent as a UTC timestamp in YYYY-MM-DD
+HH:MM:SS format. If you specify a time in the past, the message will be sent
+immediately.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -271,9 +277,9 @@ you specify a pool that does not exist, your default pool will be used instead.<
 and "status" as either "sent", "queued", or "rejected" - return[] struct the
 sending results for a single recipient - email string the email address of the
 recipient - status string the sending status of the recipient - either "sent",
-"queued", "rejected", or "invalid" - reject_reason string the reason for the
-rejection if the recipient status is "rejected" - _id string the message's
-unique id<br />
+"queued", "scheduled", "rejected", or "invalid" - reject_reason string the
+reason for the rejection if the recipient status is "rejected" - _id string the
+message's unique id<br />
 				</div>
 
 
@@ -293,7 +299,7 @@ unique id<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendTemplate">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#77-149" title="Go to source code">sendTemplate</a>( <span>string <var>$template_name</var></span>, <span>array <var>$template_content</var></span>, <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#78-151" title="Go to source code">sendTemplate</a>( <span>string <var>$template_name</var></span>, <span>array <var>$template_content</var></span>, <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$send_at</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -397,17 +403,21 @@ asynchronously, regardless of the value of async.</dd>
 					<dd><code>string</code><br>$ip_pool the name of the dedicated ip pool that should be used to send the
 message. If you do not have any dedicated IPs, this parameter has no effect. If
 you specify a pool that does not exist, your default pool will be used instead.</dd>
+					<dt><var>$send_at</var></dt>
+					<dd><code>string</code><br>$send_at when this message should be sent as a UTC timestamp in YYYY-MM-DD
+HH:MM:SS format. If you specify a time in the past, the message will be sent
+immediately.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
 					<code>array</code><br>of structs for each recipient containing the key "email" with the email address
-and "status" as either "sent", "queued", or "rejected" - return[] struct the
-sending results for a single recipient - email string the email address of the
-recipient - status string the sending status of the recipient - either "sent",
-"queued", "rejected", or "invalid" - reject_reason string the reason for the
-rejection if the recipient status is "rejected" - _id string the message's
-unique id<br />
+and "status" as either "sent", "queued", "scheduled", or "rejected" - return[]
+struct the sending results for a single recipient - email string the email
+address of the recipient - status string the sending status of the recipient -
+either "sent", "queued", "rejected", or "invalid" - reject_reason string the
+reason for the rejection if the recipient status is "rejected" - _id string the
+message's unique id<br />
 				</div>
 
 
@@ -427,7 +437,7 @@ unique id<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_search">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#151-176" title="Go to source code">search</a>( <span>string <var>$query</var> = <span class="php-quote">'*'</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$limit</var> = <span class="php-num">100</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#153-178" title="Go to source code">search</a>( <span>string <var>$query</var> = <span class="php-quote">'*'</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$limit</var> = <span class="php-num">100</span></span> )</code>
 
 		<div class="description short">
 			
@@ -493,7 +503,7 @@ sent<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parse">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#178-207" title="Go to source code">parse</a>( <span>string <var>$raw_message</var></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#180-209" title="Go to source code">parse</a>( <span>string <var>$raw_message</var></span> )</code>
 
 		<div class="description short">
 			
@@ -553,7 +563,7 @@ the image - content string the content of the image as a base64 encoded string<b
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendRaw">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#209-228" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>string|null <var>$from_email</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$from_name</var> = <span class="php-keyword1">null</span></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#211-231" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>string|null <var>$from_email</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$from_name</var> = <span class="php-keyword1">null</span></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$send_at</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -593,6 +603,10 @@ asynchronously, regardless of the value of async.</dd>
 					<dd><code>string</code><br>$ip_pool the name of the dedicated ip pool that should be used to send the
 message. If you do not have any dedicated IPs, this parameter has no effect. If
 you specify a pool that does not exist, your default pool will be used instead.</dd>
+					<dt><var>$send_at</var></dt>
+					<dd><code>string</code><br>$send_at when this message should be sent as a UTC timestamp in YYYY-MM-DD
+HH:MM:SS format. If you specify a time in the past, the message will be sent
+immediately.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -601,9 +615,155 @@ you specify a pool that does not exist, your default pool will be used instead.<
 and "status" as either "sent", "queued", or "rejected" - return[] struct the
 sending results for a single recipient - email string the email address of the
 recipient - status string the sending status of the recipient - either "sent",
-"queued", "rejected", or "invalid" - reject_reason string the reason for the
-rejection if the recipient status is "rejected" - _id string the message's
-unique id<br />
+"queued", "scheduled", "rejected", or "invalid" - reject_reason string the
+reason for the rejection if the recipient status is "rejected" - _id string the
+message's unique id<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="listScheduled" id="_listScheduled">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_listScheduled">#</a>
+		<code><a href="source-class-Mandrill_Messages.html#233-248" title="Go to source code">listScheduled</a>( <span>string <var>$to</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Queries your scheduled emails by sender or recipient, or both.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Queries your scheduled emails by sender or recipient, or both.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$to</var></dt>
+					<dd><code>string</code><br>$to an optional recipient address to restrict results to</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>a list of up to 1000 scheduled emails - return[] struct a scheduled email - _id
+string the scheduled message id - created_at string the UTC timestamp when the
+message was created, in YYYY-MM-DD HH:MM:SS format - send_at string the UTC
+timestamp when the message will be sent, in YYYY-MM-DD HH:MM:SS format -
+from_email string the email's sender address - to string the email's recipient -
+subject string the email's subject<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="cancelScheduled" id="_cancelScheduled">
+
+		<td class="attributes"><code>
+			 public 
+			struct
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_cancelScheduled">#</a>
+		<code><a href="source-class-Mandrill_Messages.html#250-264" title="Go to source code">cancelScheduled</a>( <span>string <var>$id</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Cancels a scheduled email.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Cancels a scheduled email.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$id</var></dt>
+					<dd><code>string</code><br>$id a scheduled email id, as returned by any of the messages/send calls or
+messages/list-scheduled</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>struct</code><br>information about the scheduled email that was cancelled. - _id string the
+scheduled message id - created_at string the UTC timestamp when the message was
+created, in YYYY-MM-DD HH:MM:SS format - send_at string the UTC timestamp when
+the message will be sent, in YYYY-MM-DD HH:MM:SS format - from_email string the
+email's sender address - to string the email's recipient - subject string the
+email's subject<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="reschedule" id="_reschedule">
+
+		<td class="attributes"><code>
+			 public 
+			struct
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_reschedule">#</a>
+		<code><a href="source-class-Mandrill_Messages.html#266-281" title="Go to source code">reschedule</a>( <span>string <var>$id</var></span>, <span>string <var>$send_at</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Reschedules a scheduled email.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Reschedules a scheduled email.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$id</var></dt>
+					<dd><code>string</code><br>$id a scheduled email id, as returned by any of the messages/send calls or
+messages/list-scheduled</dd>
+					<dt><var>$send_at</var></dt>
+					<dd><code>string</code><br>$send_at the new UTC timestamp when the message should sent. Mandrill can't time
+travel, so if you specify a time in past the message will be sent immediately</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>struct</code><br>information about the scheduled email that was rescheduled. - _id string the
+scheduled message id - created_at string the UTC timestamp when the message was
+created, in YYYY-MM-DD HH:MM:SS format - send_at string the UTC timestamp when
+the message will be sent, in YYYY-MM-DD HH:MM:SS format - from_email string the
+email's sender address - to string the email's recipient - subject string the
+email's subject<br />
 				</div>
 
 
