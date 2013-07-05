@@ -168,7 +168,20 @@ class Mandrill_Messages {
      *         - tags array list of tags on this message
      *             - tags[] string individual tag on this message
      *         - opens integer how many times has this message been opened
+     *         - opens_detail array list of individual opens for the message
+     *             - opens_detail[] struct information on an individual open
+     *                 - ts integer the unix timestamp from when the message was opened
+     *                 - ip string the IP address that generated the open
+     *                 - location string the approximate region and country that the opening IP is located
+     *                 - ua string the email client or browser data of the open
      *         - clicks integer how many times has a link been clicked in this message
+     *         - clicks_detail array list of individual clicks for the message
+     *             - clicks_detail[] struct information on an individual click
+     *                 - ts integer the unix timestamp from when the message was clicked
+     *                 - url string the URL that was clicked on
+     *                 - ip string the IP address that generated the click
+     *                 - location string the approximate region and country that the clicking IP is located
+     *                 - ua string the email client or browser data of the click
      *         - state string sending status of this message: sent, bounced, rejected
      *         - metadata struct any custom metadata provided when the message was sent
      */
