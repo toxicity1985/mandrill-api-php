@@ -163,6 +163,7 @@ class Mandrill_Messages {
      *         - ts integer the Unix timestamp from when this message was sent
      *         - _id string the message's unique id
      *         - sender string the email address of the sender
+     *         - template string the unique name of the template used, if any
      *         - subject string the message's subject link
      *         - email string the recipient email address
      *         - tags array list of tags on this message
@@ -188,6 +189,41 @@ class Mandrill_Messages {
     public function search($query='*', $date_from=null, $date_to=null, $tags=null, $senders=null, $limit=100) {
         $_params = array("query" => $query, "date_from" => $date_from, "date_to" => $date_to, "tags" => $tags, "senders" => $senders, "limit" => $limit);
         return $this->master->call('messages/search', $_params);
+    }
+
+    /**
+     * Get the information for a single recently sent message
+     * @param string $id the unique id of the message to get - passed as the "_id" field in webhooks, send calls, or search calls
+     * @return struct the information for the message
+     *     - ts integer the Unix timestamp from when this message was sent
+     *     - _id string the message's unique id
+     *     - sender string the email address of the sender
+     *     - template string the unique name of the template used, if any
+     *     - subject string the message's subject link
+     *     - email string the recipient email address
+     *     - tags array list of tags on this message
+     *         - tags[] string individual tag on this message
+     *     - opens integer how many times has this message been opened
+     *     - opens_detail array list of individual opens for the message
+     *         - opens_detail[] struct information on an individual open
+     *             - ts integer the unix timestamp from when the message was opened
+     *             - ip string the IP address that generated the open
+     *             - location string the approximate region and country that the opening IP is located
+     *             - ua string the email client or browser data of the open
+     *     - clicks integer how many times has a link been clicked in this message
+     *     - clicks_detail array list of individual clicks for the message
+     *         - clicks_detail[] struct information on an individual click
+     *             - ts integer the unix timestamp from when the message was clicked
+     *             - url string the URL that was clicked on
+     *             - ip string the IP address that generated the click
+     *             - location string the approximate region and country that the clicking IP is located
+     *             - ua string the email client or browser data of the click
+     *     - state string sending status of this message: sent, bounced, rejected
+     *     - metadata struct any custom metadata provided when the message was sent
+     */
+    public function info($id) {
+        $_params = array("id" => $id);
+        return $this->master->call('messages/info', $_params);
     }
 
     /**
