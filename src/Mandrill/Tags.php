@@ -10,6 +10,7 @@ class Mandrill_Tags {
      * @return array a list of user-defined tags
      *     - return[] struct a user-defined tag
      *         - tag string the actual tag as a string
+     *         - reputation integer the tag's current reputation on a scale from 0 to 100.
      *         - sent integer the total number of messages sent with this tag
      *         - hard_bounces integer the total number of hard bounces by messages with this tag
      *         - soft_bounces integer the total number of soft bounces by messages with this tag
@@ -33,6 +34,7 @@ undo this operation, so use it carefully.
      * @param string $tag a tag name
      * @return struct the tag that was deleted
      *     - tag string the actual tag as a string
+     *     - reputation integer the tag's current reputation on a scale from 0 to 100.
      *     - sent integer the total number of messages sent with this tag
      *     - hard_bounces integer the total number of hard bounces by messages with this tag
      *     - soft_bounces integer the total number of soft bounces by messages with this tag
