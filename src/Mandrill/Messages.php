@@ -185,6 +185,11 @@ class Mandrill_Messages {
      *                 - ua string the email client or browser data of the click
      *         - state string sending status of this message: sent, bounced, rejected
      *         - metadata struct any custom metadata provided when the message was sent
+     *     - smtp_events array a log of up to 3 smtp events for the message
+     *         - smtp_events[] struct information about a specific smtp event
+     *             - ts integer the Unix timestamp when the event occured
+     *             - type string the message's state as a result of this event
+     *             - diag string the SMTP response from the recipient's server
      */
     public function search($query='*', $date_from=null, $date_to=null, $tags=null, $senders=null, $limit=100) {
         $_params = array("query" => $query, "date_from" => $date_from, "date_to" => $date_to, "tags" => $tags, "senders" => $senders, "limit" => $limit);
@@ -246,6 +251,11 @@ class Mandrill_Messages {
      *             - ua string the email client or browser data of the click
      *     - state string sending status of this message: sent, bounced, rejected
      *     - metadata struct any custom metadata provided when the message was sent
+     *     - smtp_events array a log of up to 3 smtp events for the message
+     *         - smtp_events[] struct information about a specific smtp event
+     *             - ts integer the Unix timestamp when the event occured
+     *             - type string the message's state as a result of this event
+     *             - diag string the SMTP response from the recipient's server
      */
     public function info($id) {
         $_params = array("id" => $id);
