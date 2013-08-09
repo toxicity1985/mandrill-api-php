@@ -15,7 +15,7 @@ require_once 'Mandrill/Senders.php';
 require_once 'Mandrill/Exceptions.php';
 
 class Mandrill {
-
+    
     public $apikey;
     public $ch;
     public $root = 'https://mandrillapp.com/api/1.0';
@@ -45,7 +45,7 @@ class Mandrill {
         $this->apikey = $apikey;
 
         $this->ch = curl_init();
-        curl_setopt($this->ch, CURLOPT_USERAGENT, 'Mandrill-PHP/1.0.40');
+        curl_setopt($this->ch, CURLOPT_USERAGENT, 'Mandrill-PHP/1.0.41');
         curl_setopt($this->ch, CURLOPT_POST, true);
         curl_setopt($this->ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($this->ch, CURLOPT_HEADER, false);
@@ -106,7 +106,7 @@ class Mandrill {
         }
         $result = json_decode($response_body, true);
         if($result === null) throw new Mandrill_Error('We were unable to decode the JSON response from the Mandrill API: ' . $response_body);
-
+        
         if(floor($info['http_code'] / 100) >= 4) {
             throw $this->castError($result);
         }
