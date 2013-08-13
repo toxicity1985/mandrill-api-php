@@ -29,6 +29,7 @@ class Mandrill_Messages {
      *     - bcc_address string an optional address to receive an exact copy of each recipient's email
      *     - tracking_domain string a custom domain to use for tracking opens and clicks instead of mandrillapp.com
      *     - signing_domain string a custom domain to use for SPF/DKIM signing instead of mandrill (for "via" or "on behalf of" in email clients)
+     *     - return_path_domain string a custom domain to use for the messages's return-path
      *     - merge boolean whether to evaluate merge tags in the message. Will automatically be set to true if either merge_vars or global_merge_vars are provided.
      *     - global_merge_vars array global merge variables to use for all recipients. You can override these per recipient.
      *         - global_merge_vars[] struct a single global merge variable
@@ -104,6 +105,7 @@ class Mandrill_Messages {
      *     - bcc_address string an optional address to receive an exact copy of each recipient's email
      *     - tracking_domain string a custom domain to use for tracking opens and clicks instead of mandrillapp.com
      *     - signing_domain string a custom domain to use for SPF/DKIM signing instead of mandrill (for "via" or "on behalf of" in email clients)
+     *     - return_path_domain string a custom domain to use for the messages's return-path
      *     - merge boolean whether to evaluate merge tags in the message. Will automatically be set to true if either merge_vars or global_merge_vars are provided.
      *     - global_merge_vars array global merge variables to use for all recipients. You can override these per recipient.
      *         - global_merge_vars[] struct a single global merge variable
@@ -303,6 +305,7 @@ class Mandrill_Messages {
      * @param boolean $async enable a background sending mode that is optimized for bulk sending. In async mode, messages/sendRaw will immediately return a status of "queued" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with no more than 10 recipients; messages with more than 10 recipients are always sent asynchronously, regardless of the value of async.
      * @param string $ip_pool the name of the dedicated ip pool that should be used to send the message. If you do not have any dedicated IPs, this parameter has no effect. If you specify a pool that does not exist, your default pool will be used instead.
      * @param string $send_at when this message should be sent as a UTC timestamp in YYYY-MM-DD HH:MM:SS format. If you specify a time in the past, the message will be sent immediately.
+     * @param string $return_path_domain a custom domain to use for the messages's return-path
      * @return array of structs for each recipient containing the key "email" with the email address and "status" as either "sent", "queued", or "rejected"
      *     - return[] struct the sending results for a single recipient
      *         - email string the email address of the recipient
@@ -310,8 +313,8 @@ class Mandrill_Messages {
      *         - reject_reason string the reason for the rejection if the recipient status is "rejected"
      *         - _id string the message's unique id
      */
-    public function sendRaw($raw_message, $from_email=null, $from_name=null, $to=null, $async=false, $ip_pool=null, $send_at=null) {
-        $_params = array("raw_message" => $raw_message, "from_email" => $from_email, "from_name" => $from_name, "to" => $to, "async" => $async, "ip_pool" => $ip_pool, "send_at" => $send_at);
+    public function sendRaw($raw_message, $from_email=null, $from_name=null, $to=null, $async=false, $ip_pool=null, $send_at=null, $return_path_domain=null) {
+        $_params = array("raw_message" => $raw_message, "from_email" => $from_email, "from_name" => $from_name, "to" => $to, "async" => $async, "ip_pool" => $ip_pool, "send_at" => $send_at, "return_path_domain" => $return_path_domain);
         return $this->master->call('messages/send-raw', $_params);
     }
 
