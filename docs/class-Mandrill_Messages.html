@@ -7,7 +7,7 @@
 	<title>Class Mandrill_Messages</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?769092232"></script>
+	<script type="text/javascript" src="elementlist.js?3113476722"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -41,6 +41,7 @@
 				<li class="active"><a href="class-Mandrill_Messages.html">Mandrill_Messages</a></li>
 				<li><a href="class-Mandrill_Rejects.html">Mandrill_Rejects</a></li>
 				<li><a href="class-Mandrill_Senders.html">Mandrill_Senders</a></li>
+				<li><a href="class-Mandrill_Subaccounts.html">Mandrill_Subaccounts</a></li>
 				<li><a href="class-Mandrill_Tags.html">Mandrill_Tags</a></li>
 				<li><a href="class-Mandrill_Templates.html">Mandrill_Templates</a></li>
 				<li><a href="class-Mandrill_Urls.html">Mandrill_Urls</a></li>
@@ -65,6 +66,7 @@
 				<li><a href="class-Mandrill_Unknown_InboundDomain.html">Mandrill_Unknown_InboundDomain</a></li>
 				<li><a href="class-Mandrill_Unknown_Message.html">Mandrill_Unknown_Message</a></li>
 				<li><a href="class-Mandrill_Unknown_Sender.html">Mandrill_Unknown_Sender</a></li>
+				<li><a href="class-Mandrill_Unknown_Subaccount.html">Mandrill_Unknown_Subaccount</a></li>
 				<li><a href="class-Mandrill_Unknown_Template.html">Mandrill_Unknown_Template</a></li>
 				<li><a href="class-Mandrill_Unknown_Url.html">Mandrill_Unknown_Url</a></li>
 				<li><a href="class-Mandrill_Unknown_Webhook.html">Mandrill_Unknown_Webhook</a></li>
@@ -126,7 +128,7 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-Mandrill_Messages.html#3-371" title="Go to source code">Mandrill/Messages.php</a><br />
+		<b>Located at</b> <a href="source-class-Mandrill_Messages.html#3-373" title="Go to source code">Mandrill/Messages.php</a><br />
 	</div>
 
 
@@ -173,7 +175,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_send">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#8-77" title="Go to source code">send</a>( <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$send_at</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#8-78" title="Go to source code">send</a>( <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$send_at</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -231,30 +233,31 @@ with. Stats are accumulated using tags, though we only store the first 100 we
 see, so this should not be unique or change frequently. Tags should be 50
 characters or less. Any tags starting with an underscore are reserved for
 internal use and will cause errors. - tags[] string a single tag - must not
-start with an underscore - google_analytics_domains array an array of strings
-indicating for which any matching URLs will automatically have Google Analytics
-parameters appended to their query string automatically. -
-google_analytics_campaign array|string optional string indicating the value to
-set for the utm_campaign tracking parameter. If this isn't provided the email's
-from address will be used instead. - metadata array metadata an associative
-array of user metadata. Mandrill will store this metadata and make it available
-for retrieval. In addition, you can select up to 10 metadata fields to index and
-make searchable using the Mandrill search api. - recipient_metadata array
-Per-recipient metadata that will override the global values specified in the
-metadata parameter. - recipient_metadata[] struct metadata for a single
-recipient - rcpt string the email address of the recipient that the metadata is
-associated with - values array an associated array containing the recipient's
-unique metadata. If a key exists in both the per-recipient metadata and the
-global metadata, the per-recipient metadata will be used. - attachments array an
-array of supported attachments to add to the message - attachments[] struct a
-single supported attachment - type string the MIME type of the attachment - name
-string the file name of the attachment - content string the content of the
-attachment as a base64-encoded string - images array an array of embedded images
-to add to the message - images[] struct a single embedded image - type string
-the MIME type of the image - must start with "image/" - name string the Content
-ID of the image - use &lt;img src="cid:THIS_VALUE"&gt; to reference the image in
-your HTML content - content string the content of the image as a base64-encoded
-string</dd>
+start with an underscore - subaccount string the unique id of a subaccount for
+this message - must already exist or will fail with an error -
+google_analytics_domains array an array of strings indicating for which any
+matching URLs will automatically have Google Analytics parameters appended to
+their query string automatically. - google_analytics_campaign array|string
+optional string indicating the value to set for the utm_campaign tracking
+parameter. If this isn't provided the email's from address will be used instead.
+- metadata array metadata an associative array of user metadata. Mandrill will
+store this metadata and make it available for retrieval. In addition, you can
+select up to 10 metadata fields to index and make searchable using the Mandrill
+search api. - recipient_metadata array Per-recipient metadata that will override
+the global values specified in the metadata parameter. - recipient_metadata[]
+struct metadata for a single recipient - rcpt string the email address of the
+recipient that the metadata is associated with - values array an associated
+array containing the recipient's unique metadata. If a key exists in both the
+per-recipient metadata and the global metadata, the per-recipient metadata will
+be used. - attachments array an array of supported attachments to add to the
+message - attachments[] struct a single supported attachment - type string the
+MIME type of the attachment - name string the file name of the attachment -
+content string the content of the attachment as a base64-encoded string - images
+array an array of embedded images to add to the message - images[] struct a
+single embedded image - type string the MIME type of the image - must start with
+"image/" - name string the Content ID of the image - use &lt;img
+src="cid:THIS_VALUE"&gt; to reference the image in your HTML content - content
+string the content of the image as a base64-encoded string</dd>
 					<dt><var>$async</var></dt>
 					<dd><code>boolean</code><br>$async enable a background sending mode that is optimized for bulk sending. In
 async mode, messages/send will immediately return a status of "queued" for every
@@ -301,7 +304,7 @@ message's unique id<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendTemplate">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#79-153" title="Go to source code">sendTemplate</a>( <span>string <var>$template_name</var></span>, <span>array <var>$template_content</var></span>, <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$send_at</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#80-155" title="Go to source code">sendTemplate</a>( <span>string <var>$template_name</var></span>, <span>array <var>$template_content</var></span>, <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$send_at</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -371,30 +374,31 @@ with. Stats are accumulated using tags, though we only store the first 100 we
 see, so this should not be unique or change frequently. Tags should be 50
 characters or less. Any tags starting with an underscore are reserved for
 internal use and will cause errors. - tags[] string a single tag - must not
-start with an underscore - google_analytics_domains array an array of strings
-indicating for which any matching URLs will automatically have Google Analytics
-parameters appended to their query string automatically. -
-google_analytics_campaign array|string optional string indicating the value to
-set for the utm_campaign tracking parameter. If this isn't provided the email's
-from address will be used instead. - metadata array metadata an associative
-array of user metadata. Mandrill will store this metadata and make it available
-for retrieval. In addition, you can select up to 10 metadata fields to index and
-make searchable using the Mandrill search api. - recipient_metadata array
-Per-recipient metadata that will override the global values specified in the
-metadata parameter. - recipient_metadata[] struct metadata for a single
-recipient - rcpt string the email address of the recipient that the metadata is
-associated with - values array an associated array containing the recipient's
-unique metadata. If a key exists in both the per-recipient metadata and the
-global metadata, the per-recipient metadata will be used. - attachments array an
-array of supported attachments to add to the message - attachments[] struct a
-single supported attachment - type string the MIME type of the attachment - name
-string the file name of the attachment - content string the content of the
-attachment as a base64-encoded string - images array an array of embedded images
-to add to the message - images[] struct a single embedded image - type string
-the MIME type of the image - must start with "image/" - name string the Content
-ID of the image - use &lt;img src="cid:THIS_VALUE"&gt; to reference the image in
-your HTML content - content string the content of the image as a base64-encoded
-string</dd>
+start with an underscore - subaccount string the unique id of a subaccount for
+this message - must already exist or will fail with an error -
+google_analytics_domains array an array of strings indicating for which any
+matching URLs will automatically have Google Analytics parameters appended to
+their query string automatically. - google_analytics_campaign array|string
+optional string indicating the value to set for the utm_campaign tracking
+parameter. If this isn't provided the email's from address will be used instead.
+- metadata array metadata an associative array of user metadata. Mandrill will
+store this metadata and make it available for retrieval. In addition, you can
+select up to 10 metadata fields to index and make searchable using the Mandrill
+search api. - recipient_metadata array Per-recipient metadata that will override
+the global values specified in the metadata parameter. - recipient_metadata[]
+struct metadata for a single recipient - rcpt string the email address of the
+recipient that the metadata is associated with - values array an associated
+array containing the recipient's unique metadata. If a key exists in both the
+per-recipient metadata and the global metadata, the per-recipient metadata will
+be used. - attachments array an array of supported attachments to add to the
+message - attachments[] struct a single supported attachment - type string the
+MIME type of the attachment - name string the file name of the attachment -
+content string the content of the attachment as a base64-encoded string - images
+array an array of embedded images to add to the message - images[] struct a
+single embedded image - type string the MIME type of the image - must start with
+"image/" - name string the Content ID of the image - use &lt;img
+src="cid:THIS_VALUE"&gt; to reference the image in your HTML content - content
+string the content of the image as a base64-encoded string</dd>
 					<dt><var>$async</var></dt>
 					<dd><code>boolean</code><br>$async enable a background sending mode that is optimized for bulk sending. In
 async mode, messages/send will immediately return a status of "queued" for every
@@ -441,7 +445,7 @@ message's unique id<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_search">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#155-199" title="Go to source code">search</a>( <span>string <var>$query</var> = <span class="php-quote">'*'</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$limit</var> = <span class="php-num">100</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#157-201" title="Go to source code">search</a>( <span>string <var>$query</var> = <span class="php-quote">'*'</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$limit</var> = <span class="php-num">100</span></span> )</code>
 
 		<div class="description short">
 			
@@ -521,7 +525,7 @@ result of this event - diag string the SMTP response from the recipient's server
 
 		<td class="name"><div>
 		<a class="anchor" href="#_searchTimeSeries">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#201-225" title="Go to source code">searchTimeSeries</a>( <span>string <var>$query</var> = <span class="php-quote">'*'</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#203-227" title="Go to source code">searchTimeSeries</a>( <span>string <var>$query</var> = <span class="php-quote">'*'</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -586,7 +590,7 @@ unique clicks generated by messages sent during the hour<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_info">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#227-265" title="Go to source code">info</a>( <span>string <var>$id</var></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#229-267" title="Go to source code">info</a>( <span>string <var>$id</var></span> )</code>
 
 		<div class="description short">
 			
@@ -652,7 +656,7 @@ recipient's server<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parse">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#267-296" title="Go to source code">parse</a>( <span>string <var>$raw_message</var></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#269-298" title="Go to source code">parse</a>( <span>string <var>$raw_message</var></span> )</code>
 
 		<div class="description short">
 			
@@ -712,7 +716,7 @@ the image - content string the content of the image as a base64 encoded string<b
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendRaw">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#298-319" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>string|null <var>$from_email</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$from_name</var> = <span class="php-keyword1">null</span></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$send_at</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$return_path_domain</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#300-321" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>string|null <var>$from_email</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$from_name</var> = <span class="php-keyword1">null</span></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$send_at</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$return_path_domain</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -788,7 +792,7 @@ message's unique id<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_listScheduled">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#321-336" title="Go to source code">listScheduled</a>( <span>string <var>$to</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#323-338" title="Go to source code">listScheduled</a>( <span>string <var>$to</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -835,7 +839,7 @@ subject string the email's subject<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_cancelScheduled">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#338-352" title="Go to source code">cancelScheduled</a>( <span>string <var>$id</var></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#340-354" title="Go to source code">cancelScheduled</a>( <span>string <var>$id</var></span> )</code>
 
 		<div class="description short">
 			
@@ -883,7 +887,7 @@ email's subject<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_reschedule">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#354-369" title="Go to source code">reschedule</a>( <span>string <var>$id</var></span>, <span>string <var>$send_at</var></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#356-371" title="Go to source code">reschedule</a>( <span>string <var>$id</var></span>, <span>string <var>$send_at</var></span> )</code>
 
 		<div class="description short">
 			

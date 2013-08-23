@@ -7,7 +7,7 @@
 	<title>Class Mandrill</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?769092232"></script>
+	<script type="text/javascript" src="elementlist.js?3113476722"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -41,6 +41,7 @@
 				<li><a href="class-Mandrill_Messages.html">Mandrill_Messages</a></li>
 				<li><a href="class-Mandrill_Rejects.html">Mandrill_Rejects</a></li>
 				<li><a href="class-Mandrill_Senders.html">Mandrill_Senders</a></li>
+				<li><a href="class-Mandrill_Subaccounts.html">Mandrill_Subaccounts</a></li>
 				<li><a href="class-Mandrill_Tags.html">Mandrill_Tags</a></li>
 				<li><a href="class-Mandrill_Templates.html">Mandrill_Templates</a></li>
 				<li><a href="class-Mandrill_Urls.html">Mandrill_Urls</a></li>
@@ -65,6 +66,7 @@
 				<li><a href="class-Mandrill_Unknown_InboundDomain.html">Mandrill_Unknown_InboundDomain</a></li>
 				<li><a href="class-Mandrill_Unknown_Message.html">Mandrill_Unknown_Message</a></li>
 				<li><a href="class-Mandrill_Unknown_Sender.html">Mandrill_Unknown_Sender</a></li>
+				<li><a href="class-Mandrill_Unknown_Subaccount.html">Mandrill_Unknown_Subaccount</a></li>
 				<li><a href="class-Mandrill_Unknown_Template.html">Mandrill_Unknown_Template</a></li>
 				<li><a href="class-Mandrill_Unknown_Url.html">Mandrill_Unknown_Url</a></li>
 				<li><a href="class-Mandrill_Unknown_Webhook.html">Mandrill_Unknown_Webhook</a></li>
@@ -126,7 +128,7 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-Mandrill.html#17-138" title="Go to source code">Mandrill.php</a><br />
+		<b>Located at</b> <a href="source-class-Mandrill.html#18-141" title="Go to source code">Mandrill.php</a><br />
 	</div>
 
 
@@ -144,7 +146,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Mandrill.html#41-70" title="Go to source code">__construct</a>( <span>mixed <var>$apikey</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill.html#43-73" title="Go to source code">__construct</a>( <span>mixed <var>$apikey</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -173,7 +175,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___destruct">#</a>
-		<code><a href="source-class-Mandrill.html#72-74" title="Go to source code">__destruct</a>( )</code>
+		<code><a href="source-class-Mandrill.html#75-77" title="Go to source code">__destruct</a>( )</code>
 
 		<div class="description short">
 			
@@ -202,7 +204,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_call">#</a>
-		<code><a href="source-class-Mandrill.html#76-115" title="Go to source code">call</a>( <span>mixed <var>$url</var></span>, <span>mixed <var>$params</var></span> )</code>
+		<code><a href="source-class-Mandrill.html#79-118" title="Go to source code">call</a>( <span>mixed <var>$url</var></span>, <span>mixed <var>$params</var></span> )</code>
 
 		<div class="description short">
 			
@@ -231,7 +233,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_readConfigs">#</a>
-		<code><a href="source-class-Mandrill.html#117-126" title="Go to source code">readConfigs</a>( )</code>
+		<code><a href="source-class-Mandrill.html#120-129" title="Go to source code">readConfigs</a>( )</code>
 
 		<div class="description short">
 			
@@ -260,7 +262,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_castError">#</a>
-		<code><a href="source-class-Mandrill.html#128-133" title="Go to source code">castError</a>( <span>mixed <var>$result</var></span> )</code>
+		<code><a href="source-class-Mandrill.html#131-136" title="Go to source code">castError</a>( <span>mixed <var>$result</var></span> )</code>
 
 		<div class="description short">
 			
@@ -289,7 +291,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_log">#</a>
-		<code><a href="source-class-Mandrill.html#135-137" title="Go to source code">log</a>( <span>mixed <var>$msg</var></span> )</code>
+		<code><a href="source-class-Mandrill.html#138-140" title="Go to source code">log</a>( <span>mixed <var>$msg</var></span> )</code>
 
 		<div class="description short">
 			
@@ -329,7 +331,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Mandrill.html#19" title="Go to source code"><var>$apikey</var></a>
+				<a href="source-class-Mandrill.html#20" title="Go to source code"><var>$apikey</var></a>
 		</td>
 		<td class="value"><code></code></td>
 		<td class="description"><div>
@@ -352,7 +354,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Mandrill.html#20" title="Go to source code"><var>$ch</var></a>
+				<a href="source-class-Mandrill.html#21" title="Go to source code"><var>$ch</var></a>
 		</td>
 		<td class="value"><code></code></td>
 		<td class="description"><div>
@@ -375,7 +377,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Mandrill.html#21" title="Go to source code"><var>$root</var></a>
+				<a href="source-class-Mandrill.html#22" title="Go to source code"><var>$root</var></a>
 		</td>
 		<td class="value"><code><span class="php-quote">'https://mandrillapp.com/api/1.0'</span></code></td>
 		<td class="description"><div>
@@ -398,7 +400,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Mandrill.html#22" title="Go to source code"><var>$debug</var></a>
+				<a href="source-class-Mandrill.html#23" title="Go to source code"><var>$debug</var></a>
 		</td>
 		<td class="value"><code><span class="php-keyword1">false</span></code></td>
 		<td class="description"><div>
@@ -421,12 +423,13 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Mandrill.html#24-39" title="Go to source code"><var>$error_map</var></a>
+				<a href="source-class-Mandrill.html#25-41" title="Go to source code"><var>$error_map</var></a>
 		</td>
 		<td class="value"><code><span class="php-keyword1">array</span>(
     <span class="php-quote">&quot;ValidationError&quot;</span> =&gt; <span class="php-quote">&quot;Mandrill_ValidationError&quot;</span>,
     <span class="php-quote">&quot;Invalid_Key&quot;</span> =&gt; <span class="php-quote">&quot;Mandrill_Invalid_Key&quot;</span>,
     <span class="php-quote">&quot;PaymentRequired&quot;</span> =&gt; <span class="php-quote">&quot;Mandrill_PaymentRequired&quot;</span>,
+    <span class="php-quote">&quot;Unknown_Subaccount&quot;</span> =&gt; <span class="php-quote">&quot;Mandrill_Unknown_Subaccount&quot;</span>,
     <span class="php-quote">&quot;Unknown_Template&quot;</span> =&gt; <span class="php-quote">&quot;Mandrill_Unknown_Template&quot;</span>,
     <span class="php-quote">&quot;ServiceUnavailable&quot;</span> =&gt; <span class="php-quote">&quot;Mandrill_ServiceUnavailable&quot;</span>,
     <span class="php-quote">&quot;Unknown_Message&quot;</span> =&gt; <span class="php-quote">&quot;Mandrill_Unknown_Message&quot;</span>,

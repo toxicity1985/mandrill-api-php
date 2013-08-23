@@ -9,6 +9,7 @@ require_once 'Mandrill/Tags.php';
 require_once 'Mandrill/Messages.php';
 require_once 'Mandrill/Whitelists.php';
 require_once 'Mandrill/Internal.php';
+require_once 'Mandrill/Subaccounts.php';
 require_once 'Mandrill/Urls.php';
 require_once 'Mandrill/Webhooks.php';
 require_once 'Mandrill/Senders.php';
@@ -25,6 +26,7 @@ class Mandrill {
         "ValidationError" => "Mandrill_ValidationError",
         "Invalid_Key" => "Mandrill_Invalid_Key",
         "PaymentRequired" => "Mandrill_PaymentRequired",
+        "Unknown_Subaccount" => "Mandrill_Unknown_Subaccount",
         "Unknown_Template" => "Mandrill_Unknown_Template",
         "ServiceUnavailable" => "Mandrill_ServiceUnavailable",
         "Unknown_Message" => "Mandrill_Unknown_Message",
@@ -45,7 +47,7 @@ class Mandrill {
         $this->apikey = $apikey;
 
         $this->ch = curl_init();
-        curl_setopt($this->ch, CURLOPT_USERAGENT, 'Mandrill-PHP/1.0.43');
+        curl_setopt($this->ch, CURLOPT_USERAGENT, 'Mandrill-PHP/1.0.44');
         curl_setopt($this->ch, CURLOPT_POST, true);
         curl_setopt($this->ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($this->ch, CURLOPT_HEADER, false);
@@ -64,6 +66,7 @@ class Mandrill {
         $this->messages = new Mandrill_Messages($this);
         $this->whitelists = new Mandrill_Whitelists($this);
         $this->internal = new Mandrill_Internal($this);
+        $this->subaccounts = new Mandrill_Subaccounts($this);
         $this->urls = new Mandrill_Urls($this);
         $this->webhooks = new Mandrill_Webhooks($this);
         $this->senders = new Mandrill_Senders($this);

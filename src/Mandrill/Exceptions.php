@@ -19,6 +19,11 @@ class Mandrill_Invalid_Key extends Mandrill_Error {}
 class Mandrill_PaymentRequired extends Mandrill_Error {}
 
 /**
+ * The provided subaccount id does not exist.
+ */
+class Mandrill_Unknown_Subaccount extends Mandrill_Error {}
+
+/**
  * The requested template does not exist
  */
 class Mandrill_Unknown_Template extends Mandrill_Error {}
