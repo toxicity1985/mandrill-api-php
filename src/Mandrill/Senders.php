@@ -33,10 +33,87 @@ class Mandrill_Senders {
      *     - return[] struct the information on each sending domain for the account
      *         - domain string the sender domain name
      *         - created_at string the date and time that the sending domain was first seen as a UTC string in YYYY-MM-DD HH:MM:SS format
+     *         - last_tested_at string when the domain's DNS settings were last tested as a UTC string in YYYY-MM-DD HH:MM:SS format
+     *         - spf struct details about the domain's SPF record
+     *             - valid boolean whether the domain's SPF record is valid for use with Mandrill
+     *             - valid_after string when the domain's SPF record will be considered valid for use with Mandrill as a UTC string in YYYY-MM-DD HH:MM:SS format. If set, this indicates that the record is valid now, but was previously invalid, and Mandrill will wait until the record's TTL elapses to start using it.
+     *             - error string an error describing the spf record, or null if the record is correct
+     *         - dkim struct details about the domain's DKIM record
+     *             - valid boolean whether the domain's DKIM record is valid for use with Mandrill
+     *             - valid_after string when the domain's DKIM record will be considered valid for use with Mandrill as a UTC string in YYYY-MM-DD HH:MM:SS format. If set, this indicates that the record is valid now, but was previously invalid, and Mandrill will wait until the record's TTL elapses to start using it.
+     *             - error string an error describing the DKIM record, or null if the record is correct
+     *         - verified_at string if the domain has been verified, this indicates when that verification occurred as a UTC string in YYYY-MM-DD HH:MM:SS format
+     *         - valid_signing boolean whether this domain can be used to authenticate mail, either for itself or as a custom signing domain. If this is false but spf and dkim are both valid, you will need to verify the domain before using it to authenticate mail
      */
     public function domains() {
         $_params = array();
         return $this->master->call('senders/domains', $_params);
+    }
+
+    /**
+     * Adds a sender domain to your account. Sender domains are added automatically as you
+send, but you can use this call to add them ahead of time.
+     * @param string $domain a domain name
+     * @return struct information about the domain
+     *     - domain string the sender domain name
+     *     - created_at string the date and time that the sending domain was first seen as a UTC string in YYYY-MM-DD HH:MM:SS format
+     *     - last_tested_at string when the domain's DNS settings were last tested as a UTC string in YYYY-MM-DD HH:MM:SS format
+     *     - spf struct details about the domain's SPF record
+     *         - valid boolean whether the domain's SPF record is valid for use with Mandrill
+     *         - valid_after string when the domain's SPF record will be considered valid for use with Mandrill as a UTC string in YYYY-MM-DD HH:MM:SS format. If set, this indicates that the record is valid now, but was previously invalid, and Mandrill will wait until the record's TTL elapses to start using it.
+     *         - error string an error describing the spf record, or null if the record is correct
+     *     - dkim struct details about the domain's DKIM record
+     *         - valid boolean whether the domain's DKIM record is valid for use with Mandrill
+     *         - valid_after string when the domain's DKIM record will be considered valid for use with Mandrill as a UTC string in YYYY-MM-DD HH:MM:SS format. If set, this indicates that the record is valid now, but was previously invalid, and Mandrill will wait until the record's TTL elapses to start using it.
+     *         - error string an error describing the DKIM record, or null if the record is correct
+     *     - verified_at string if the domain has been verified, this indicates when that verification occurred as a UTC string in YYYY-MM-DD HH:MM:SS format
+     *     - valid_signing boolean whether this domain can be used to authenticate mail, either for itself or as a custom signing domain. If this is false but spf and dkim are both valid, you will need to verify the domain before using it to authenticate mail
+     */
+    public function addDomain($domain) {
+        $_params = array("domain" => $domain);
+        return $this->master->call('senders/add-domain', $_params);
+    }
+
+    /**
+     * Checks the SPF and DKIM settings for a domain. If you haven't already added this domain to your
+account, it will be added automatically.
+     * @param string $domain a domain name
+     * @return struct information about the sender domain
+     *     - domain string the sender domain name
+     *     - created_at string the date and time that the sending domain was first seen as a UTC string in YYYY-MM-DD HH:MM:SS format
+     *     - last_tested_at string when the domain's DNS settings were last tested as a UTC string in YYYY-MM-DD HH:MM:SS format
+     *     - spf struct details about the domain's SPF record
+     *         - valid boolean whether the domain's SPF record is valid for use with Mandrill
+     *         - valid_after string when the domain's SPF record will be considered valid for use with Mandrill as a UTC string in YYYY-MM-DD HH:MM:SS format. If set, this indicates that the record is valid now, but was previously invalid, and Mandrill will wait until the record's TTL elapses to start using it.
+     *         - error string an error describing the spf record, or null if the record is correct
+     *     - dkim struct details about the domain's DKIM record
+     *         - valid boolean whether the domain's DKIM record is valid for use with Mandrill
+     *         - valid_after string when the domain's DKIM record will be considered valid for use with Mandrill as a UTC string in YYYY-MM-DD HH:MM:SS format. If set, this indicates that the record is valid now, but was previously invalid, and Mandrill will wait until the record's TTL elapses to start using it.
+     *         - error string an error describing the DKIM record, or null if the record is correct
+     *     - verified_at string if the domain has been verified, this indicates when that verification occurred as a UTC string in YYYY-MM-DD HH:MM:SS format
+     *     - valid_signing boolean whether this domain can be used to authenticate mail, either for itself or as a custom signing domain. If this is false but spf and dkim are both valid, you will need to verify the domain before using it to authenticate mail
+     */
+    public function checkDomain($domain) {
+        $_params = array("domain" => $domain);
+        return $this->master->call('senders/check-domain', $_params);
+    }
+
+    /**
+     * Sends a verification email in order to verify ownership of a domain.
+Domain verification is an optional step to confirm ownership of a domain. Once a
+domain has been verified in a Mandrill account, other accounts may not have their
+messages signed by that domain unless they also verify the domain. This prevents
+other Mandrill accounts from sending mail signed by your domain.
+     * @param string $domain a domain name at which you can receive email
+     * @param string $mailbox a mailbox at the domain where the verification email should be sent
+     * @return struct information about the verification that was sent
+     *     - status string "sent" indicates that the verification has been sent, "already_verified" indicates that the domain has already been verified with your account
+     *     - domain string the domain name you provided
+     *     - email string the email address the verification email was sent to
+     */
+    public function verifyDomain($domain, $mailbox) {
+        $_params = array("domain" => $domain, "mailbox" => $mailbox);
+        return $this->master->call('senders/verify-domain', $_params);
     }
 
     /**

@@ -128,7 +128,7 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-Mandrill_Senders.html#3-139" title="Go to source code">Mandrill/Senders.php</a><br />
+		<b>Located at</b> <a href="source-class-Mandrill_Senders.html#3-216" title="Go to source code">Mandrill/Senders.php</a><br />
 	</div>
 
 
@@ -226,7 +226,7 @@ integer the number of unique clicks for emails sent for this sender<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_domains">#</a>
-		<code><a href="source-class-Mandrill_Senders.html#30-40" title="Go to source code">domains</a>( )</code>
+		<code><a href="source-class-Mandrill_Senders.html#30-51" title="Go to source code">domains</a>( )</code>
 
 		<div class="description short">
 			
@@ -246,7 +246,215 @@ integer the number of unique clicks for emails sent for this sender<br />
 					<code>array</code><br>an array of sender domain data, one for each sending domain used by the account
 - return[] struct the information on each sending domain for the account -
 domain string the sender domain name - created_at string the date and time that
-the sending domain was first seen as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
+the sending domain was first seen as a UTC string in YYYY-MM-DD HH:MM:SS format
+- last_tested_at string when the domain's DNS settings were last tested as a UTC
+string in YYYY-MM-DD HH:MM:SS format - spf struct details about the domain's SPF
+record - valid boolean whether the domain's SPF record is valid for use with
+Mandrill - valid_after string when the domain's SPF record will be considered
+valid for use with Mandrill as a UTC string in YYYY-MM-DD HH:MM:SS format. If
+set, this indicates that the record is valid now, but was previously invalid,
+and Mandrill will wait until the record's TTL elapses to start using it. - error
+string an error describing the spf record, or null if the record is correct -
+dkim struct details about the domain's DKIM record - valid boolean whether the
+domain's DKIM record is valid for use with Mandrill - valid_after string when
+the domain's DKIM record will be considered valid for use with Mandrill as a UTC
+string in YYYY-MM-DD HH:MM:SS format. If set, this indicates that the record is
+valid now, but was previously invalid, and Mandrill will wait until the record's
+TTL elapses to start using it. - error string an error describing the DKIM
+record, or null if the record is correct - verified_at string if the domain has
+been verified, this indicates when that verification occurred as a UTC string in
+YYYY-MM-DD HH:MM:SS format - valid_signing boolean whether this domain can be
+used to authenticate mail, either for itself or as a custom signing domain. If
+this is false but spf and dkim are both valid, you will need to verify the
+domain before using it to authenticate mail<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addDomain" id="_addDomain">
+
+		<td class="attributes"><code>
+			 public 
+			struct
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addDomain">#</a>
+		<code><a href="source-class-Mandrill_Senders.html#53-75" title="Go to source code">addDomain</a>( <span>string <var>$domain</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Adds a sender domain to your account. Sender domains are added automatically
+as you send, but you can use this call to add them ahead of time.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Adds a sender domain to your account. Sender domains are added automatically
+as you send, but you can use this call to add them ahead of time.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$domain</var></dt>
+					<dd><code>string</code><br>$domain a domain name</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>struct</code><br>information about the domain - domain string the sender domain name - created_at
+string the date and time that the sending domain was first seen as a UTC string
+in YYYY-MM-DD HH:MM:SS format - last_tested_at string when the domain's DNS
+settings were last tested as a UTC string in YYYY-MM-DD HH:MM:SS format - spf
+struct details about the domain's SPF record - valid boolean whether the
+domain's SPF record is valid for use with Mandrill - valid_after string when the
+domain's SPF record will be considered valid for use with Mandrill as a UTC
+string in YYYY-MM-DD HH:MM:SS format. If set, this indicates that the record is
+valid now, but was previously invalid, and Mandrill will wait until the record's
+TTL elapses to start using it. - error string an error describing the spf
+record, or null if the record is correct - dkim struct details about the
+domain's DKIM record - valid boolean whether the domain's DKIM record is valid
+for use with Mandrill - valid_after string when the domain's DKIM record will be
+considered valid for use with Mandrill as a UTC string in YYYY-MM-DD HH:MM:SS
+format. If set, this indicates that the record is valid now, but was previously
+invalid, and Mandrill will wait until the record's TTL elapses to start using
+it. - error string an error describing the DKIM record, or null if the record is
+correct - verified_at string if the domain has been verified, this indicates
+when that verification occurred as a UTC string in YYYY-MM-DD HH:MM:SS format -
+valid_signing boolean whether this domain can be used to authenticate mail,
+either for itself or as a custom signing domain. If this is false but spf and
+dkim are both valid, you will need to verify the domain before using it to
+authenticate mail<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="checkDomain" id="_checkDomain">
+
+		<td class="attributes"><code>
+			 public 
+			struct
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_checkDomain">#</a>
+		<code><a href="source-class-Mandrill_Senders.html#77-99" title="Go to source code">checkDomain</a>( <span>string <var>$domain</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Checks the SPF and DKIM settings for a domain. If you haven't already added
+this domain to your account, it will be added automatically.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Checks the SPF and DKIM settings for a domain. If you haven't already added
+this domain to your account, it will be added automatically.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$domain</var></dt>
+					<dd><code>string</code><br>$domain a domain name</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>struct</code><br>information about the sender domain - domain string the sender domain name -
+created_at string the date and time that the sending domain was first seen as a
+UTC string in YYYY-MM-DD HH:MM:SS format - last_tested_at string when the
+domain's DNS settings were last tested as a UTC string in YYYY-MM-DD HH:MM:SS
+format - spf struct details about the domain's SPF record - valid boolean
+whether the domain's SPF record is valid for use with Mandrill - valid_after
+string when the domain's SPF record will be considered valid for use with
+Mandrill as a UTC string in YYYY-MM-DD HH:MM:SS format. If set, this indicates
+that the record is valid now, but was previously invalid, and Mandrill will wait
+until the record's TTL elapses to start using it. - error string an error
+describing the spf record, or null if the record is correct - dkim struct
+details about the domain's DKIM record - valid boolean whether the domain's DKIM
+record is valid for use with Mandrill - valid_after string when the domain's
+DKIM record will be considered valid for use with Mandrill as a UTC string in
+YYYY-MM-DD HH:MM:SS format. If set, this indicates that the record is valid now,
+but was previously invalid, and Mandrill will wait until the record's TTL
+elapses to start using it. - error string an error describing the DKIM record,
+or null if the record is correct - verified_at string if the domain has been
+verified, this indicates when that verification occurred as a UTC string in
+YYYY-MM-DD HH:MM:SS format - valid_signing boolean whether this domain can be
+used to authenticate mail, either for itself or as a custom signing domain. If
+this is false but spf and dkim are both valid, you will need to verify the
+domain before using it to authenticate mail<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="verifyDomain" id="_verifyDomain">
+
+		<td class="attributes"><code>
+			 public 
+			struct
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_verifyDomain">#</a>
+		<code><a href="source-class-Mandrill_Senders.html#101-117" title="Go to source code">verifyDomain</a>( <span>string <var>$domain</var></span>, <span>string <var>$mailbox</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Sends a verification email in order to verify ownership of a domain. Domain
+verification is an optional step to confirm ownership of a domain. Once a domain
+has been verified in a Mandrill account, other accounts may not have their
+messages signed by that domain unless they also verify the domain. This prevents
+other Mandrill accounts from sending mail signed by your domain.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sends a verification email in order to verify ownership of a domain. Domain
+verification is an optional step to confirm ownership of a domain. Once a domain
+has been verified in a Mandrill account, other accounts may not have their
+messages signed by that domain unless they also verify the domain. This prevents
+other Mandrill accounts from sending mail signed by your domain.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$domain</var></dt>
+					<dd><code>string</code><br>$domain a domain name at which you can receive email</dd>
+					<dt><var>$mailbox</var></dt>
+					<dd><code>string</code><br>$mailbox a mailbox at the domain where the verification email should be sent</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>struct</code><br>information about the verification that was sent - status string "sent"
+indicates that the verification has been sent, "already_verified" indicates that
+the domain has already been verified with your account - domain string the
+domain name you provided - email string the email address the verification email
+was sent to<br />
 				</div>
 
 
@@ -266,7 +474,7 @@ the sending domain was first seen as a UTC string in YYYY-MM-DD HH:MM:SS format<
 
 		<td class="name"><div>
 		<a class="anchor" href="#_info">#</a>
-		<code><a href="source-class-Mandrill_Senders.html#42-116" title="Go to source code">info</a>( <span>string <var>$address</var></span> )</code>
+		<code><a href="source-class-Mandrill_Senders.html#119-193" title="Go to source code">info</a>( <span>string <var>$address</var></span> )</code>
 
 		<div class="description short">
 			
@@ -383,7 +591,7 @@ number of unique clicks for emails sent for this sender in the last 90 days<br /
 
 		<td class="name"><div>
 		<a class="anchor" href="#_timeSeries">#</a>
-		<code><a href="source-class-Mandrill_Senders.html#118-137" title="Go to source code">timeSeries</a>( <span>string <var>$address</var></span> )</code>
+		<code><a href="source-class-Mandrill_Senders.html#195-214" title="Go to source code">timeSeries</a>( <span>string <var>$address</var></span> )</code>
 
 		<div class="description short">
 			

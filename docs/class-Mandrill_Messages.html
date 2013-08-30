@@ -128,7 +128,7 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-Mandrill_Messages.html#3-373" title="Go to source code">Mandrill/Messages.php</a><br />
+		<b>Located at</b> <a href="source-class-Mandrill_Messages.html#3-376" title="Go to source code">Mandrill/Messages.php</a><br />
 	</div>
 
 
@@ -175,7 +175,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_send">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#8-78" title="Go to source code">send</a>( <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$send_at</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#8-79" title="Go to source code">send</a>( <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$send_at</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -210,9 +210,10 @@ or not to automatically inline all CSS styles provided in the message HTML -
 only for HTML documents less than 256KB in size - url_strip_qs boolean whether
 or not to strip the query string from URLs when aggregating tracked URL data -
 preserve_recipients boolean whether or not to expose all recipients in to "To"
-header for each email - bcc_address string an optional address to receive an
-exact copy of each recipient's email - tracking_domain string a custom domain to
-use for tracking opens and clicks instead of mandrillapp.com - signing_domain
+header for each email - view_content_link boolean set to false to remove content
+logging for sensitive emails - bcc_address string an optional address to receive
+an exact copy of each recipient's email - tracking_domain string a custom domain
+to use for tracking opens and clicks instead of mandrillapp.com - signing_domain
 string a custom domain to use for SPF/DKIM signing instead of mandrill (for
 "via" or "on behalf of" in email clients) - return_path_domain string a custom
 domain to use for the messages's return-path - merge boolean whether to evaluate
@@ -304,7 +305,7 @@ message's unique id<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendTemplate">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#80-155" title="Go to source code">sendTemplate</a>( <span>string <var>$template_name</var></span>, <span>array <var>$template_content</var></span>, <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$send_at</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#81-157" title="Go to source code">sendTemplate</a>( <span>string <var>$template_name</var></span>, <span>array <var>$template_content</var></span>, <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$send_at</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -351,9 +352,10 @@ or not to automatically inline all CSS styles provided in the message HTML -
 only for HTML documents less than 256KB in size - url_strip_qs boolean whether
 or not to strip the query string from URLs when aggregating tracked URL data -
 preserve_recipients boolean whether or not to expose all recipients in to "To"
-header for each email - bcc_address string an optional address to receive an
-exact copy of each recipient's email - tracking_domain string a custom domain to
-use for tracking opens and clicks instead of mandrillapp.com - signing_domain
+header for each email - view_content_link boolean set to false to remove content
+logging for sensitive emails - bcc_address string an optional address to receive
+an exact copy of each recipient's email - tracking_domain string a custom domain
+to use for tracking opens and clicks instead of mandrillapp.com - signing_domain
 string a custom domain to use for SPF/DKIM signing instead of mandrill (for
 "via" or "on behalf of" in email clients) - return_path_domain string a custom
 domain to use for the messages's return-path - merge boolean whether to evaluate
@@ -445,7 +447,7 @@ message's unique id<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_search">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#157-201" title="Go to source code">search</a>( <span>string <var>$query</var> = <span class="php-quote">'*'</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$limit</var> = <span class="php-num">100</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#159-204" title="Go to source code">search</a>( <span>string <var>$query</var> = <span class="php-quote">'*'</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$api_keys</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$limit</var> = <span class="php-num">100</span></span> )</code>
 
 		<div class="description short">
 			
@@ -475,6 +477,9 @@ contain ANY of the tags</dd>
 					<dt><var>$senders</var></dt>
 					<dd><code>array</code><br>$senders an array of sender addresses to narrow the search to, will return
 messages sent by ANY of the senders</dd>
+					<dt><var>$api_keys</var></dt>
+					<dd><code>array</code><br>$api_keys an array of API keys to narrow the search to, will return messages
+sent by ANY of the keys</dd>
 					<dt><var>$limit</var></dt>
 					<dd><code>integer</code><br>$limit the maximum number of results to return, defaults to 100, 1000 is the
 maximum</dd>
@@ -525,7 +530,7 @@ result of this event - diag string the SMTP response from the recipient's server
 
 		<td class="name"><div>
 		<a class="anchor" href="#_searchTimeSeries">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#203-227" title="Go to source code">searchTimeSeries</a>( <span>string <var>$query</var> = <span class="php-quote">'*'</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#206-230" title="Go to source code">searchTimeSeries</a>( <span>string <var>$query</var> = <span class="php-quote">'*'</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -590,7 +595,7 @@ unique clicks generated by messages sent during the hour<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_info">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#229-267" title="Go to source code">info</a>( <span>string <var>$id</var></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#232-270" title="Go to source code">info</a>( <span>string <var>$id</var></span> )</code>
 
 		<div class="description short">
 			
@@ -656,7 +661,7 @@ recipient's server<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parse">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#269-298" title="Go to source code">parse</a>( <span>string <var>$raw_message</var></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#272-301" title="Go to source code">parse</a>( <span>string <var>$raw_message</var></span> )</code>
 
 		<div class="description short">
 			
@@ -716,19 +721,19 @@ the image - content string the content of the image as a base64 encoded string<b
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendRaw">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#300-321" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>string|null <var>$from_email</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$from_name</var> = <span class="php-keyword1">null</span></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$send_at</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$return_path_domain</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#303-324" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>string|null <var>$from_email</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$from_name</var> = <span class="php-keyword1">null</span></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$send_at</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$return_path_domain</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
 <p>Take a raw MIME document for a message, and send it exactly as if it were
-sent over the SMTP protocol</p>
+sent through Mandrill's SMTP servers</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
 <p>Take a raw MIME document for a message, and send it exactly as if it were
-sent over the SMTP protocol</p>
+sent through Mandrill's SMTP servers</p>
 
 
 
@@ -792,7 +797,7 @@ message's unique id<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_listScheduled">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#323-338" title="Go to source code">listScheduled</a>( <span>string <var>$to</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#326-341" title="Go to source code">listScheduled</a>( <span>string <var>$to</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -839,7 +844,7 @@ subject string the email's subject<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_cancelScheduled">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#340-354" title="Go to source code">cancelScheduled</a>( <span>string <var>$id</var></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#343-357" title="Go to source code">cancelScheduled</a>( <span>string <var>$id</var></span> )</code>
 
 		<div class="description short">
 			
@@ -887,7 +892,7 @@ email's subject<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_reschedule">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#356-371" title="Go to source code">reschedule</a>( <span>string <var>$id</var></span>, <span>string <var>$send_at</var></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#359-374" title="Go to source code">reschedule</a>( <span>string <var>$id</var></span>, <span>string <var>$send_at</var></span> )</code>
 
 		<div class="description short">
 			

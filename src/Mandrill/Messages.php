@@ -26,6 +26,7 @@ class Mandrill_Messages {
      *     - inline_css boolean whether or not to automatically inline all CSS styles provided in the message HTML - only for HTML documents less than 256KB in size
      *     - url_strip_qs boolean whether or not to strip the query string from URLs when aggregating tracked URL data
      *     - preserve_recipients boolean whether or not to expose all recipients in to "To" header for each email
+     *     - view_content_link boolean set to false to remove content logging for sensitive emails
      *     - bcc_address string an optional address to receive an exact copy of each recipient's email
      *     - tracking_domain string a custom domain to use for tracking opens and clicks instead of mandrillapp.com
      *     - signing_domain string a custom domain to use for SPF/DKIM signing instead of mandrill (for "via" or "on behalf of" in email clients)
@@ -103,6 +104,7 @@ class Mandrill_Messages {
      *     - inline_css boolean whether or not to automatically inline all CSS styles provided in the message HTML - only for HTML documents less than 256KB in size
      *     - url_strip_qs boolean whether or not to strip the query string from URLs when aggregating tracked URL data
      *     - preserve_recipients boolean whether or not to expose all recipients in to "To" header for each email
+     *     - view_content_link boolean set to false to remove content logging for sensitive emails
      *     - bcc_address string an optional address to receive an exact copy of each recipient's email
      *     - tracking_domain string a custom domain to use for tracking opens and clicks instead of mandrillapp.com
      *     - signing_domain string a custom domain to use for SPF/DKIM signing instead of mandrill (for "via" or "on behalf of" in email clients)
@@ -161,6 +163,7 @@ class Mandrill_Messages {
      * @param string $date_to end date
      * @param array $tags an array of tag names to narrow the search to, will return messages that contain ANY of the tags
      * @param array $senders an array of sender addresses to narrow the search to, will return messages sent by ANY of the senders
+     * @param array $api_keys an array of API keys to narrow the search to, will return messages sent by ANY of the keys
      * @param integer $limit the maximum number of results to return, defaults to 100, 1000 is the maximum
      * @return array of structs for each matching message
      *     - return[] struct the information for a single matching message
@@ -195,8 +198,8 @@ class Mandrill_Messages {
      *             - type string the message's state as a result of this event
      *             - diag string the SMTP response from the recipient's server
      */
-    public function search($query='*', $date_from=null, $date_to=null, $tags=null, $senders=null, $limit=100) {
-        $_params = array("query" => $query, "date_from" => $date_from, "date_to" => $date_to, "tags" => $tags, "senders" => $senders, "limit" => $limit);
+    public function search($query='*', $date_from=null, $date_to=null, $tags=null, $senders=null, $api_keys=null, $limit=100) {
+        $_params = array("query" => $query, "date_from" => $date_from, "date_to" => $date_to, "tags" => $tags, "senders" => $senders, "api_keys" => $api_keys, "limit" => $limit);
         return $this->master->call('messages/search', $_params);
     }
 
@@ -298,7 +301,7 @@ class Mandrill_Messages {
     }
 
     /**
-     * Take a raw MIME document for a message, and send it exactly as if it were sent over the SMTP protocol
+     * Take a raw MIME document for a message, and send it exactly as if it were sent through Mandrill's SMTP servers
      * @param string $raw_message the full MIME document of an email message
      * @param string|null $from_email optionally define the sender address - otherwise we'll use the address found in the provided headers
      * @param string|null $from_name optionally define the sender alias

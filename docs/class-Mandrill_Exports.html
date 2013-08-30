@@ -128,7 +128,7 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-Mandrill_Exports.html#3-108" title="Go to source code">Mandrill/Exports.php</a><br />
+		<b>Located at</b> <a href="source-class-Mandrill_Exports.html#3-110" title="Go to source code">Mandrill/Exports.php</a><br />
 	</div>
 
 
@@ -387,7 +387,7 @@ for the export job's results, if the job is complete<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_activity">#</a>
-		<code><a href="source-class-Mandrill_Exports.html#80-106" title="Go to source code">activity</a>( <span>string <var>$notify_email</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$states</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Exports.html#80-108" title="Go to source code">activity</a>( <span>string <var>$notify_email</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$states</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$api_keys</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -429,6 +429,10 @@ address</dd>
 					<dt><var>$states</var></dt>
 					<dd><code>array</code><br>$states an array of states to narrow the export to; messages with ANY of the
 states will be included - states[] string a message state</dd>
+					<dt><var>$api_keys</var></dt>
+					<dd><code>array</code><br>$api_keys an array of api keys to narrow the export to; messsagse sent with ANY
+of the keys will be included - api_keys[] string an API key associated with your
+account</dd>
 				</dl></div>
 
 				<h4>Returns</h4>

@@ -92,6 +92,8 @@ metadata fields, they will be included in the exported data.
      *     - senders[] string a sender address
      * @param array $states an array of states to narrow the export to; messages with ANY of the states will be included
      *     - states[] string a message state
+     * @param array $api_keys an array of api keys to narrow the export to; messsagse sent with ANY of the keys will be included
+     *     - api_keys[] string an API key associated with your account
      * @return struct information about the activity export job that was started
      *     - id string the unique identifier for this Export. Use this identifier when checking the export job's status
      *     - created_at string the date and time that the export job was created as a UTC string in YYYY-MM-DD HH:MM:SS format
@@ -100,8 +102,8 @@ metadata fields, they will be included in the exported data.
      *     - state string the export job's state
      *     - result_url string the url for the export job's results, if the job is complete
      */
-    public function activity($notify_email=null, $date_from=null, $date_to=null, $tags=null, $senders=null, $states=null) {
-        $_params = array("notify_email" => $notify_email, "date_from" => $date_from, "date_to" => $date_to, "tags" => $tags, "senders" => $senders, "states" => $states);
+    public function activity($notify_email=null, $date_from=null, $date_to=null, $tags=null, $senders=null, $states=null, $api_keys=null) {
+        $_params = array("notify_email" => $notify_email, "date_from" => $date_from, "date_to" => $date_to, "tags" => $tags, "senders" => $senders, "states" => $states, "api_keys" => $api_keys);
         return $this->master->call('exports/activity', $_params);
     }
 
