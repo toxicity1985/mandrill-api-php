@@ -78,4 +78,34 @@ class Mandrill_Unknown_InboundDomain extends Mandrill_Error {}
  */
 class Mandrill_Unknown_Export extends Mandrill_Error {}
 
+/**
+ * A dedicated IP cannot be provisioned while another request is pending.
+ */
+class Mandrill_IP_ProvisionLimit extends Mandrill_Error {}
+
+/**
+ * The provided dedicated IP pool does not exist.
+ */
+class Mandrill_Unknown_Pool extends Mandrill_Error {}
+
+/**
+ * The provided dedicated IP does not exist.
+ */
+class Mandrill_Unknown_IP extends Mandrill_Error {}
+
+/**
+ * You cannot remove the last IP from your default IP pool.
+ */
+class Mandrill_Invalid_EmptyDefaultPool extends Mandrill_Error {}
+
+/**
+ * The default pool cannot be deleted.
+ */
+class Mandrill_Invalid_DeleteDefaultPool extends Mandrill_Error {}
+
+/**
+ * Non-empty pools cannot be deleted.
+ */
+class Mandrill_Invalid_DeleteNonEmptyPool extends Mandrill_Error {}
+
 

@@ -8,6 +8,7 @@ require_once 'Mandrill/Inbound.php';
 require_once 'Mandrill/Tags.php';
 require_once 'Mandrill/Messages.php';
 require_once 'Mandrill/Whitelists.php';
+require_once 'Mandrill/Ips.php';
 require_once 'Mandrill/Internal.php';
 require_once 'Mandrill/Subaccounts.php';
 require_once 'Mandrill/Urls.php';
@@ -37,7 +38,13 @@ class Mandrill {
         "Invalid_Template" => "Mandrill_Invalid_Template",
         "Unknown_Webhook" => "Mandrill_Unknown_Webhook",
         "Unknown_InboundDomain" => "Mandrill_Unknown_InboundDomain",
-        "Unknown_Export" => "Mandrill_Unknown_Export"
+        "Unknown_Export" => "Mandrill_Unknown_Export",
+        "IP_ProvisionLimit" => "Mandrill_IP_ProvisionLimit",
+        "Unknown_Pool" => "Mandrill_Unknown_Pool",
+        "Unknown_IP" => "Mandrill_Unknown_IP",
+        "Invalid_EmptyDefaultPool" => "Mandrill_Invalid_EmptyDefaultPool",
+        "Invalid_DeleteDefaultPool" => "Mandrill_Invalid_DeleteDefaultPool",
+        "Invalid_DeleteNonEmptyPool" => "Mandrill_Invalid_DeleteNonEmptyPool"
     );
 
     public function __construct($apikey=null) {
@@ -47,7 +54,7 @@ class Mandrill {
         $this->apikey = $apikey;
 
         $this->ch = curl_init();
-        curl_setopt($this->ch, CURLOPT_USERAGENT, 'Mandrill-PHP/1.0.45');
+        curl_setopt($this->ch, CURLOPT_USERAGENT, 'Mandrill-PHP/1.0.46');
         curl_setopt($this->ch, CURLOPT_POST, true);
         curl_setopt($this->ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($this->ch, CURLOPT_HEADER, false);
@@ -65,6 +72,7 @@ class Mandrill {
         $this->tags = new Mandrill_Tags($this);
         $this->messages = new Mandrill_Messages($this);
         $this->whitelists = new Mandrill_Whitelists($this);
+        $this->ips = new Mandrill_Ips($this);
         $this->internal = new Mandrill_Internal($this);
         $this->subaccounts = new Mandrill_Subaccounts($this);
         $this->urls = new Mandrill_Urls($this);
