@@ -357,10 +357,47 @@
 </span><span id="237" class="l"><a class="l" href="#237">237: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;master-&gt;call(<span class="php-quote">'ips/delete-pool'</span>, <span class="php-var">$_params</span>);
 </span><span id="238" class="l"><a class="l" href="#238">238: </a>    }
 </span><span id="239" class="l"><a class="l" href="#239">239: </a>
-</span><span id="240" class="l"><a class="l" href="#240">240: </a>}
-</span><span id="241" class="l"><a class="l" href="#241">241: </a>
-</span><span id="242" class="l"><a class="l" href="#242">242: </a>
-</span><span id="243" class="l"><a class="l" href="#243">243: </a></span></code></pre>
+</span><span id="240" class="l"><a class="l" href="#240">240: </a>    <span class="php-comment">/**
+</span></span><span id="241" class="l"><a class="l" href="#241">241: </a><span class="php-comment">     * Tests whether a domain name is valid for use as the custom reverse
+</span></span><span id="242" class="l"><a class="l" href="#242">242: </a><span class="php-comment">DNS for a dedicated IP.
+</span></span><span id="243" class="l"><a class="l" href="#243">243: </a><span class="php-comment">     * @param string $ip a dedicated ip address
+</span></span><span id="244" class="l"><a class="l" href="#244">244: </a><span class="php-comment">     * @param string $domain the domain name to test
+</span></span><span id="245" class="l"><a class="l" href="#245">245: </a><span class="php-comment">     * @return struct validation results for the domain
+</span></span><span id="246" class="l"><a class="l" href="#246">246: </a><span class="php-comment">     *     - valid string whether the domain name has a correctly-configured A record pointing to the ip address
+</span></span><span id="247" class="l"><a class="l" href="#247">247: </a><span class="php-comment">     *     - error string if valid is false, this will contain details about why the domain's A record is incorrect
+</span></span><span id="248" class="l"><a class="l" href="#248">248: </a><span class="php-comment">     */</span>
+</span><span id="249" class="l"><a class="l" href="#249">249: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_checkCustomDns" href="#_checkCustomDns">checkCustomDns</a>(<span class="php-var">$ip</span>, <span class="php-var">$domain</span>) {
+</span><span id="250" class="l"><a class="l" href="#250">250: </a>        <span class="php-var">$_params</span> = <span class="php-keyword1">array</span>(<span class="php-quote">&quot;ip&quot;</span> =&gt; <span class="php-var">$ip</span>, <span class="php-quote">&quot;domain&quot;</span> =&gt; <span class="php-var">$domain</span>);
+</span><span id="251" class="l"><a class="l" href="#251">251: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;master-&gt;call(<span class="php-quote">'ips/check-custom-dns'</span>, <span class="php-var">$_params</span>);
+</span><span id="252" class="l"><a class="l" href="#252">252: </a>    }
+</span><span id="253" class="l"><a class="l" href="#253">253: </a>
+</span><span id="254" class="l"><a class="l" href="#254">254: </a>    <span class="php-comment">/**
+</span></span><span id="255" class="l"><a class="l" href="#255">255: </a><span class="php-comment">     * Configures the custom DNS name for a dedicated IP.
+</span></span><span id="256" class="l"><a class="l" href="#256">256: </a><span class="php-comment">     * @param string $ip a dedicated ip address
+</span></span><span id="257" class="l"><a class="l" href="#257">257: </a><span class="php-comment">     * @param string $domain a domain name to set as the dedicated IP's custom dns name.
+</span></span><span id="258" class="l"><a class="l" href="#258">258: </a><span class="php-comment">     * @return struct information about the dedicated IP's new configuration
+</span></span><span id="259" class="l"><a class="l" href="#259">259: </a><span class="php-comment">     *     - ip string the ip address
+</span></span><span id="260" class="l"><a class="l" href="#260">260: </a><span class="php-comment">     *     - created_at string the date and time that the dedicated IP was created as a UTC string in YYYY-MM-DD HH:MM:SS format
+</span></span><span id="261" class="l"><a class="l" href="#261">261: </a><span class="php-comment">     *     - pool string the name of the pool that this dedicated IP belongs to
+</span></span><span id="262" class="l"><a class="l" href="#262">262: </a><span class="php-comment">     *     - domain string the domain name (reverse dns) of this dedicated IP
+</span></span><span id="263" class="l"><a class="l" href="#263">263: </a><span class="php-comment">     *     - custom_dns struct information about the ip's custom dns, if it has been configured
+</span></span><span id="264" class="l"><a class="l" href="#264">264: </a><span class="php-comment">     *         - enabled boolean a boolean indicating whether custom dns has been configured for this ip
+</span></span><span id="265" class="l"><a class="l" href="#265">265: </a><span class="php-comment">     *         - valid boolean whether the ip's custom dns is currently valid
+</span></span><span id="266" class="l"><a class="l" href="#266">266: </a><span class="php-comment">     *         - error string if the ip's custom dns is invalid, this will include details about the error
+</span></span><span id="267" class="l"><a class="l" href="#267">267: </a><span class="php-comment">     *     - warmup struct information about the ip's warmup status
+</span></span><span id="268" class="l"><a class="l" href="#268">268: </a><span class="php-comment">     *         - warming_up boolean whether the ip is currently in warmup mode
+</span></span><span id="269" class="l"><a class="l" href="#269">269: </a><span class="php-comment">     *         - start_at string the start time for the warmup process as a UTC string in YYYY-MM-DD HH:MM:SS format
+</span></span><span id="270" class="l"><a class="l" href="#270">270: </a><span class="php-comment">     *         - end_at string the end date and time for the warmup process as a UTC string in YYYY-MM-DD HH:MM:SS format
+</span></span><span id="271" class="l"><a class="l" href="#271">271: </a><span class="php-comment">     */</span>
+</span><span id="272" class="l"><a class="l" href="#272">272: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_setCustomDns" href="#_setCustomDns">setCustomDns</a>(<span class="php-var">$ip</span>, <span class="php-var">$domain</span>) {
+</span><span id="273" class="l"><a class="l" href="#273">273: </a>        <span class="php-var">$_params</span> = <span class="php-keyword1">array</span>(<span class="php-quote">&quot;ip&quot;</span> =&gt; <span class="php-var">$ip</span>, <span class="php-quote">&quot;domain&quot;</span> =&gt; <span class="php-var">$domain</span>);
+</span><span id="274" class="l"><a class="l" href="#274">274: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;master-&gt;call(<span class="php-quote">'ips/set-custom-dns'</span>, <span class="php-var">$_params</span>);
+</span><span id="275" class="l"><a class="l" href="#275">275: </a>    }
+</span><span id="276" class="l"><a class="l" href="#276">276: </a>
+</span><span id="277" class="l"><a class="l" href="#277">277: </a>}
+</span><span id="278" class="l"><a class="l" href="#278">278: </a>
+</span><span id="279" class="l"><a class="l" href="#279">279: </a>
+</span><span id="280" class="l"><a class="l" href="#280">280: </a></span></code></pre>
 
 	<div id="footer">
 		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>

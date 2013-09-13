@@ -135,7 +135,7 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-Mandrill_Ips.html#3-240" title="Go to source code">Mandrill/Ips.php</a><br />
+		<b>Located at</b> <a href="source-class-Mandrill_Ips.html#3-277" title="Go to source code">Mandrill/Ips.php</a><br />
 	</div>
 
 
@@ -749,6 +749,110 @@ delete your default pool.</p>
 				<div class="list">
 					<code>struct</code><br>information about the status of the pool that was deleted - pool string the name
 of the pool - deleted boolean whether the pool was deleted<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="checkCustomDns" id="_checkCustomDns">
+
+		<td class="attributes"><code>
+			 public 
+			struct
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_checkCustomDns">#</a>
+		<code><a href="source-class-Mandrill_Ips.html#240-252" title="Go to source code">checkCustomDns</a>( <span>string <var>$ip</var></span>, <span>string <var>$domain</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Tests whether a domain name is valid for use as the custom reverse DNS for a
+dedicated IP.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Tests whether a domain name is valid for use as the custom reverse DNS for a
+dedicated IP.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$ip</var></dt>
+					<dd><code>string</code><br>$ip a dedicated ip address</dd>
+					<dt><var>$domain</var></dt>
+					<dd><code>string</code><br>$domain the domain name to test</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>struct</code><br>validation results for the domain - valid string whether the domain name has a
+correctly-configured A record pointing to the ip address - error string if valid
+is false, this will contain details about why the domain's A record is incorrect<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setCustomDns" id="_setCustomDns">
+
+		<td class="attributes"><code>
+			 public 
+			struct
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setCustomDns">#</a>
+		<code><a href="source-class-Mandrill_Ips.html#254-275" title="Go to source code">setCustomDns</a>( <span>string <var>$ip</var></span>, <span>string <var>$domain</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Configures the custom DNS name for a dedicated IP.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Configures the custom DNS name for a dedicated IP.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$ip</var></dt>
+					<dd><code>string</code><br>$ip a dedicated ip address</dd>
+					<dt><var>$domain</var></dt>
+					<dd><code>string</code><br>$domain a domain name to set as the dedicated IP's custom dns name.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>struct</code><br>information about the dedicated IP's new configuration - ip string the ip
+address - created_at string the date and time that the dedicated IP was created
+as a UTC string in YYYY-MM-DD HH:MM:SS format - pool string the name of the pool
+that this dedicated IP belongs to - domain string the domain name (reverse dns)
+of this dedicated IP - custom_dns struct information about the ip's custom dns,
+if it has been configured - enabled boolean a boolean indicating whether custom
+dns has been configured for this ip - valid boolean whether the ip's custom dns
+is currently valid - error string if the ip's custom dns is invalid, this will
+include details about the error - warmup struct information about the ip's
+warmup status - warming_up boolean whether the ip is currently in warmup mode -
+start_at string the start time for the warmup process as a UTC string in
+YYYY-MM-DD HH:MM:SS format - end_at string the end date and time for the warmup
+process as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
 				</div>
 
 
