@@ -135,7 +135,7 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-Mandrill_Rejects.html#3-72" title="Go to source code">Mandrill/Rejects.php</a><br />
+		<b>Located at</b> <a href="source-class-Mandrill_Rejects.html#3-78" title="Go to source code">Mandrill/Rejects.php</a><br />
 	</div>
 
 
@@ -182,7 +182,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_add">#</a>
-		<code><a href="source-class-Mandrill_Rejects.html#8-21" title="Go to source code">add</a>( <span>string <var>$email</var></span> )</code>
+		<code><a href="source-class-Mandrill_Rejects.html#8-23" title="Go to source code">add</a>( <span>string <var>$email</var></span>, <span>string <var>$comment</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$subaccount</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -206,6 +206,11 @@ whitelisted will have no effect.</p>
 				<div class="list"><dl>
 					<dt><var>$email</var></dt>
 					<dd><code>string</code><br>$email an email address to block</dd>
+					<dt><var>$comment</var></dt>
+					<dd><code>string</code><br>$comment an optional comment describing the rejection</dd>
+					<dt><var>$subaccount</var></dt>
+					<dd><code>string</code><br>$subaccount an optional unique identifier for the subaccount to limit the
+blacklist entry</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -232,7 +237,7 @@ succeeded<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getList">#</a>
-		<code><a href="source-class-Mandrill_Rejects.html#23-56" title="Go to source code">getList</a>( <span>string <var>$email</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$include_expired</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-Mandrill_Rejects.html#25-60" title="Go to source code">getList</a>( <span>string <var>$email</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$include_expired</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$subaccount</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -258,6 +263,9 @@ them.</p>
 					<dd><code>string</code><br>$email an optional email address to search by</dd>
 					<dt><var>$include_expired</var></dt>
 					<dd><code>boolean</code><br>$include_expired whether to include rejections that have already expired.</dd>
+					<dt><var>$subaccount</var></dt>
+					<dd><code>string</code><br>$subaccount an optional unique identifier for the subaccount to limit the
+blacklist</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -285,7 +293,8 @@ of times messages by this sender have been opened - clicks integer the total
 number of times tracked URLs in messages by this sender have been clicked -
 unique_opens integer the number of unique opens for emails sent for this sender
 - unique_clicks integer the number of unique clicks for emails sent for this
-sender<br />
+sender - subaccount string the subaccount that this blacklist entry applies to,
+or null if none.<br />
 				</div>
 
 
@@ -305,7 +314,7 @@ sender<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_delete">#</a>
-		<code><a href="source-class-Mandrill_Rejects.html#58-70" title="Go to source code">delete</a>( <span>string <var>$email</var></span> )</code>
+		<code><a href="source-class-Mandrill_Rejects.html#62-76" title="Go to source code">delete</a>( <span>string <var>$email</var></span>, <span>string <var>$subaccount</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -327,13 +336,17 @@ your reputation.</p>
 				<div class="list"><dl>
 					<dt><var>$email</var></dt>
 					<dd><code>string</code><br>$email an email address</dd>
+					<dt><var>$subaccount</var></dt>
+					<dd><code>string</code><br>$subaccount an optional unique identifier for the subaccount to limit the
+blacklist deletion</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
 					<code>struct</code><br>a status object containing the address and whether the deletion succeeded. -
 email string the email address that was removed from the blacklist - deleted
-boolean whether the address was deleted successfully.<br />
+boolean whether the address was deleted successfully. - subaccount string the
+subaccount blacklist that the address was removed from, if any<br />
 				</div>
 
 
