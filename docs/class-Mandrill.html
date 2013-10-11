@@ -7,7 +7,7 @@
 	<title>Class Mandrill</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?2667747206"></script>
+	<script type="text/javascript" src="elementlist.js?3383472048"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -69,12 +69,14 @@
 				<li><a href="class-Mandrill_ServiceUnavailable.html">Mandrill_ServiceUnavailable</a></li>
 				<li><a href="class-Mandrill_Unknown_Export.html">Mandrill_Unknown_Export</a></li>
 				<li><a href="class-Mandrill_Unknown_InboundDomain.html">Mandrill_Unknown_InboundDomain</a></li>
+				<li><a href="class-Mandrill_Unknown_InboundRoute.html">Mandrill_Unknown_InboundRoute</a></li>
 				<li><a href="class-Mandrill_Unknown_IP.html">Mandrill_Unknown_IP</a></li>
 				<li><a href="class-Mandrill_Unknown_Message.html">Mandrill_Unknown_Message</a></li>
 				<li><a href="class-Mandrill_Unknown_Pool.html">Mandrill_Unknown_Pool</a></li>
 				<li><a href="class-Mandrill_Unknown_Sender.html">Mandrill_Unknown_Sender</a></li>
 				<li><a href="class-Mandrill_Unknown_Subaccount.html">Mandrill_Unknown_Subaccount</a></li>
 				<li><a href="class-Mandrill_Unknown_Template.html">Mandrill_Unknown_Template</a></li>
+				<li><a href="class-Mandrill_Unknown_TrackingDomain.html">Mandrill_Unknown_TrackingDomain</a></li>
 				<li><a href="class-Mandrill_Unknown_Url.html">Mandrill_Unknown_Url</a></li>
 				<li><a href="class-Mandrill_Unknown_Webhook.html">Mandrill_Unknown_Webhook</a></li>
 				<li><a href="class-Mandrill_ValidationError.html">Mandrill_ValidationError</a></li>
@@ -135,7 +137,7 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-Mandrill.html#19-149" title="Go to source code">Mandrill.php</a><br />
+		<b>Located at</b> <a href="source-class-Mandrill.html#19-151" title="Go to source code">Mandrill.php</a><br />
 	</div>
 
 
@@ -153,7 +155,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Mandrill.html#50-81" title="Go to source code">__construct</a>( <span>mixed <var>$apikey</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill.html#52-83" title="Go to source code">__construct</a>( <span>mixed <var>$apikey</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -182,7 +184,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___destruct">#</a>
-		<code><a href="source-class-Mandrill.html#83-85" title="Go to source code">__destruct</a>( )</code>
+		<code><a href="source-class-Mandrill.html#85-87" title="Go to source code">__destruct</a>( )</code>
 
 		<div class="description short">
 			
@@ -211,7 +213,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_call">#</a>
-		<code><a href="source-class-Mandrill.html#87-126" title="Go to source code">call</a>( <span>mixed <var>$url</var></span>, <span>mixed <var>$params</var></span> )</code>
+		<code><a href="source-class-Mandrill.html#89-128" title="Go to source code">call</a>( <span>mixed <var>$url</var></span>, <span>mixed <var>$params</var></span> )</code>
 
 		<div class="description short">
 			
@@ -240,7 +242,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_readConfigs">#</a>
-		<code><a href="source-class-Mandrill.html#128-137" title="Go to source code">readConfigs</a>( )</code>
+		<code><a href="source-class-Mandrill.html#130-139" title="Go to source code">readConfigs</a>( )</code>
 
 		<div class="description short">
 			
@@ -269,7 +271,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_castError">#</a>
-		<code><a href="source-class-Mandrill.html#139-144" title="Go to source code">castError</a>( <span>mixed <var>$result</var></span> )</code>
+		<code><a href="source-class-Mandrill.html#141-146" title="Go to source code">castError</a>( <span>mixed <var>$result</var></span> )</code>
 
 		<div class="description short">
 			
@@ -298,7 +300,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_log">#</a>
-		<code><a href="source-class-Mandrill.html#146-148" title="Go to source code">log</a>( <span>mixed <var>$msg</var></span> )</code>
+		<code><a href="source-class-Mandrill.html#148-150" title="Go to source code">log</a>( <span>mixed <var>$msg</var></span> )</code>
 
 		<div class="description short">
 			
@@ -430,7 +432,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Mandrill.html#26-48" title="Go to source code"><var>$error_map</var></a>
+				<a href="source-class-Mandrill.html#26-50" title="Go to source code"><var>$error_map</var></a>
 		</td>
 		<td class="value"><code><span class="php-keyword1">array</span>(
     <span class="php-quote">&quot;ValidationError&quot;</span> =&gt; <span class="php-quote">&quot;Mandrill_ValidationError&quot;</span>,
@@ -444,9 +446,11 @@
     <span class="php-quote">&quot;Invalid_Reject&quot;</span> =&gt; <span class="php-quote">&quot;Mandrill_Invalid_Reject&quot;</span>,
     <span class="php-quote">&quot;Unknown_Sender&quot;</span> =&gt; <span class="php-quote">&quot;Mandrill_Unknown_Sender&quot;</span>,
     <span class="php-quote">&quot;Unknown_Url&quot;</span> =&gt; <span class="php-quote">&quot;Mandrill_Unknown_Url&quot;</span>,
+    <span class="php-quote">&quot;Unknown_TrackingDomain&quot;</span> =&gt; <span class="php-quote">&quot;Mandrill_Unknown_TrackingDomain&quot;</span>,
     <span class="php-quote">&quot;Invalid_Template&quot;</span> =&gt; <span class="php-quote">&quot;Mandrill_Invalid_Template&quot;</span>,
     <span class="php-quote">&quot;Unknown_Webhook&quot;</span> =&gt; <span class="php-quote">&quot;Mandrill_Unknown_Webhook&quot;</span>,
     <span class="php-quote">&quot;Unknown_InboundDomain&quot;</span> =&gt; <span class="php-quote">&quot;Mandrill_Unknown_InboundDomain&quot;</span>,
+    <span class="php-quote">&quot;Unknown_InboundRoute&quot;</span> =&gt; <span class="php-quote">&quot;Mandrill_Unknown_InboundRoute&quot;</span>,
     <span class="php-quote">&quot;Unknown_Export&quot;</span> =&gt; <span class="php-quote">&quot;Mandrill_Unknown_Export&quot;</span>,
     <span class="php-quote">&quot;IP_ProvisionLimit&quot;</span> =&gt; <span class="php-quote">&quot;Mandrill_IP_ProvisionLimit&quot;</span>,
     <span class="php-quote">&quot;Unknown_Pool&quot;</span> =&gt; <span class="php-quote">&quot;Mandrill_Unknown_Pool&quot;</span>,

@@ -35,9 +35,11 @@ class Mandrill {
         "Invalid_Reject" => "Mandrill_Invalid_Reject",
         "Unknown_Sender" => "Mandrill_Unknown_Sender",
         "Unknown_Url" => "Mandrill_Unknown_Url",
+        "Unknown_TrackingDomain" => "Mandrill_Unknown_TrackingDomain",
         "Invalid_Template" => "Mandrill_Invalid_Template",
         "Unknown_Webhook" => "Mandrill_Unknown_Webhook",
         "Unknown_InboundDomain" => "Mandrill_Unknown_InboundDomain",
+        "Unknown_InboundRoute" => "Mandrill_Unknown_InboundRoute",
         "Unknown_Export" => "Mandrill_Unknown_Export",
         "IP_ProvisionLimit" => "Mandrill_IP_ProvisionLimit",
         "Unknown_Pool" => "Mandrill_Unknown_Pool",
@@ -54,7 +56,7 @@ class Mandrill {
         $this->apikey = $apikey;
 
         $this->ch = curl_init();
-        curl_setopt($this->ch, CURLOPT_USERAGENT, 'Mandrill-PHP/1.0.48');
+        curl_setopt($this->ch, CURLOPT_USERAGENT, 'Mandrill-PHP/1.0.49');
         curl_setopt($this->ch, CURLOPT_POST, true);
         curl_setopt($this->ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($this->ch, CURLOPT_HEADER, false);

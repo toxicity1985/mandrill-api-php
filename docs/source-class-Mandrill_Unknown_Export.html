@@ -8,7 +8,7 @@
 	<title>File Mandrill/Exceptions.php</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?2667747206"></script>
+	<script type="text/javascript" src="elementlist.js?3383472048"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -70,12 +70,14 @@
 				<li><a href="class-Mandrill_ServiceUnavailable.html">Mandrill_ServiceUnavailable</a></li>
 				<li class="active"><a href="class-Mandrill_Unknown_Export.html">Mandrill_Unknown_Export</a></li>
 				<li><a href="class-Mandrill_Unknown_InboundDomain.html">Mandrill_Unknown_InboundDomain</a></li>
+				<li><a href="class-Mandrill_Unknown_InboundRoute.html">Mandrill_Unknown_InboundRoute</a></li>
 				<li><a href="class-Mandrill_Unknown_IP.html">Mandrill_Unknown_IP</a></li>
 				<li><a href="class-Mandrill_Unknown_Message.html">Mandrill_Unknown_Message</a></li>
 				<li><a href="class-Mandrill_Unknown_Pool.html">Mandrill_Unknown_Pool</a></li>
 				<li><a href="class-Mandrill_Unknown_Sender.html">Mandrill_Unknown_Sender</a></li>
 				<li><a href="class-Mandrill_Unknown_Subaccount.html">Mandrill_Unknown_Subaccount</a></li>
 				<li><a href="class-Mandrill_Unknown_Template.html">Mandrill_Unknown_Template</a></li>
+				<li><a href="class-Mandrill_Unknown_TrackingDomain.html">Mandrill_Unknown_TrackingDomain</a></li>
 				<li><a href="class-Mandrill_Unknown_Url.html">Mandrill_Unknown_Url</a></li>
 				<li><a href="class-Mandrill_Unknown_Webhook.html">Mandrill_Unknown_Webhook</a></li>
 				<li><a href="class-Mandrill_ValidationError.html">Mandrill_ValidationError</a></li>
@@ -179,57 +181,67 @@
 </span><span id="59" class="l"><a class="l" href="#59"> 59: </a><span class="php-keyword1">class</span> <a id="Mandrill_Unknown_Url" href="#Mandrill_Unknown_Url">Mandrill_Unknown_Url</a> <span class="php-keyword1">extends</span> Mandrill_Error {}
 </span><span id="60" class="l"><a class="l" href="#60"> 60: </a>
 </span><span id="61" class="l"><a class="l" href="#61"> 61: </a><span class="php-comment">/**
-</span></span><span id="62" class="l"><a class="l" href="#62"> 62: </a><span class="php-comment"> * The given template name already exists or contains invalid characters
+</span></span><span id="62" class="l"><a class="l" href="#62"> 62: </a><span class="php-comment"> * The provided tracking domain does not exist.
 </span></span><span id="63" class="l"><a class="l" href="#63"> 63: </a><span class="php-comment"> */</span>
-</span><span id="64" class="l"><a class="l" href="#64"> 64: </a><span class="php-keyword1">class</span> <a id="Mandrill_Invalid_Template" href="#Mandrill_Invalid_Template">Mandrill_Invalid_Template</a> <span class="php-keyword1">extends</span> Mandrill_Error {}
+</span><span id="64" class="l"><a class="l" href="#64"> 64: </a><span class="php-keyword1">class</span> <a id="Mandrill_Unknown_TrackingDomain" href="#Mandrill_Unknown_TrackingDomain">Mandrill_Unknown_TrackingDomain</a> <span class="php-keyword1">extends</span> Mandrill_Error {}
 </span><span id="65" class="l"><a class="l" href="#65"> 65: </a>
 </span><span id="66" class="l"><a class="l" href="#66"> 66: </a><span class="php-comment">/**
-</span></span><span id="67" class="l"><a class="l" href="#67"> 67: </a><span class="php-comment"> * The requested webhook does not exist
+</span></span><span id="67" class="l"><a class="l" href="#67"> 67: </a><span class="php-comment"> * The given template name already exists or contains invalid characters
 </span></span><span id="68" class="l"><a class="l" href="#68"> 68: </a><span class="php-comment"> */</span>
-</span><span id="69" class="l"><a class="l" href="#69"> 69: </a><span class="php-keyword1">class</span> <a id="Mandrill_Unknown_Webhook" href="#Mandrill_Unknown_Webhook">Mandrill_Unknown_Webhook</a> <span class="php-keyword1">extends</span> Mandrill_Error {}
+</span><span id="69" class="l"><a class="l" href="#69"> 69: </a><span class="php-keyword1">class</span> <a id="Mandrill_Invalid_Template" href="#Mandrill_Invalid_Template">Mandrill_Invalid_Template</a> <span class="php-keyword1">extends</span> Mandrill_Error {}
 </span><span id="70" class="l"><a class="l" href="#70"> 70: </a>
 </span><span id="71" class="l"><a class="l" href="#71"> 71: </a><span class="php-comment">/**
-</span></span><span id="72" class="l"><a class="l" href="#72"> 72: </a><span class="php-comment"> * The requested inbound domain does not exist
+</span></span><span id="72" class="l"><a class="l" href="#72"> 72: </a><span class="php-comment"> * The requested webhook does not exist
 </span></span><span id="73" class="l"><a class="l" href="#73"> 73: </a><span class="php-comment"> */</span>
-</span><span id="74" class="l"><a class="l" href="#74"> 74: </a><span class="php-keyword1">class</span> <a id="Mandrill_Unknown_InboundDomain" href="#Mandrill_Unknown_InboundDomain">Mandrill_Unknown_InboundDomain</a> <span class="php-keyword1">extends</span> Mandrill_Error {}
+</span><span id="74" class="l"><a class="l" href="#74"> 74: </a><span class="php-keyword1">class</span> <a id="Mandrill_Unknown_Webhook" href="#Mandrill_Unknown_Webhook">Mandrill_Unknown_Webhook</a> <span class="php-keyword1">extends</span> Mandrill_Error {}
 </span><span id="75" class="l"><a class="l" href="#75"> 75: </a>
 </span><span id="76" class="l"><a class="l" href="#76"> 76: </a><span class="php-comment">/**
-</span></span><span id="77" class="l"><a class="l" href="#77"> 77: </a><span class="php-comment"> * The requested export job does not exist
+</span></span><span id="77" class="l"><a class="l" href="#77"> 77: </a><span class="php-comment"> * The requested inbound domain does not exist
 </span></span><span id="78" class="l"><a class="l" href="#78"> 78: </a><span class="php-comment"> */</span>
-</span><span id="79" class="l"><a class="l" href="#79"> 79: </a><span class="php-keyword1">class</span> <a id="Mandrill_Unknown_Export" href="#Mandrill_Unknown_Export">Mandrill_Unknown_Export</a> <span class="php-keyword1">extends</span> Mandrill_Error {}
+</span><span id="79" class="l"><a class="l" href="#79"> 79: </a><span class="php-keyword1">class</span> <a id="Mandrill_Unknown_InboundDomain" href="#Mandrill_Unknown_InboundDomain">Mandrill_Unknown_InboundDomain</a> <span class="php-keyword1">extends</span> Mandrill_Error {}
 </span><span id="80" class="l"><a class="l" href="#80"> 80: </a>
 </span><span id="81" class="l"><a class="l" href="#81"> 81: </a><span class="php-comment">/**
-</span></span><span id="82" class="l"><a class="l" href="#82"> 82: </a><span class="php-comment"> * A dedicated IP cannot be provisioned while another request is pending.
+</span></span><span id="82" class="l"><a class="l" href="#82"> 82: </a><span class="php-comment"> * The provided inbound route does not exist.
 </span></span><span id="83" class="l"><a class="l" href="#83"> 83: </a><span class="php-comment"> */</span>
-</span><span id="84" class="l"><a class="l" href="#84"> 84: </a><span class="php-keyword1">class</span> <a id="Mandrill_IP_ProvisionLimit" href="#Mandrill_IP_ProvisionLimit">Mandrill_IP_ProvisionLimit</a> <span class="php-keyword1">extends</span> Mandrill_Error {}
+</span><span id="84" class="l"><a class="l" href="#84"> 84: </a><span class="php-keyword1">class</span> <a id="Mandrill_Unknown_InboundRoute" href="#Mandrill_Unknown_InboundRoute">Mandrill_Unknown_InboundRoute</a> <span class="php-keyword1">extends</span> Mandrill_Error {}
 </span><span id="85" class="l"><a class="l" href="#85"> 85: </a>
 </span><span id="86" class="l"><a class="l" href="#86"> 86: </a><span class="php-comment">/**
-</span></span><span id="87" class="l"><a class="l" href="#87"> 87: </a><span class="php-comment"> * The provided dedicated IP pool does not exist.
+</span></span><span id="87" class="l"><a class="l" href="#87"> 87: </a><span class="php-comment"> * The requested export job does not exist
 </span></span><span id="88" class="l"><a class="l" href="#88"> 88: </a><span class="php-comment"> */</span>
-</span><span id="89" class="l"><a class="l" href="#89"> 89: </a><span class="php-keyword1">class</span> <a id="Mandrill_Unknown_Pool" href="#Mandrill_Unknown_Pool">Mandrill_Unknown_Pool</a> <span class="php-keyword1">extends</span> Mandrill_Error {}
+</span><span id="89" class="l"><a class="l" href="#89"> 89: </a><span class="php-keyword1">class</span> <a id="Mandrill_Unknown_Export" href="#Mandrill_Unknown_Export">Mandrill_Unknown_Export</a> <span class="php-keyword1">extends</span> Mandrill_Error {}
 </span><span id="90" class="l"><a class="l" href="#90"> 90: </a>
 </span><span id="91" class="l"><a class="l" href="#91"> 91: </a><span class="php-comment">/**
-</span></span><span id="92" class="l"><a class="l" href="#92"> 92: </a><span class="php-comment"> * The provided dedicated IP does not exist.
+</span></span><span id="92" class="l"><a class="l" href="#92"> 92: </a><span class="php-comment"> * A dedicated IP cannot be provisioned while another request is pending.
 </span></span><span id="93" class="l"><a class="l" href="#93"> 93: </a><span class="php-comment"> */</span>
-</span><span id="94" class="l"><a class="l" href="#94"> 94: </a><span class="php-keyword1">class</span> <a id="Mandrill_Unknown_IP" href="#Mandrill_Unknown_IP">Mandrill_Unknown_IP</a> <span class="php-keyword1">extends</span> Mandrill_Error {}
+</span><span id="94" class="l"><a class="l" href="#94"> 94: </a><span class="php-keyword1">class</span> <a id="Mandrill_IP_ProvisionLimit" href="#Mandrill_IP_ProvisionLimit">Mandrill_IP_ProvisionLimit</a> <span class="php-keyword1">extends</span> Mandrill_Error {}
 </span><span id="95" class="l"><a class="l" href="#95"> 95: </a>
 </span><span id="96" class="l"><a class="l" href="#96"> 96: </a><span class="php-comment">/**
-</span></span><span id="97" class="l"><a class="l" href="#97"> 97: </a><span class="php-comment"> * You cannot remove the last IP from your default IP pool.
+</span></span><span id="97" class="l"><a class="l" href="#97"> 97: </a><span class="php-comment"> * The provided dedicated IP pool does not exist.
 </span></span><span id="98" class="l"><a class="l" href="#98"> 98: </a><span class="php-comment"> */</span>
-</span><span id="99" class="l"><a class="l" href="#99"> 99: </a><span class="php-keyword1">class</span> <a id="Mandrill_Invalid_EmptyDefaultPool" href="#Mandrill_Invalid_EmptyDefaultPool">Mandrill_Invalid_EmptyDefaultPool</a> <span class="php-keyword1">extends</span> Mandrill_Error {}
+</span><span id="99" class="l"><a class="l" href="#99"> 99: </a><span class="php-keyword1">class</span> <a id="Mandrill_Unknown_Pool" href="#Mandrill_Unknown_Pool">Mandrill_Unknown_Pool</a> <span class="php-keyword1">extends</span> Mandrill_Error {}
 </span><span id="100" class="l"><a class="l" href="#100">100: </a>
 </span><span id="101" class="l"><a class="l" href="#101">101: </a><span class="php-comment">/**
-</span></span><span id="102" class="l"><a class="l" href="#102">102: </a><span class="php-comment"> * The default pool cannot be deleted.
+</span></span><span id="102" class="l"><a class="l" href="#102">102: </a><span class="php-comment"> * The provided dedicated IP does not exist.
 </span></span><span id="103" class="l"><a class="l" href="#103">103: </a><span class="php-comment"> */</span>
-</span><span id="104" class="l"><a class="l" href="#104">104: </a><span class="php-keyword1">class</span> <a id="Mandrill_Invalid_DeleteDefaultPool" href="#Mandrill_Invalid_DeleteDefaultPool">Mandrill_Invalid_DeleteDefaultPool</a> <span class="php-keyword1">extends</span> Mandrill_Error {}
+</span><span id="104" class="l"><a class="l" href="#104">104: </a><span class="php-keyword1">class</span> <a id="Mandrill_Unknown_IP" href="#Mandrill_Unknown_IP">Mandrill_Unknown_IP</a> <span class="php-keyword1">extends</span> Mandrill_Error {}
 </span><span id="105" class="l"><a class="l" href="#105">105: </a>
 </span><span id="106" class="l"><a class="l" href="#106">106: </a><span class="php-comment">/**
-</span></span><span id="107" class="l"><a class="l" href="#107">107: </a><span class="php-comment"> * Non-empty pools cannot be deleted.
+</span></span><span id="107" class="l"><a class="l" href="#107">107: </a><span class="php-comment"> * You cannot remove the last IP from your default IP pool.
 </span></span><span id="108" class="l"><a class="l" href="#108">108: </a><span class="php-comment"> */</span>
-</span><span id="109" class="l"><a class="l" href="#109">109: </a><span class="php-keyword1">class</span> <a id="Mandrill_Invalid_DeleteNonEmptyPool" href="#Mandrill_Invalid_DeleteNonEmptyPool">Mandrill_Invalid_DeleteNonEmptyPool</a> <span class="php-keyword1">extends</span> Mandrill_Error {}
+</span><span id="109" class="l"><a class="l" href="#109">109: </a><span class="php-keyword1">class</span> <a id="Mandrill_Invalid_EmptyDefaultPool" href="#Mandrill_Invalid_EmptyDefaultPool">Mandrill_Invalid_EmptyDefaultPool</a> <span class="php-keyword1">extends</span> Mandrill_Error {}
 </span><span id="110" class="l"><a class="l" href="#110">110: </a>
-</span><span id="111" class="l"><a class="l" href="#111">111: </a>
-</span><span id="112" class="l"><a class="l" href="#112">112: </a></span></code></pre>
+</span><span id="111" class="l"><a class="l" href="#111">111: </a><span class="php-comment">/**
+</span></span><span id="112" class="l"><a class="l" href="#112">112: </a><span class="php-comment"> * The default pool cannot be deleted.
+</span></span><span id="113" class="l"><a class="l" href="#113">113: </a><span class="php-comment"> */</span>
+</span><span id="114" class="l"><a class="l" href="#114">114: </a><span class="php-keyword1">class</span> <a id="Mandrill_Invalid_DeleteDefaultPool" href="#Mandrill_Invalid_DeleteDefaultPool">Mandrill_Invalid_DeleteDefaultPool</a> <span class="php-keyword1">extends</span> Mandrill_Error {}
+</span><span id="115" class="l"><a class="l" href="#115">115: </a>
+</span><span id="116" class="l"><a class="l" href="#116">116: </a><span class="php-comment">/**
+</span></span><span id="117" class="l"><a class="l" href="#117">117: </a><span class="php-comment"> * Non-empty pools cannot be deleted.
+</span></span><span id="118" class="l"><a class="l" href="#118">118: </a><span class="php-comment"> */</span>
+</span><span id="119" class="l"><a class="l" href="#119">119: </a><span class="php-keyword1">class</span> <a id="Mandrill_Invalid_DeleteNonEmptyPool" href="#Mandrill_Invalid_DeleteNonEmptyPool">Mandrill_Invalid_DeleteNonEmptyPool</a> <span class="php-keyword1">extends</span> Mandrill_Error {}
+</span><span id="120" class="l"><a class="l" href="#120">120: </a>
+</span><span id="121" class="l"><a class="l" href="#121">121: </a>
+</span><span id="122" class="l"><a class="l" href="#122">122: </a></span></code></pre>
 
 	<div id="footer">
 		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>

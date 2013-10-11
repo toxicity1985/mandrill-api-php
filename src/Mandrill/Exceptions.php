@@ -59,6 +59,11 @@ class Mandrill_Unknown_Sender extends Mandrill_Error {}
 class Mandrill_Unknown_Url extends Mandrill_Error {}
 
 /**
+ * The provided tracking domain does not exist.
+ */
+class Mandrill_Unknown_TrackingDomain extends Mandrill_Error {}
+
+/**
  * The given template name already exists or contains invalid characters
  */
 class Mandrill_Invalid_Template extends Mandrill_Error {}
@@ -72,6 +77,11 @@ class Mandrill_Unknown_Webhook extends Mandrill_Error {}
  * The requested inbound domain does not exist
  */
 class Mandrill_Unknown_InboundDomain extends Mandrill_Error {}
+
+/**
+ * The provided inbound route does not exist.
+ */
+class Mandrill_Unknown_InboundRoute extends Mandrill_Error {}
 
 /**
  * The requested export job does not exist
