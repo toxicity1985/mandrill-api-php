@@ -17,6 +17,7 @@ class Mandrill_Messages {
      *         - to[] struct a single recipient's information.
      *             - email string the email address of the recipient
      *             - name string the optional display name to use for the recipient
+     *             - type string the header type to use for the recipient, defaults to "to" if not provided
      *     - headers struct optional extra headers to add to the message (most headers are allowed)
      *     - important boolean whether or not this message is important, and should be delivered ahead of non-important messages
      *     - track_opens boolean whether or not to turn on open tracking for the message
@@ -95,6 +96,7 @@ class Mandrill_Messages {
      *         - to[] struct a single recipient's information.
      *             - email string the email address of the recipient
      *             - name string the optional display name to use for the recipient
+     *             - type string the header type to use for the recipient, defaults to "to" if not provided
      *     - headers struct optional extra headers to add to the message (most headers are allowed)
      *     - important boolean whether or not this message is important, and should be delivered ahead of non-important messages
      *     - track_opens boolean whether or not to turn on open tracking for the message
@@ -171,7 +173,7 @@ class Mandrill_Messages {
      *         - _id string the message's unique id
      *         - sender string the email address of the sender
      *         - template string the unique name of the template used, if any
-     *         - subject string the message's subject link
+     *         - subject string the message's subject line
      *         - email string the recipient email address
      *         - tags array list of tags on this message
      *             - tags[] string individual tag on this message
@@ -237,7 +239,7 @@ class Mandrill_Messages {
      *     - _id string the message's unique id
      *     - sender string the email address of the sender
      *     - template string the unique name of the template used, if any
-     *     - subject string the message's subject link
+     *     - subject string the message's subject line
      *     - email string the recipient email address
      *     - tags array list of tags on this message
      *         - tags[] string individual tag on this message
@@ -267,6 +269,34 @@ class Mandrill_Messages {
     public function info($id) {
         $_params = array("id" => $id);
         return $this->master->call('messages/info', $_params);
+    }
+
+    /**
+     * Get the full content of a recently sent message
+     * @param string $id the unique id of the message to get - passed as the "_id" field in webhooks, send calls, or search calls
+     * @return struct the content of the message
+     *     - ts integer the Unix timestamp from when this message was sent
+     *     - _id string the message's unique id
+     *     - from_email string the email address of the sender
+     *     - from_name string the alias of the sender (if any)
+     *     - subject string the message's subject line
+     *     - to struct the message recipient's information
+     *         - email string the email address of the recipient
+     *         - name string the alias of the recipient (if any)
+     *     - tags array list of tags on this message
+     *         - tags[] string individual tag on this message
+     *     - headers struct the key-value pairs of the custom MIME headers for the message's main document
+     *     - text string the text part of the message, if any
+     *     - html string the HTML part of the message, if any
+     *     - attachments array an array of any attachments that can be found in the message
+     *         - attachments[] struct information about an individual attachment
+     *             - name string the file name of the attachment
+     *             - type string the MIME type of the attachment
+     *             - content string the content of the attachment as a base64 encoded string
+     */
+    public function content($id) {
+        $_params = array("id" => $id);
+        return $this->master->call('messages/content', $_params);
     }
 
     /**
