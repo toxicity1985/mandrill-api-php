@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="generator" content="ApiGen 2.8.0" />
 
-	<title>Class Mandrill_Rejects</title>
+	<title>Class Mandrill_Metadata</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
 	<script type="text/javascript" src="elementlist.js?1632611348"></script>
@@ -40,8 +40,8 @@
 				<li><a href="class-Mandrill_Internal.html">Mandrill_Internal</a></li>
 				<li><a href="class-Mandrill_Ips.html">Mandrill_Ips</a></li>
 				<li><a href="class-Mandrill_Messages.html">Mandrill_Messages</a></li>
-				<li><a href="class-Mandrill_Metadata.html">Mandrill_Metadata</a></li>
-				<li class="active"><a href="class-Mandrill_Rejects.html">Mandrill_Rejects</a></li>
+				<li class="active"><a href="class-Mandrill_Metadata.html">Mandrill_Metadata</a></li>
+				<li><a href="class-Mandrill_Rejects.html">Mandrill_Rejects</a></li>
 				<li><a href="class-Mandrill_Senders.html">Mandrill_Senders</a></li>
 				<li><a href="class-Mandrill_Subaccounts.html">Mandrill_Subaccounts</a></li>
 				<li><a href="class-Mandrill_Tags.html">Mandrill_Tags</a></li>
@@ -122,7 +122,7 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class Mandrill_Rejects</h1>
+	<h1>Class Mandrill_Metadata</h1>
 
 
 
@@ -140,7 +140,7 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-Mandrill_Rejects.html#3-78" title="Go to source code">Mandrill/Rejects.php</a><br />
+		<b>Located at</b> <a href="source-class-Mandrill_Metadata.html#3-62" title="Go to source code">Mandrill/Metadata.php</a><br />
 	</div>
 
 
@@ -158,7 +158,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Mandrill_Rejects.html#4-6" title="Go to source code">__construct</a>( <span><code><a href="class-Mandrill.html">Mandrill</a></code> <var>$master</var></span> )</code>
+		<code><a href="source-class-Mandrill_Metadata.html#4-6" title="Go to source code">__construct</a>( <span><code><a href="class-Mandrill.html">Mandrill</a></code> <var>$master</var></span> )</code>
 
 		<div class="description short">
 			
@@ -169,61 +169,6 @@
 
 
 
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="add" id="_add">
-
-		<td class="attributes"><code>
-			 public 
-			struct
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_add">#</a>
-		<code><a href="source-class-Mandrill_Rejects.html#8-23" title="Go to source code">add</a>( <span>string <var>$email</var></span>, <span>string <var>$comment</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$subaccount</var> = <span class="php-keyword1">null</span></span> )</code>
-
-		<div class="description short">
-			
-<p>Adds an email to your email rejection blacklist. Addresses that you add
-manually will never expire and there is no reputation penalty for removing them
-from your blacklist. Attempting to blacklist an address that has been
-whitelisted will have no effect.</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Adds an email to your email rejection blacklist. Addresses that you add
-manually will never expire and there is no reputation penalty for removing them
-from your blacklist. Attempting to blacklist an address that has been
-whitelisted will have no effect.</p>
-
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$email</var></dt>
-					<dd><code>string</code><br>$email an email address to block</dd>
-					<dt><var>$comment</var></dt>
-					<dd><code>string</code><br>$comment an optional comment describing the rejection</dd>
-					<dt><var>$subaccount</var></dt>
-					<dd><code>string</code><br>$subaccount an optional unique identifier for the subaccount to limit the
-blacklist entry</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code>struct</code><br>a status object containing the address and the result of the operation - email
-string the email address you provided - added boolean whether the operation
-succeeded<br />
-				</div>
 
 
 
@@ -242,64 +187,124 @@ succeeded<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getList">#</a>
-		<code><a href="source-class-Mandrill_Rejects.html#25-60" title="Go to source code">getList</a>( <span>string <var>$email</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$include_expired</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$subaccount</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Metadata.html#8-19" title="Go to source code">getList</a>( )</code>
 
 		<div class="description short">
 			
-<p>Retrieves your email rejection blacklist. You can provide an email address to
-limit the results. Returns up to 1000 results. By default, entries that have
-expired are excluded from the results; set include_expired to true to include
-them.</p>
+<p>Get the list of custom metadata fields indexed for the account.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Retrieves your email rejection blacklist. You can provide an email address to
-limit the results. Returns up to 1000 results. By default, entries that have
-expired are excluded from the results; set include_expired to true to include
-them.</p>
+<p>Get the list of custom metadata fields indexed for the account.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>the custom metadata fields for the account - return[] struct the individual
+custom metadata field info - name string the unique identifier of the metadata
+field to update - state string the current state of the metadata field, one of
+"active", "delete", or "index" - view_template string Mustache template to
+control how the metadata is rendered in your activity log<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="add" id="_add">
+
+		<td class="attributes"><code>
+			 public 
+			struct
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_add">#</a>
+		<code><a href="source-class-Mandrill_Metadata.html#21-33" title="Go to source code">add</a>( <span>string <var>$name</var></span>, <span>string <var>$view_template</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Add a new custom metadata field to be indexed for the account.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Add a new custom metadata field to be indexed for the account.</p>
 
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$email</var></dt>
-					<dd><code>string</code><br>$email an optional email address to search by</dd>
-					<dt><var>$include_expired</var></dt>
-					<dd><code>boolean</code><br>$include_expired whether to include rejections that have already expired.</dd>
-					<dt><var>$subaccount</var></dt>
-					<dd><code>string</code><br>$subaccount an optional unique identifier for the subaccount to limit the
-blacklist</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name a unique identifier for the metadata field</dd>
+					<dt><var>$view_template</var></dt>
+					<dd><code>string</code><br>$view_template optional Mustache template to control how the metadata is
+rendered in your activity log</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>array</code><br>Up to 1000 rejection entries - return[] struct the information for each
-rejection blacklist entry - email string the email that is blocked - reason
-string the type of event (hard-bounce, soft-bounce, spam, unsub) that caused
-this rejection - detail string extended details about the event, such as the
-SMTP diagnostic for bounces or the comment for manually-created rejections -
-created_at string when the email was added to the blacklist - last_event_at
-string the timestamp of the most recent event that either created or renewed
-this rejection - expires_at string when the blacklist entry will expire (this
-may be in the past) - expired boolean whether the blacklist entry has expired -
-sender struct the sender that this blacklist entry applies to, or null if none.
-- address string the sender's email address - created_at string the date and
-time that the sender was first seen by Mandrill as a UTC date string in
-YYYY-MM-DD HH:MM:SS format - sent integer the total number of messages sent by
-this sender - hard_bounces integer the total number of hard bounces by messages
-by this sender - soft_bounces integer the total number of soft bounces by
-messages by this sender - rejects integer the total number of rejected messages
-by this sender - complaints integer the total number of spam complaints received
-for messages by this sender - unsubs integer the total number of unsubscribe
-requests received for messages by this sender - opens integer the total number
-of times messages by this sender have been opened - clicks integer the total
-number of times tracked URLs in messages by this sender have been clicked -
-unique_opens integer the number of unique opens for emails sent for this sender
-- unique_clicks integer the number of unique clicks for emails sent for this
-sender - subaccount string the subaccount that this blacklist entry applies to,
-or null if none.<br />
+					<code>struct</code><br>the information saved about the new metadata field - name string the unique
+identifier of the metadata field to update - state string the current state of
+the metadata field, one of "active", "delete", or "index" - view_template string
+Mustache template to control how the metadata is rendered in your activity log<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="update" id="_update">
+
+		<td class="attributes"><code>
+			 public 
+			struct
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_update">#</a>
+		<code><a href="source-class-Mandrill_Metadata.html#35-47" title="Go to source code">update</a>( <span>string <var>$name</var></span>, <span>string <var>$view_template</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Update an existing custom metadata field.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Update an existing custom metadata field.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name the unique identifier of the metadata field to update</dd>
+					<dt><var>$view_template</var></dt>
+					<dd><code>string</code><br>$view_template optional Mustache template to control how the metadata is
+rendered in your activity log</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>struct</code><br>the information for the updated metadata field - name string the unique
+identifier of the metadata field to update - state string the current state of
+the metadata field, one of "active", "delete", or "index" - view_template string
+Mustache template to control how the metadata is rendered in your activity log<br />
 				</div>
 
 
@@ -319,39 +324,36 @@ or null if none.<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_delete">#</a>
-		<code><a href="source-class-Mandrill_Rejects.html#62-76" title="Go to source code">delete</a>( <span>string <var>$email</var></span>, <span>string <var>$subaccount</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Metadata.html#49-60" title="Go to source code">delete</a>( <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
 			
-<p>Deletes an email rejection. There is no limit to how many rejections you can
-remove from your blacklist, but keep in mind that each deletion has an affect on
-your reputation.</p>
+<p>Delete an existing custom metadata field. Deletion isn't instataneous, and
+/metadata/list will continue to return the field until the asynchronous deletion
+process is complete.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Deletes an email rejection. There is no limit to how many rejections you can
-remove from your blacklist, but keep in mind that each deletion has an affect on
-your reputation.</p>
+<p>Delete an existing custom metadata field. Deletion isn't instataneous, and
+/metadata/list will continue to return the field until the asynchronous deletion
+process is complete.</p>
 
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$email</var></dt>
-					<dd><code>string</code><br>$email an email address</dd>
-					<dt><var>$subaccount</var></dt>
-					<dd><code>string</code><br>$subaccount an optional unique identifier for the subaccount to limit the
-blacklist deletion</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name the unique identifier of the metadata field to update</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>struct</code><br>a status object containing the address and whether the deletion succeeded. -
-email string the email address that was removed from the blacklist - deleted
-boolean whether the address was deleted successfully. - subaccount string the
-subaccount blacklist that the address was removed from, if any<br />
+					<code>struct</code><br>the information for the deleted metadata field - name string the unique
+identifier of the metadata field to update - state string the current state of
+the metadata field, one of "active", "delete", or "index" - view_template string
+Mustache template to control how the metadata is rendered in your activity log<br />
 				</div>
 
 

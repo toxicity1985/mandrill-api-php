@@ -118,4 +118,14 @@ class Mandrill_Invalid_DeleteDefaultPool extends Mandrill_Error {}
  */
 class Mandrill_Invalid_DeleteNonEmptyPool extends Mandrill_Error {}
 
+/**
+ * Custom metadata field limit reached.
+ */
+class Mandrill_Metadata_FieldLimit extends Mandrill_Error {}
+
+/**
+ * The provided metadata field name does not exist.
+ */
+class Mandrill_Unknown_MetadataField extends Mandrill_Error {}
+
 
