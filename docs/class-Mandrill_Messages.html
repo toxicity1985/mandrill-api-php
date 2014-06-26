@@ -297,13 +297,14 @@ only available to accounts with a positive balance.</dd>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>array</code><br>of structs for each recipient containing the key "email" with the email address
-and "status" as either "sent", "queued", or "rejected" - return[] struct the
+					<code>array</code><br>of structs for each recipient containing the key "email" with the email address,
+and details of the message status for that recipient - return[] struct the
 sending results for a single recipient - email string the email address of the
 recipient - status string the sending status of the recipient - either "sent",
 "queued", "scheduled", "rejected", or "invalid" - reject_reason string the
-reason for the rejection if the recipient status is "rejected" - _id string the
-message's unique id<br />
+reason for the rejection if the recipient status is "rejected" - one of
+"hard-bounce", "soft-bounce", "spam", "unsub", "custom", "invalid-sender",
+"invalid", "test-mode-limit", or "rule" - _id string the message's unique id<br />
 				</div>
 
 
@@ -441,13 +442,14 @@ only available to accounts with a positive balance.</dd>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>array</code><br>of structs for each recipient containing the key "email" with the email address
-and "status" as either "sent", "queued", "scheduled", or "rejected" - return[]
-struct the sending results for a single recipient - email string the email
-address of the recipient - status string the sending status of the recipient -
-either "sent", "queued", "rejected", or "invalid" - reject_reason string the
-reason for the rejection if the recipient status is "rejected" - _id string the
-message's unique id<br />
+					<code>array</code><br>of structs for each recipient containing the key "email" with the email address,
+and details of the message status for that recipient - return[] struct the
+sending results for a single recipient - email string the email address of the
+recipient - status string the sending status of the recipient - either "sent",
+"queued", "rejected", or "invalid" - reject_reason string the reason for the
+rejection if the recipient status is "rejected" - one of "hard-bounce",
+"soft-bounce", "spam", "unsub", "custom", "invalid-sender", "invalid",
+"test-mode-limit", or "rule" - _id string the message's unique id<br />
 				</div>
 
 
@@ -471,22 +473,35 @@ message's unique id<br />
 
 		<div class="description short">
 			
-<p>Search the content of recently sent messages and optionally narrow by date
-range, tags and senders</p>
+<p>Search recently sent messages and optionally narrow by date range, tags,
+senders, and API keys. If no date range is specified, results within the last 7
+days are returned. This method may be called up to 20 times per minute. If you
+need the data more often, you can use <a
+href="/api/docs/messages.html#method=info">/messages/info.json</a> to get the
+information for a single message, or <a
+href="http://help.mandrill.com/entries/21738186-Introduction-to-Webhooks">webhooks</a>
+to push activity to your own application for querying.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Search the content of recently sent messages and optionally narrow by date
-range, tags and senders</p>
+<p>Search recently sent messages and optionally narrow by date range, tags,
+senders, and API keys. If no date range is specified, results within the last 7
+days are returned. This method may be called up to 20 times per minute. If you
+need the data more often, you can use <a
+href="/api/docs/messages.html#method=info">/messages/info.json</a> to get the
+information for a single message, or <a
+href="http://help.mandrill.com/entries/21738186-Introduction-to-Webhooks">webhooks</a>
+to push activity to your own application for querying.</p>
 
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$query</var></dt>
-					<dd><code>string</code><br>$query the search terms to find matching messages for</dd>
+					<dd><code>string</code><br>$query <a href="http://help.mandrill.com/entries/22211902">search terms</a> to
+find matching messages</dd>
 					<dt><var>$date_from</var></dt>
 					<dd><code>string</code><br>$date_from start date</dd>
 					<dt><var>$date_to</var></dt>
@@ -847,13 +862,14 @@ immediately.</dd>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>array</code><br>of structs for each recipient containing the key "email" with the email address
-and "status" as either "sent", "queued", or "rejected" - return[] struct the
+					<code>array</code><br>of structs for each recipient containing the key "email" with the email address,
+and details of the message status for that recipient - return[] struct the
 sending results for a single recipient - email string the email address of the
 recipient - status string the sending status of the recipient - either "sent",
 "queued", "scheduled", "rejected", or "invalid" - reject_reason string the
-reason for the rejection if the recipient status is "rejected" - _id string the
-message's unique id<br />
+reason for the rejection if the recipient status is "rejected" - one of
+"hard-bounce", "soft-bounce", "spam", "unsub", "custom", "invalid-sender",
+"invalid", "test-mode-limit", or "rule" - _id string the message's unique id<br />
 				</div>
 
 

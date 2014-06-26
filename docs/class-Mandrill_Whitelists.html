@@ -144,7 +144,7 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-Mandrill_Whitelists.html#3-49" title="Go to source code">Mandrill/Whitelists.php</a><br />
+		<b>Located at</b> <a href="source-class-Mandrill_Whitelists.html#3-50" title="Go to source code">Mandrill/Whitelists.php</a><br />
 	</div>
 
 
@@ -191,7 +191,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_add">#</a>
-		<code><a href="source-class-Mandrill_Whitelists.html#8-20" title="Go to source code">add</a>( <span>string <var>$email</var></span> )</code>
+		<code><a href="source-class-Mandrill_Whitelists.html#8-21" title="Go to source code">add</a>( <span>string <var>$email</var></span>, <span>string <var>$comment</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -211,12 +211,15 @@ on your blacklist, that blacklist entry will be removed automatically.</p>
 				<div class="list"><dl>
 					<dt><var>$email</var></dt>
 					<dd><code>string</code><br>$email an email address to add to the whitelist</dd>
+					<dt><var>$comment</var></dt>
+					<dd><code>string</code><br>$comment an optional description of why the email was whitelisted</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
 					<code>struct</code><br>a status object containing the address and the result of the operation - email
-string the email address you provided - whether boolean the operation succeeded<br />
+string the email address you provided - added boolean whether the operation
+succeeded<br />
 				</div>
 
 
@@ -236,7 +239,7 @@ string the email address you provided - whether boolean the operation succeeded<
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getList">#</a>
-		<code><a href="source-class-Mandrill_Whitelists.html#22-35" title="Go to source code">getList</a>( <span>string <var>$email</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Whitelists.html#23-36" title="Go to source code">getList</a>( <span>string <var>$email</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -283,7 +286,7 @@ was added to the whitelist<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_delete">#</a>
-		<code><a href="source-class-Mandrill_Whitelists.html#37-47" title="Go to source code">delete</a>( <span>string <var>$email</var></span> )</code>
+		<code><a href="source-class-Mandrill_Whitelists.html#38-48" title="Go to source code">delete</a>( <span>string <var>$email</var></span> )</code>
 
 		<div class="description short">
 			
