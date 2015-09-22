@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta charset="utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Mandrill_Exports</title>
 
-	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?882160656"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+	<link rel="stylesheet" href="resources/style.css?3901564645">
 
 </head>
 
@@ -28,7 +26,7 @@
 			</ul>
 		</div>
 
-		<hr />
+		<hr>
 
 
 		<div id="elements">
@@ -99,10 +97,10 @@
 <div id="right">
 <div id="rightInner">
 	<form id="search">
-		<input type="hidden" name="cx" value="" />
-		<input type="hidden" name="ie" value="UTF-8" />
-		<input type="text" name="q" class="text" />
-		<input type="submit" value="Search" />
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
 	</form>
 
 	<div id="navigation">
@@ -144,12 +142,12 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-Mandrill_Exports.html#3-110" title="Go to source code">Mandrill/Exports.php</a><br />
+		<b>Located at</b> <a href="source-class-Mandrill_Exports.html#3-110" title="Go to source code">Mandrill/Exports.php</a><br>
 	</div>
 
 
 
-	<table class="summary" id="methods">
+	<table class="summary methods" id="methods">
 	<caption>Methods summary</caption>
 	<tr data-order="__construct" id="___construct">
 
@@ -216,7 +214,7 @@ details about the output format for that job type.</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$id</var></dt>
-					<dd><code>string</code><br>$id an export job identifier</dd>
+					<dd>an export job identifier</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -228,7 +226,7 @@ YYYY-MM-DD HH:MM:SS format - type string the type of the export job - activity,
 reject, or whitelist - finished_at string the date and time that the export job
 was finished as a UTC string in YYYY-MM-DD HH:MM:SS format - state string the
 export job's state - waiting, working, complete, error, or expired. - result_url
-string the url for the export job's results, if the job is completed.<br />
+string the url for the export job's results, if the job is completed.<br>
 				</div>
 
 
@@ -273,7 +271,7 @@ of the export job - activity, reject, or whitelist - finished_at string the date
 and time that the export job was finished as a UTC string in YYYY-MM-DD HH:MM:SS
 format - state string the export job's state - waiting, working, complete,
 error, or expired. - result_url string the url for the export job's results, if
-the job is completed.<br />
+the job is completed.<br>
 				</div>
 
 
@@ -316,8 +314,7 @@ expires_at.</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$notify_email</var></dt>
-					<dd><code>string</code><br>$notify_email an optional email address to notify when the export job has
-finished.</dd>
+					<dd>an optional email address to notify when the export job has finished.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -329,7 +326,7 @@ a UTC string in YYYY-MM-DD HH:MM:SS format - type string the type of the export
 job - finished_at string the date and time that the export job was finished as a
 UTC string in YYYY-MM-DD HH:MM:SS format, or null for jobs that have not run -
 state string the export job's state - result_url string the url for the export
-job's results, if the job is complete<br />
+job's results, if the job is complete<br>
 				</div>
 
 
@@ -370,8 +367,7 @@ following fields: email, detail, created_at.</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$notify_email</var></dt>
-					<dd><code>string</code><br>$notify_email an optional email address to notify when the export job has
-finished.</dd>
+					<dd>an optional email address to notify when the export job has finished.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -383,7 +379,7 @@ created as a UTC string in YYYY-MM-DD HH:MM:SS format - type string the type of
 the export job - finished_at string the date and time that the export job was
 finished as a UTC string in YYYY-MM-DD HH:MM:SS format, or null for jobs that
 have not run - state string the export job's state - result_url string the url
-for the export job's results, if the job is complete<br />
+for the export job's results, if the job is complete<br>
 				</div>
 
 
@@ -430,24 +426,22 @@ will be included in the exported data.</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$notify_email</var></dt>
-					<dd><code>string</code><br>$notify_email an optional email address to notify when the export job has
-finished</dd>
+					<dd>an optional email address to notify when the export job has finished</dd>
 					<dt><var>$date_from</var></dt>
-					<dd><code>string</code><br>$date_from start date as a UTC string in YYYY-MM-DD HH:MM:SS format</dd>
+					<dd>start date as a UTC string in YYYY-MM-DD HH:MM:SS format</dd>
 					<dt><var>$date_to</var></dt>
-					<dd><code>string</code><br>$date_to end date as a UTC string in YYYY-MM-DD HH:MM:SS format</dd>
+					<dd>end date as a UTC string in YYYY-MM-DD HH:MM:SS format</dd>
 					<dt><var>$tags</var></dt>
-					<dd><code>array</code><br>$tags an array of tag names to narrow the export to; will match messages that
-contain ANY of the tags - tags[] string a tag name</dd>
+					<dd>an array of tag names to narrow the export to; will match messages that contain
+ANY of the tags - tags[] string a tag name</dd>
 					<dt><var>$senders</var></dt>
-					<dd><code>array</code><br>$senders an array of senders to narrow the export to - senders[] string a sender
-address</dd>
+					<dd>an array of senders to narrow the export to - senders[] string a sender address</dd>
 					<dt><var>$states</var></dt>
-					<dd><code>array</code><br>$states an array of states to narrow the export to; messages with ANY of the
-states will be included - states[] string a message state</dd>
+					<dd>an array of states to narrow the export to; messages with ANY of the states will
+be included - states[] string a message state</dd>
 					<dt><var>$api_keys</var></dt>
-					<dd><code>array</code><br>$api_keys an array of api keys to narrow the export to; messsagse sent with ANY
-of the keys will be included - api_keys[] string an API key associated with your
+					<dd>an array of api keys to narrow the export to; messsagse sent with ANY of the
+keys will be included - api_keys[] string an API key associated with your
 account</dd>
 				</dl></div>
 
@@ -460,7 +454,7 @@ created as a UTC string in YYYY-MM-DD HH:MM:SS format - type string the type of
 the export job - finished_at string the date and time that the export job was
 finished as a UTC string in YYYY-MM-DD HH:MM:SS format, or null for jobs that
 have not run - state string the export job's state - result_url string the url
-for the export job's results, if the job is complete<br />
+for the export job's results, if the job is complete<br>
 				</div>
 
 
@@ -495,5 +489,7 @@ for the export job's results, if the job is complete<br />
 	</div>
 </div>
 </div>
+<script src="resources/combined.js?2846385516"></script>
+<script src="elementlist.js?882160656"></script>
 </body>
 </html>

@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta charset="utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Mandrill_Messages</title>
 
-	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?882160656"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+	<link rel="stylesheet" href="resources/style.css?3901564645">
 
 </head>
 
@@ -28,7 +26,7 @@
 			</ul>
 		</div>
 
-		<hr />
+		<hr>
 
 
 		<div id="elements">
@@ -99,10 +97,10 @@
 <div id="right">
 <div id="rightInner">
 	<form id="search">
-		<input type="hidden" name="cx" value="" />
-		<input type="hidden" name="ie" value="UTF-8" />
-		<input type="text" name="q" class="text" />
-		<input type="submit" value="Search" />
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
 	</form>
 
 	<div id="navigation">
@@ -144,12 +142,12 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-Mandrill_Messages.html#3-406" title="Go to source code">Mandrill/Messages.php</a><br />
+		<b>Located at</b> <a href="source-class-Mandrill_Messages.html#3-408" title="Go to source code">Mandrill/Messages.php</a><br>
 	</div>
 
 
 
-	<table class="summary" id="methods">
+	<table class="summary methods" id="methods">
 	<caption>Methods summary</caption>
 	<tr data-order="__construct" id="___construct">
 
@@ -191,7 +189,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_send">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#8-80" title="Go to source code">send</a>( <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$send_at</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#8-81" title="Go to source code">send</a>( <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$send_at</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -208,20 +206,20 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$message</var></dt>
-					<dd><code>struct</code><br>$message the information on the message to send - html string the full HTML
-content to be sent - text string optional full text content to be sent - subject
-string the message subject - from_email string the sender email address. -
-from_name string optional from name to be used - to array an array of recipient
-information. - to[] struct a single recipient's information. - email string the
-email address of the recipient - name string the optional display name to use
-for the recipient - type string the header type to use for the recipient,
-defaults to "to" if not provided - headers struct optional extra headers to add
-to the message (most headers are allowed) - important boolean whether or not
-this message is important, and should be delivered ahead of non-important
-messages - track_opens boolean whether or not to turn on open tracking for the
-message - track_clicks boolean whether or not to turn on click tracking for the
-message - auto_text boolean whether or not to automatically generate a text part
-for messages that are not given text - auto_html boolean whether or not to
+					<dd>the information on the message to send - html string the full HTML content to be
+sent - text string optional full text content to be sent - subject string the
+message subject - from_email string the sender email address. - from_name string
+optional from name to be used - to array an array of recipient information. -
+to[] struct a single recipient's information. - email string the email address
+of the recipient - name string the optional display name to use for the
+recipient - type string the header type to use for the recipient, defaults to
+"to" if not provided - headers struct optional extra headers to add to the
+message (most headers are allowed) - important boolean whether or not this
+message is important, and should be delivered ahead of non-important messages -
+track_opens boolean whether or not to turn on open tracking for the message -
+track_clicks boolean whether or not to turn on click tracking for the message -
+auto_text boolean whether or not to automatically generate a text part for
+messages that are not given text - auto_html boolean whether or not to
 automatically generate an HTML part for messages that are not given HTML -
 inline_css boolean whether or not to automatically inline all CSS styles
 provided in the message HTML - only for HTML documents less than 256KB in size -
@@ -236,24 +234,25 @@ domain to use for SPF/DKIM signing instead of mandrill (for "via" or "on behalf
 of" in email clients) - return_path_domain string a custom domain to use for the
 messages's return-path - merge boolean whether to evaluate merge tags in the
 message. Will automatically be set to true if either merge_vars or
-global_merge_vars are provided. - global_merge_vars array global merge variables
-to use for all recipients. You can override these per recipient. -
-global_merge_vars[] struct a single global merge variable - name string the
-global merge variable's name. Merge variable names are case-insensitive and may
-not start with _ - content string the global merge variable's content -
-merge_vars array per-recipient merge variables, which override global merge
-variables with the same name. - merge_vars[] struct per-recipient merge
-variables - rcpt string the email address of the recipient that the merge
-variables should apply to - vars array the recipient's merge variables - vars[]
-struct a single merge variable - name string the merge variable's name. Merge
-variable names are case-insensitive and may not start with _ - content string
-the merge variable's content - tags array an array of string to tag the message
-with. Stats are accumulated using tags, though we only store the first 100 we
-see, so this should not be unique or change frequently. Tags should be 50
-characters or less. Any tags starting with an underscore are reserved for
-internal use and will cause errors. - tags[] string a single tag - must not
-start with an underscore - subaccount string the unique id of a subaccount for
-this message - must already exist or will fail with an error -
+global_merge_vars are provided. - merge_language string the merge tag language
+to use when evaluating merge tags, either mailchimp or handlebars -
+global_merge_vars array global merge variables to use for all recipients. You
+can override these per recipient. - global_merge_vars[] struct a single global
+merge variable - name string the global merge variable's name. Merge variable
+names are case-insensitive and may not start with _ - content mixed the global
+merge variable's content - merge_vars array per-recipient merge variables, which
+override global merge variables with the same name. - merge_vars[] struct
+per-recipient merge variables - rcpt string the email address of the recipient
+that the merge variables should apply to - vars array the recipient's merge
+variables - vars[] struct a single merge variable - name string the merge
+variable's name. Merge variable names are case-insensitive and may not start
+with _ - content mixed the merge variable's content - tags array an array of
+string to tag the message with. Stats are accumulated using tags, though we only
+store the first 100 we see, so this should not be unique or change frequently.
+Tags should be 50 characters or less. Any tags starting with an underscore are
+reserved for internal use and will cause errors. - tags[] string a single tag -
+must not start with an underscore - subaccount string the unique id of a
+subaccount for this message - must already exist or will fail with an error -
 google_analytics_domains array an array of strings indicating for which any
 matching URLs will automatically have Google Analytics parameters appended to
 their query string automatically. - google_analytics_campaign array|string
@@ -274,25 +273,25 @@ MIME type of the attachment - name string the file name of the attachment -
 content string the content of the attachment as a base64-encoded string - images
 array an array of embedded images to add to the message - images[] struct a
 single embedded image - type string the MIME type of the image - must start with
-"image/" - name string the Content ID of the image - use &lt;img
-src="cid:THIS_VALUE"&gt; to reference the image in your HTML content - content
+"image/" - name string the Content ID of the image - use &amp;lt;img
+src="cid:THIS_VALUE"&amp;gt; to reference the image in your HTML content - content
 string the content of the image as a base64-encoded string</dd>
 					<dt><var>$async</var></dt>
-					<dd><code>boolean</code><br>$async enable a background sending mode that is optimized for bulk sending. In
-async mode, messages/send will immediately return a status of "queued" for every
+					<dd>enable a background sending mode that is optimized for bulk sending. In async
+mode, messages/send will immediately return a status of "queued" for every
 recipient. To handle rejections when sending in async mode, set up a webhook for
 the 'reject' event. Defaults to false for messages with no more than 10
 recipients; messages with more than 10 recipients are always sent
 asynchronously, regardless of the value of async.</dd>
 					<dt><var>$ip_pool</var></dt>
-					<dd><code>string</code><br>$ip_pool the name of the dedicated ip pool that should be used to send the
-message. If you do not have any dedicated IPs, this parameter has no effect. If
-you specify a pool that does not exist, your default pool will be used instead.</dd>
+					<dd>the name of the dedicated ip pool that should be used to send the message. If
+you do not have any dedicated IPs, this parameter has no effect. If you specify
+a pool that does not exist, your default pool will be used instead.</dd>
 					<dt><var>$send_at</var></dt>
-					<dd><code>string</code><br>$send_at when this message should be sent as a UTC timestamp in YYYY-MM-DD
-HH:MM:SS format. If you specify a time in the past, the message will be sent
-immediately. An additional fee applies for scheduled email, and this feature is
-only available to accounts with a positive balance.</dd>
+					<dd>when this message should be sent as a UTC timestamp in YYYY-MM-DD HH:MM:SS
+format. If you specify a time in the past, the message will be sent immediately.
+An additional fee applies for scheduled email, and this feature is only
+available to accounts with a positive balance.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -304,7 +303,7 @@ recipient - status string the sending status of the recipient - either "sent",
 "queued", "scheduled", "rejected", or "invalid" - reject_reason string the
 reason for the rejection if the recipient status is "rejected" - one of
 "hard-bounce", "soft-bounce", "spam", "unsub", "custom", "invalid-sender",
-"invalid", "test-mode-limit", or "rule" - _id string the message's unique id<br />
+"invalid", "test-mode-limit", or "rule" - _id string the message's unique id<br>
 				</div>
 
 
@@ -324,7 +323,7 @@ reason for the rejection if the recipient status is "rejected" - one of
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendTemplate">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#82-159" title="Go to source code">sendTemplate</a>( <span>string <var>$template_name</var></span>, <span>array <var>$template_content</var></span>, <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$send_at</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#83-161" title="Go to source code">sendTemplate</a>( <span>string <var>$template_name</var></span>, <span>array <var>$template_content</var></span>, <span>struct <var>$message</var></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$send_at</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -341,20 +340,20 @@ reason for the rejection if the recipient status is "rejected" - one of
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$template_name</var></dt>
-					<dd><code>string</code><br>$template_name the immutable name or slug of a template that exists in the
-user's account. For backwards-compatibility, the template name may also be used
-but the immutable slug is preferred.</dd>
+					<dd>the immutable name or slug of a template that exists in the user's account. For
+backwards-compatibility, the template name may also be used but the immutable
+slug is preferred.</dd>
 					<dt><var>$template_content</var></dt>
-					<dd><code>array</code><br>$template_content an array of template content to send. Each item in the array
-should be a struct with two keys - name: the name of the content block to set
-the content for, and content: the actual content to put into the block -
-template_content[] struct the injection of a single piece of content into a
-single editable region - name string the name of the mc:edit editable region to
-inject into - content string the content to inject</dd>
+					<dd>an array of template content to send. Each item in the array should be a struct
+with two keys - name: the name of the content block to set the content for, and
+content: the actual content to put into the block - template_content[] struct
+the injection of a single piece of content into a single editable region - name
+string the name of the mc:edit editable region to inject into - content string
+the content to inject</dd>
 					<dt><var>$message</var></dt>
-					<dd><code>struct</code><br>$message the other information on the message to send - same as /messages/send,
-but without the html content - html string optional full HTML content to be sent
-if not in template - text string optional full text content to be sent - subject
+					<dd>the other information on the message to send - same as /messages/send, but
+without the html content - html string optional full HTML content to be sent if
+not in template - text string optional full text content to be sent - subject
 string the message subject - from_email string the sender email address. -
 from_name string optional from name to be used - to array an array of recipient
 information. - to[] struct a single recipient's information. - email string the
@@ -381,24 +380,25 @@ domain to use for SPF/DKIM signing instead of mandrill (for "via" or "on behalf
 of" in email clients) - return_path_domain string a custom domain to use for the
 messages's return-path - merge boolean whether to evaluate merge tags in the
 message. Will automatically be set to true if either merge_vars or
-global_merge_vars are provided. - global_merge_vars array global merge variables
-to use for all recipients. You can override these per recipient. -
-global_merge_vars[] struct a single global merge variable - name string the
-global merge variable's name. Merge variable names are case-insensitive and may
-not start with _ - content string the global merge variable's content -
-merge_vars array per-recipient merge variables, which override global merge
-variables with the same name. - merge_vars[] struct per-recipient merge
-variables - rcpt string the email address of the recipient that the merge
-variables should apply to - vars array the recipient's merge variables - vars[]
-struct a single merge variable - name string the merge variable's name. Merge
-variable names are case-insensitive and may not start with _ - content string
-the merge variable's content - tags array an array of string to tag the message
-with. Stats are accumulated using tags, though we only store the first 100 we
-see, so this should not be unique or change frequently. Tags should be 50
-characters or less. Any tags starting with an underscore are reserved for
-internal use and will cause errors. - tags[] string a single tag - must not
-start with an underscore - subaccount string the unique id of a subaccount for
-this message - must already exist or will fail with an error -
+global_merge_vars are provided. - merge_language string the merge tag language
+to use when evaluating merge tags, either mailchimp or handlebars -
+global_merge_vars array global merge variables to use for all recipients. You
+can override these per recipient. - global_merge_vars[] struct a single global
+merge variable - name string the global merge variable's name. Merge variable
+names are case-insensitive and may not start with _ - content mixed the global
+merge variable's content - merge_vars array per-recipient merge variables, which
+override global merge variables with the same name. - merge_vars[] struct
+per-recipient merge variables - rcpt string the email address of the recipient
+that the merge variables should apply to - vars array the recipient's merge
+variables - vars[] struct a single merge variable - name string the merge
+variable's name. Merge variable names are case-insensitive and may not start
+with _ - content mixed the merge variable's content - tags array an array of
+string to tag the message with. Stats are accumulated using tags, though we only
+store the first 100 we see, so this should not be unique or change frequently.
+Tags should be 50 characters or less. Any tags starting with an underscore are
+reserved for internal use and will cause errors. - tags[] string a single tag -
+must not start with an underscore - subaccount string the unique id of a
+subaccount for this message - must already exist or will fail with an error -
 google_analytics_domains array an array of strings indicating for which any
 matching URLs will automatically have Google Analytics parameters appended to
 their query string automatically. - google_analytics_campaign array|string
@@ -419,25 +419,25 @@ MIME type of the attachment - name string the file name of the attachment -
 content string the content of the attachment as a base64-encoded string - images
 array an array of embedded images to add to the message - images[] struct a
 single embedded image - type string the MIME type of the image - must start with
-"image/" - name string the Content ID of the image - use &lt;img
-src="cid:THIS_VALUE"&gt; to reference the image in your HTML content - content
+"image/" - name string the Content ID of the image - use &amp;lt;img
+src="cid:THIS_VALUE"&amp;gt; to reference the image in your HTML content - content
 string the content of the image as a base64-encoded string</dd>
 					<dt><var>$async</var></dt>
-					<dd><code>boolean</code><br>$async enable a background sending mode that is optimized for bulk sending. In
-async mode, messages/send will immediately return a status of "queued" for every
+					<dd>enable a background sending mode that is optimized for bulk sending. In async
+mode, messages/send will immediately return a status of "queued" for every
 recipient. To handle rejections when sending in async mode, set up a webhook for
 the 'reject' event. Defaults to false for messages with no more than 10
 recipients; messages with more than 10 recipients are always sent
 asynchronously, regardless of the value of async.</dd>
 					<dt><var>$ip_pool</var></dt>
-					<dd><code>string</code><br>$ip_pool the name of the dedicated ip pool that should be used to send the
-message. If you do not have any dedicated IPs, this parameter has no effect. If
-you specify a pool that does not exist, your default pool will be used instead.</dd>
+					<dd>the name of the dedicated ip pool that should be used to send the message. If
+you do not have any dedicated IPs, this parameter has no effect. If you specify
+a pool that does not exist, your default pool will be used instead.</dd>
 					<dt><var>$send_at</var></dt>
-					<dd><code>string</code><br>$send_at when this message should be sent as a UTC timestamp in YYYY-MM-DD
-HH:MM:SS format. If you specify a time in the past, the message will be sent
-immediately. An additional fee applies for scheduled email, and this feature is
-only available to accounts with a positive balance.</dd>
+					<dd>when this message should be sent as a UTC timestamp in YYYY-MM-DD HH:MM:SS
+format. If you specify a time in the past, the message will be sent immediately.
+An additional fee applies for scheduled email, and this feature is only
+available to accounts with a positive balance.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -449,7 +449,7 @@ recipient - status string the sending status of the recipient - either "sent",
 "queued", "rejected", or "invalid" - reject_reason string the reason for the
 rejection if the recipient status is "rejected" - one of "hard-bounce",
 "soft-bounce", "spam", "unsub", "custom", "invalid-sender", "invalid",
-"test-mode-limit", or "rule" - _id string the message's unique id<br />
+"test-mode-limit", or "rule" - _id string the message's unique id<br>
 				</div>
 
 
@@ -469,7 +469,7 @@ rejection if the recipient status is "rejected" - one of "hard-bounce",
 
 		<td class="name"><div>
 		<a class="anchor" href="#_search">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#161-206" title="Go to source code">search</a>( <span>string <var>$query</var> = <span class="php-quote">'*'</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$api_keys</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$limit</var> = <span class="php-num">100</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#163-208" title="Go to source code">search</a>( <span>string <var>$query</var> = <span class="php-quote">'*'</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$api_keys</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$limit</var> = <span class="php-num">100</span></span> )</code>
 
 		<div class="description short">
 			
@@ -500,24 +500,23 @@ to push activity to your own application for querying.</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$query</var></dt>
-					<dd><code>string</code><br>$query <a href="http://help.mandrill.com/entries/22211902">search terms</a> to
-find matching messages</dd>
+					<dd>&lt;a href="http://help.mandrill.com/entries/22211902"&gt;search terms&lt;/a&gt; to find
+matching messages</dd>
 					<dt><var>$date_from</var></dt>
-					<dd><code>string</code><br>$date_from start date</dd>
+					<dd>start date</dd>
 					<dt><var>$date_to</var></dt>
-					<dd><code>string</code><br>$date_to end date</dd>
+					<dd>end date</dd>
 					<dt><var>$tags</var></dt>
-					<dd><code>array</code><br>$tags an array of tag names to narrow the search to, will return messages that
-contain ANY of the tags</dd>
+					<dd>an array of tag names to narrow the search to, will return messages that contain
+ANY of the tags</dd>
 					<dt><var>$senders</var></dt>
-					<dd><code>array</code><br>$senders an array of sender addresses to narrow the search to, will return
-messages sent by ANY of the senders</dd>
+					<dd>an array of sender addresses to narrow the search to, will return messages sent
+by ANY of the senders</dd>
 					<dt><var>$api_keys</var></dt>
-					<dd><code>array</code><br>$api_keys an array of API keys to narrow the search to, will return messages
-sent by ANY of the keys</dd>
+					<dd>an array of API keys to narrow the search to, will return messages sent by ANY
+of the keys</dd>
 					<dt><var>$limit</var></dt>
-					<dd><code>integer</code><br>$limit the maximum number of results to return, defaults to 100, 1000 is the
-maximum</dd>
+					<dd>the maximum number of results to return, defaults to 100, 1000 is the maximum</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -545,7 +544,7 @@ rejected - metadata struct any custom metadata provided when the message was
 sent - smtp_events array a log of up to 3 smtp events for the message -
 smtp_events[] struct information about a specific smtp event - ts integer the
 Unix timestamp when the event occured - type string the message's state as a
-result of this event - diag string the SMTP response from the recipient's server<br />
+result of this event - diag string the SMTP response from the recipient's server<br>
 				</div>
 
 
@@ -565,7 +564,7 @@ result of this event - diag string the SMTP response from the recipient's server
 
 		<td class="name"><div>
 		<a class="anchor" href="#_searchTimeSeries">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#208-232" title="Go to source code">searchTimeSeries</a>( <span>string <var>$query</var> = <span class="php-quote">'*'</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#210-234" title="Go to source code">searchTimeSeries</a>( <span>string <var>$query</var> = <span class="php-quote">'*'</span></span>, <span>string <var>$date_from</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$date_to</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$tags</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$senders</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -584,17 +583,17 @@ stats for matching messages</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$query</var></dt>
-					<dd><code>string</code><br>$query the search terms to find matching messages for</dd>
+					<dd>the search terms to find matching messages for</dd>
 					<dt><var>$date_from</var></dt>
-					<dd><code>string</code><br>$date_from start date</dd>
+					<dd>start date</dd>
 					<dt><var>$date_to</var></dt>
-					<dd><code>string</code><br>$date_to end date</dd>
+					<dd>end date</dd>
 					<dt><var>$tags</var></dt>
-					<dd><code>array</code><br>$tags an array of tag names to narrow the search to, will return messages that
-contain ANY of the tags</dd>
+					<dd>an array of tag names to narrow the search to, will return messages that contain
+ANY of the tags</dd>
 					<dt><var>$senders</var></dt>
-					<dd><code>array</code><br>$senders an array of sender addresses to narrow the search to, will return
-messages sent by ANY of the senders</dd>
+					<dd>an array of sender addresses to narrow the search to, will return messages sent
+by ANY of the senders</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -610,7 +609,7 @@ of unsubscribes received during the hour - opens integer the number of emails
 opened during the hour - unique_opens integer the number of unique opens
 generated by messages sent during the hour - clicks integer the number of
 tracked URLs clicked during the hour - unique_clicks integer the number of
-unique clicks generated by messages sent during the hour<br />
+unique clicks generated by messages sent during the hour<br>
 				</div>
 
 
@@ -630,7 +629,7 @@ unique clicks generated by messages sent during the hour<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_info">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#234-272" title="Go to source code">info</a>( <span>string <var>$id</var></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#236-274" title="Go to source code">info</a>( <span>string <var>$id</var></span> )</code>
 
 		<div class="description short">
 			
@@ -647,7 +646,7 @@ unique clicks generated by messages sent during the hour<br />
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$id</var></dt>
-					<dd><code>string</code><br>$id the unique id of the message to get - passed as the "_id" field in webhooks,
+					<dd>the unique id of the message to get - passed as the "_id" field in webhooks,
 send calls, or search calls</dd>
 				</dl></div>
 
@@ -676,7 +675,7 @@ message was sent - smtp_events array a log of up to 3 smtp events for the
 message - smtp_events[] struct information about a specific smtp event - ts
 integer the Unix timestamp when the event occured - type string the message's
 state as a result of this event - diag string the SMTP response from the
-recipient's server<br />
+recipient's server<br>
 				</div>
 
 
@@ -696,7 +695,7 @@ recipient's server<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_content">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#274-300" title="Go to source code">content</a>( <span>string <var>$id</var></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#276-302" title="Go to source code">content</a>( <span>string <var>$id</var></span> )</code>
 
 		<div class="description short">
 			
@@ -713,7 +712,7 @@ recipient's server<br />
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$id</var></dt>
-					<dd><code>string</code><br>$id the unique id of the message to get - passed as the "_id" field in webhooks,
+					<dd>the unique id of the message to get - passed as the "_id" field in webhooks,
 send calls, or search calls</dd>
 				</dl></div>
 
@@ -732,7 +731,7 @@ if any - attachments array an array of any attachments that can be found in the
 message - attachments[] struct information about an individual attachment - name
 string the file name of the attachment - type string the MIME type of the
 attachment - content string the content of the attachment as a base64 encoded
-string<br />
+string<br>
 				</div>
 
 
@@ -752,7 +751,7 @@ string<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parse">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#302-331" title="Go to source code">parse</a>( <span>string <var>$raw_message</var></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#304-333" title="Go to source code">parse</a>( <span>string <var>$raw_message</var></span> )</code>
 
 		<div class="description short">
 			
@@ -771,7 +770,7 @@ the message broken into its constituent pieces</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$raw_message</var></dt>
-					<dd><code>string</code><br>$raw_message the full MIME document of an email message</dd>
+					<dd>the full MIME document of an email message</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -792,7 +791,7 @@ content of the attachment as a text string or a base64 encoded string based on
 the attachment type - images array an array of any embedded images that can be
 found in the message - images[] struct information about an individual image -
 name string the Content-ID of the embedded image - type string the MIME type of
-the image - content string the content of the image as a base64 encoded string<br />
+the image - content string the content of the image as a base64 encoded string<br>
 				</div>
 
 
@@ -812,7 +811,7 @@ the image - content string the content of the image as a base64 encoded string<b
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sendRaw">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#333-354" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>string|null <var>$from_email</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$from_name</var> = <span class="php-keyword1">null</span></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$send_at</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$return_path_domain</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#335-356" title="Go to source code">sendRaw</a>( <span>string <var>$raw_message</var></span>, <span>string|null <var>$from_email</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$from_name</var> = <span class="php-keyword1">null</span></span>, <span>array|null <var>$to</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$async</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$ip_pool</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$send_at</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$return_path_domain</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -831,33 +830,32 @@ sent through Mandrill's SMTP servers</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$raw_message</var></dt>
-					<dd><code>string</code><br>$raw_message the full MIME document of an email message</dd>
+					<dd>the full MIME document of an email message</dd>
 					<dt><var>$from_email</var></dt>
-					<dd><code>string|null</code><br>$from_email optionally define the sender address - otherwise we'll use the
-address found in the provided headers</dd>
+					<dd>optionally define the sender address - otherwise we'll use the address found in
+the provided headers</dd>
 					<dt><var>$from_name</var></dt>
-					<dd><code>string|null</code><br>$from_name optionally define the sender alias</dd>
+					<dd>optionally define the sender alias</dd>
 					<dt><var>$to</var></dt>
-					<dd><code>array|null</code><br>$to optionally define the recipients to receive the message - otherwise we'll
-use the To, Cc, and Bcc headers provided in the document - to[] string the email
+					<dd>optionally define the recipients to receive the message - otherwise we'll use
+the To, Cc, and Bcc headers provided in the document - to[] string the email
 address of the recipient</dd>
 					<dt><var>$async</var></dt>
-					<dd><code>boolean</code><br>$async enable a background sending mode that is optimized for bulk sending. In
-async mode, messages/sendRaw will immediately return a status of "queued" for
-every recipient. To handle rejections when sending in async mode, set up a
-webhook for the 'reject' event. Defaults to false for messages with no more than
-10 recipients; messages with more than 10 recipients are always sent
+					<dd>enable a background sending mode that is optimized for bulk sending. In async
+mode, messages/sendRaw will immediately return a status of "queued" for every
+recipient. To handle rejections when sending in async mode, set up a webhook for
+the 'reject' event. Defaults to false for messages with no more than 10
+recipients; messages with more than 10 recipients are always sent
 asynchronously, regardless of the value of async.</dd>
 					<dt><var>$ip_pool</var></dt>
-					<dd><code>string</code><br>$ip_pool the name of the dedicated ip pool that should be used to send the
-message. If you do not have any dedicated IPs, this parameter has no effect. If
-you specify a pool that does not exist, your default pool will be used instead.</dd>
+					<dd>the name of the dedicated ip pool that should be used to send the message. If
+you do not have any dedicated IPs, this parameter has no effect. If you specify
+a pool that does not exist, your default pool will be used instead.</dd>
 					<dt><var>$send_at</var></dt>
-					<dd><code>string</code><br>$send_at when this message should be sent as a UTC timestamp in YYYY-MM-DD
-HH:MM:SS format. If you specify a time in the past, the message will be sent
-immediately.</dd>
+					<dd>when this message should be sent as a UTC timestamp in YYYY-MM-DD HH:MM:SS
+format. If you specify a time in the past, the message will be sent immediately.</dd>
 					<dt><var>$return_path_domain</var></dt>
-					<dd><code>string</code><br>$return_path_domain a custom domain to use for the messages's return-path</dd>
+					<dd>a custom domain to use for the messages's return-path</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -869,7 +867,7 @@ recipient - status string the sending status of the recipient - either "sent",
 "queued", "scheduled", "rejected", or "invalid" - reject_reason string the
 reason for the rejection if the recipient status is "rejected" - one of
 "hard-bounce", "soft-bounce", "spam", "unsub", "custom", "invalid-sender",
-"invalid", "test-mode-limit", or "rule" - _id string the message's unique id<br />
+"invalid", "test-mode-limit", or "rule" - _id string the message's unique id<br>
 				</div>
 
 
@@ -889,24 +887,24 @@ reason for the rejection if the recipient status is "rejected" - one of
 
 		<td class="name"><div>
 		<a class="anchor" href="#_listScheduled">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#356-371" title="Go to source code">listScheduled</a>( <span>string <var>$to</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#358-373" title="Go to source code">listScheduled</a>( <span>string <var>$to</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
-<p>Queries your scheduled emails by sender or recipient, or both.</p>
+<p>Queries your scheduled emails.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Queries your scheduled emails by sender or recipient, or both.</p>
+<p>Queries your scheduled emails.</p>
 
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$to</var></dt>
-					<dd><code>string</code><br>$to an optional recipient address to restrict results to</dd>
+					<dd>an optional recipient address to restrict results to</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -916,7 +914,7 @@ string the scheduled message id - created_at string the UTC timestamp when the
 message was created, in YYYY-MM-DD HH:MM:SS format - send_at string the UTC
 timestamp when the message will be sent, in YYYY-MM-DD HH:MM:SS format -
 from_email string the email's sender address - to string the email's recipient -
-subject string the email's subject<br />
+subject string the email's subject<br>
 				</div>
 
 
@@ -936,7 +934,7 @@ subject string the email's subject<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_cancelScheduled">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#373-387" title="Go to source code">cancelScheduled</a>( <span>string <var>$id</var></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#375-389" title="Go to source code">cancelScheduled</a>( <span>string <var>$id</var></span> )</code>
 
 		<div class="description short">
 			
@@ -953,7 +951,7 @@ subject string the email's subject<br />
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$id</var></dt>
-					<dd><code>string</code><br>$id a scheduled email id, as returned by any of the messages/send calls or
+					<dd>a scheduled email id, as returned by any of the messages/send calls or
 messages/list-scheduled</dd>
 				</dl></div>
 
@@ -964,7 +962,7 @@ scheduled message id - created_at string the UTC timestamp when the message was
 created, in YYYY-MM-DD HH:MM:SS format - send_at string the UTC timestamp when
 the message will be sent, in YYYY-MM-DD HH:MM:SS format - from_email string the
 email's sender address - to string the email's recipient - subject string the
-email's subject<br />
+email's subject<br>
 				</div>
 
 
@@ -984,7 +982,7 @@ email's subject<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_reschedule">#</a>
-		<code><a href="source-class-Mandrill_Messages.html#389-404" title="Go to source code">reschedule</a>( <span>string <var>$id</var></span>, <span>string <var>$send_at</var></span> )</code>
+		<code><a href="source-class-Mandrill_Messages.html#391-406" title="Go to source code">reschedule</a>( <span>string <var>$id</var></span>, <span>string <var>$send_at</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1001,11 +999,11 @@ email's subject<br />
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$id</var></dt>
-					<dd><code>string</code><br>$id a scheduled email id, as returned by any of the messages/send calls or
+					<dd>a scheduled email id, as returned by any of the messages/send calls or
 messages/list-scheduled</dd>
 					<dt><var>$send_at</var></dt>
-					<dd><code>string</code><br>$send_at the new UTC timestamp when the message should sent. Mandrill can't time
-travel, so if you specify a time in past the message will be sent immediately</dd>
+					<dd>the new UTC timestamp when the message should sent. Mandrill can't time travel,
+so if you specify a time in past the message will be sent immediately</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -1015,7 +1013,7 @@ scheduled message id - created_at string the UTC timestamp when the message was
 created, in YYYY-MM-DD HH:MM:SS format - send_at string the UTC timestamp when
 the message will be sent, in YYYY-MM-DD HH:MM:SS format - from_email string the
 email's sender address - to string the email's recipient - subject string the
-email's subject<br />
+email's subject<br>
 				</div>
 
 
@@ -1050,5 +1048,7 @@ email's subject<br />
 	</div>
 </div>
 </div>
+<script src="resources/combined.js?2846385516"></script>
+<script src="elementlist.js?882160656"></script>
 </body>
 </html>

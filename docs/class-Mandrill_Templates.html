@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta charset="utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Mandrill_Templates</title>
 
-	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?882160656"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+	<link rel="stylesheet" href="resources/style.css?3901564645">
 
 </head>
 
@@ -28,7 +26,7 @@
 			</ul>
 		</div>
 
-		<hr />
+		<hr>
 
 
 		<div id="elements">
@@ -99,10 +97,10 @@
 <div id="right">
 <div id="rightInner">
 	<form id="search">
-		<input type="hidden" name="cx" value="" />
-		<input type="hidden" name="ie" value="UTF-8" />
-		<input type="text" name="q" class="text" />
-		<input type="submit" value="Search" />
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
 	</form>
 
 	<div id="navigation">
@@ -144,12 +142,12 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-Mandrill_Templates.html#3-233" title="Go to source code">Mandrill/Templates.php</a><br />
+		<b>Located at</b> <a href="source-class-Mandrill_Templates.html#3-233" title="Go to source code">Mandrill/Templates.php</a><br>
 	</div>
 
 
 
-	<table class="summary" id="methods">
+	<table class="summary methods" id="methods">
 	<caption>Methods summary</caption>
 	<tr data-order="__construct" id="___construct">
 
@@ -208,23 +206,22 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$name</var></dt>
-					<dd><code>string</code><br>$name the name for the new template - must be unique</dd>
+					<dd>the name for the new template - must be unique</dd>
 					<dt><var>$from_email</var></dt>
-					<dd><code>string</code><br>$from_email a default sending address for emails sent using this template</dd>
+					<dd>a default sending address for emails sent using this template</dd>
 					<dt><var>$from_name</var></dt>
-					<dd><code>string</code><br>$from_name a default from name to be used</dd>
+					<dd>a default from name to be used</dd>
 					<dt><var>$subject</var></dt>
-					<dd><code>string</code><br>$subject a default subject line to be used</dd>
+					<dd>a default subject line to be used</dd>
 					<dt><var>$code</var></dt>
-					<dd><code>string</code><br>$code the HTML code for the template with mc:edit attributes for the editable
-elements</dd>
+					<dd>the HTML code for the template with mc:edit attributes for the editable elements</dd>
 					<dt><var>$text</var></dt>
-					<dd><code>string</code><br>$text a default text part to be used when sending with this template</dd>
+					<dd>a default text part to be used when sending with this template</dd>
 					<dt><var>$publish</var></dt>
-					<dd><code>boolean</code><br>$publish set to false to add a draft template without publishing</dd>
+					<dd>set to false to add a draft template without publishing</dd>
 					<dt><var>$labels</var></dt>
-					<dd><code>array</code><br>$labels an optional array of up to 10 labels to use for filtering templates -
-labels[] string a single label</dd>
+					<dd>an optional array of up to 10 labels to use for filtering templates - labels[]
+string a single label</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -250,7 +247,7 @@ published_at string the date and time the template was last published as a UTC
 string in YYYY-MM-DD HH:MM:SS format, or null if it has not been published -
 created_at string the date and time the template was first created as a UTC
 string in YYYY-MM-DD HH:MM:SS format - updated_at string the date and time the
-template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
+template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br>
 				</div>
 
 
@@ -287,7 +284,7 @@ template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$name</var></dt>
-					<dd><code>string</code><br>$name the immutable name of an existing template</dd>
+					<dd>the immutable name of an existing template</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -313,7 +310,7 @@ published_at string the date and time the template was last published as a UTC
 string in YYYY-MM-DD HH:MM:SS format, or null if it has not been published -
 created_at string the date and time the template was first created as a UTC
 string in YYYY-MM-DD HH:MM:SS format - updated_at string the date and time the
-template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
+template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br>
 				</div>
 
 
@@ -352,23 +349,22 @@ the values will remain unchanged.</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$name</var></dt>
-					<dd><code>string</code><br>$name the immutable name of an existing template</dd>
+					<dd>the immutable name of an existing template</dd>
 					<dt><var>$from_email</var></dt>
-					<dd><code>string</code><br>$from_email the new default sending address</dd>
+					<dd>the new default sending address</dd>
 					<dt><var>$from_name</var></dt>
-					<dd><code>string</code><br>$from_name the new default from name</dd>
+					<dd>the new default from name</dd>
 					<dt><var>$subject</var></dt>
-					<dd><code>string</code><br>$subject the new default subject line</dd>
+					<dd>the new default subject line</dd>
 					<dt><var>$code</var></dt>
-					<dd><code>string</code><br>$code the new code for the template</dd>
+					<dd>the new code for the template</dd>
 					<dt><var>$text</var></dt>
-					<dd><code>string</code><br>$text the new default text part to be used</dd>
+					<dd>the new default text part to be used</dd>
 					<dt><var>$publish</var></dt>
-					<dd><code>boolean</code><br>$publish set to false to update the draft version of the template without
-publishing</dd>
+					<dd>set to false to update the draft version of the template without publishing</dd>
 					<dt><var>$labels</var></dt>
-					<dd><code>array</code><br>$labels an optional array of up to 10 labels to use for filtering templates -
-labels[] string a single label</dd>
+					<dd>an optional array of up to 10 labels to use for filtering templates - labels[]
+string a single label</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -394,7 +390,7 @@ published_at string the date and time the template was last published as a UTC
 string in YYYY-MM-DD HH:MM:SS format, or null if it has not been published -
 created_at string the date and time the template was first created as a UTC
 string in YYYY-MM-DD HH:MM:SS format - updated_at string the date and time the
-template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
+template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br>
 				</div>
 
 
@@ -433,7 +429,7 @@ template will start using the content that was previously in draft.</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$name</var></dt>
-					<dd><code>string</code><br>$name the immutable name of an existing template</dd>
+					<dd>the immutable name of an existing template</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -459,7 +455,7 @@ published_at string the date and time the template was last published as a UTC
 string in YYYY-MM-DD HH:MM:SS format, or null if it has not been published -
 created_at string the date and time the template was first created as a UTC
 string in YYYY-MM-DD HH:MM:SS format - updated_at string the date and time the
-template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
+template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br>
 				</div>
 
 
@@ -496,7 +492,7 @@ template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$name</var></dt>
-					<dd><code>string</code><br>$name the immutable name of an existing template</dd>
+					<dd>the immutable name of an existing template</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -522,7 +518,7 @@ published_at string the date and time the template was last published as a UTC
 string in YYYY-MM-DD HH:MM:SS format, or null if it has not been published -
 created_at string the date and time the template was first created as a UTC
 string in YYYY-MM-DD HH:MM:SS format - updated_at string the date and time the
-template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
+template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br>
 				</div>
 
 
@@ -559,7 +555,7 @@ template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$label</var></dt>
-					<dd><code>string</code><br>$label an optional label to filter the templates</dd>
+					<dd>an optional label to filter the templates</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -586,7 +582,7 @@ published_at string the date and time the template was last published as a UTC
 string in YYYY-MM-DD HH:MM:SS format, or null if it has not been published -
 created_at string the date and time the template was first created as a UTC
 string in YYYY-MM-DD HH:MM:SS format - updated_at string the date and time the
-template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br />
+template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format<br>
 				</div>
 
 
@@ -625,7 +621,7 @@ template</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$name</var></dt>
-					<dd><code>string</code><br>$name the name of an existing template</dd>
+					<dd>the name of an existing template</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -640,7 +636,7 @@ number of spam complaints received during the hour - opens integer the number of
 emails opened during the hour - unique_opens integer the number of unique opens
 generated by messages sent during the hour - clicks integer the number of
 tracked URLs clicked during the hour - unique_clicks integer the number of
-unique clicks generated by messages sent during the hour<br />
+unique clicks generated by messages sent during the hour<br>
 				</div>
 
 
@@ -679,27 +675,26 @@ HTML that results</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$template_name</var></dt>
-					<dd><code>string</code><br>$template_name the immutable name of a template that exists in the user's
-account</dd>
+					<dd>the immutable name of a template that exists in the user's account</dd>
 					<dt><var>$template_content</var></dt>
-					<dd><code>array</code><br>$template_content an array of template content to render. Each item in the array
-should be a struct with two keys - name: the name of the content block to set
-the content for, and content: the actual content to put into the block -
-template_content[] struct the injection of a single piece of content into a
-single editable region - name string the name of the mc:edit editable region to
-inject into - content string the content to inject</dd>
+					<dd>an array of template content to render. Each item in the array should be a
+struct with two keys - name: the name of the content block to set the content
+for, and content: the actual content to put into the block - template_content[]
+struct the injection of a single piece of content into a single editable region
+- name string the name of the mc:edit editable region to inject into - content
+string the content to inject</dd>
 					<dt><var>$merge_vars</var></dt>
-					<dd><code>array</code><br>$merge_vars optional merge variables to use for injecting merge field content.
-If this is not provided, no merge fields will be replaced. - merge_vars[] struct
-a single merge variable - name string the merge variable's name. Merge variable
-names are case-insensitive and may not start with _ - content string the merge
-variable's content</dd>
+					<dd>optional merge variables to use for injecting merge field content. If this is
+not provided, no merge fields will be replaced. - merge_vars[] struct a single
+merge variable - name string the merge variable's name. Merge variable names are
+case-insensitive and may not start with _ - content string the merge variable's
+content</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
 					<code>struct</code><br>the result of rendering the given template with the content and merge field
-values injected - html string the rendered HTML as a string<br />
+values injected - html string the rendered HTML as a string<br>
 				</div>
 
 
@@ -734,5 +729,7 @@ values injected - html string the rendered HTML as a string<br />
 	</div>
 </div>
 </div>
+<script src="resources/combined.js?2846385516"></script>
+<script src="elementlist.js?882160656"></script>
 </body>
 </html>

@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta charset="utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Mandrill_Inbound</title>
 
-	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?882160656"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+	<link rel="stylesheet" href="resources/style.css?3901564645">
 
 </head>
 
@@ -28,7 +26,7 @@
 			</ul>
 		</div>
 
-		<hr />
+		<hr>
 
 
 		<div id="elements">
@@ -99,10 +97,10 @@
 <div id="right">
 <div id="rightInner">
 	<form id="search">
-		<input type="hidden" name="cx" value="" />
-		<input type="hidden" name="ie" value="UTF-8" />
-		<input type="text" name="q" class="text" />
-		<input type="submit" value="Search" />
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
 	</form>
 
 	<div id="navigation">
@@ -144,12 +142,12 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-Mandrill_Inbound.html#3-136" title="Go to source code">Mandrill/Inbound.php</a><br />
+		<b>Located at</b> <a href="source-class-Mandrill_Inbound.html#3-136" title="Go to source code">Mandrill/Inbound.php</a><br>
 	</div>
 
 
 
-	<table class="summary" id="methods">
+	<table class="summary methods" id="methods">
 	<caption>Methods summary</caption>
 	<tr data-order="__construct" id="___construct">
 
@@ -212,7 +210,7 @@
 domain info - domain string the domain name that is accepting mail - created_at
 string the date and time that the inbound domain was added as a UTC string in
 YYYY-MM-DD HH:MM:SS format - valid_mx boolean true if this inbound domain has
-successfully set up an MX record to deliver mail to the Mandrill servers<br />
+successfully set up an MX record to deliver mail to the Mandrill servers<br>
 				</div>
 
 
@@ -249,7 +247,7 @@ successfully set up an MX record to deliver mail to the Mandrill servers<br />
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$domain</var></dt>
-					<dd><code>string</code><br>$domain a domain name</dd>
+					<dd>a domain name</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -258,7 +256,7 @@ successfully set up an MX record to deliver mail to the Mandrill servers<br />
 mail - created_at string the date and time that the inbound domain was added as
 a UTC string in YYYY-MM-DD HH:MM:SS format - valid_mx boolean true if this
 inbound domain has successfully set up an MX record to deliver mail to the
-Mandrill servers<br />
+Mandrill servers<br>
 				</div>
 
 
@@ -297,7 +295,7 @@ been added with the add-domain call</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$domain</var></dt>
-					<dd><code>string</code><br>$domain an existing inbound domain</dd>
+					<dd>an existing inbound domain</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -306,7 +304,7 @@ been added with the add-domain call</p>
 accepting mail - created_at string the date and time that the inbound domain was
 added as a UTC string in YYYY-MM-DD HH:MM:SS format - valid_mx boolean true if
 this inbound domain has successfully set up an MX record to deliver mail to the
-Mandrill servers<br />
+Mandrill servers<br>
 				</div>
 
 
@@ -345,7 +343,7 @@ this domain immediately.</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$domain</var></dt>
-					<dd><code>string</code><br>$domain an existing inbound domain</dd>
+					<dd>an existing inbound domain</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -354,7 +352,7 @@ this domain immediately.</p>
 accepting mail - created_at string the date and time that the inbound domain was
 added as a UTC string in YYYY-MM-DD HH:MM:SS format - valid_mx boolean true if
 this inbound domain has successfully set up an MX record to deliver mail to the
-Mandrill servers<br />
+Mandrill servers<br>
 				</div>
 
 
@@ -391,7 +389,7 @@ Mandrill servers<br />
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$domain</var></dt>
-					<dd><code>string</code><br>$domain the domain to check</dd>
+					<dd>the domain to check</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -399,7 +397,7 @@ Mandrill servers<br />
 					<code>array</code><br>the routes associated with the domain - return[] struct the individual mailbox
 route - id string the unique identifier of the route - pattern string the search
 pattern that the mailbox name should match - url string the webhook URL where
-inbound messages will be published<br />
+inbound messages will be published<br>
 				</div>
 
 
@@ -436,18 +434,18 @@ inbound messages will be published<br />
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$domain</var></dt>
-					<dd><code>string</code><br>$domain an existing inbound domain</dd>
+					<dd>an existing inbound domain</dd>
 					<dt><var>$pattern</var></dt>
-					<dd><code>string</code><br>$pattern the search pattern that the mailbox name should match</dd>
+					<dd>the search pattern that the mailbox name should match</dd>
 					<dt><var>$url</var></dt>
-					<dd><code>string</code><br>$url the webhook URL where the inbound messages will be published</dd>
+					<dd>the webhook URL where the inbound messages will be published</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
 					<code>struct</code><br>the added mailbox route information - id string the unique identifier of the
 route - pattern string the search pattern that the mailbox name should match -
-url string the webhook URL where inbound messages will be published<br />
+url string the webhook URL where inbound messages will be published<br>
 				</div>
 
 
@@ -486,18 +484,18 @@ is provided for any fields, the values will remain unchanged.</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$id</var></dt>
-					<dd><code>string</code><br>$id the unique identifier of an existing mailbox route</dd>
+					<dd>the unique identifier of an existing mailbox route</dd>
 					<dt><var>$pattern</var></dt>
-					<dd><code>string</code><br>$pattern the search pattern that the mailbox name should match</dd>
+					<dd>the search pattern that the mailbox name should match</dd>
 					<dt><var>$url</var></dt>
-					<dd><code>string</code><br>$url the webhook URL where the inbound messages will be published</dd>
+					<dd>the webhook URL where the inbound messages will be published</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
 					<code>struct</code><br>the updated mailbox route information - id string the unique identifier of the
 route - pattern string the search pattern that the mailbox name should match -
-url string the webhook URL where inbound messages will be published<br />
+url string the webhook URL where inbound messages will be published<br>
 				</div>
 
 
@@ -534,14 +532,14 @@ url string the webhook URL where inbound messages will be published<br />
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$id</var></dt>
-					<dd><code>string</code><br>$id the unique identifier of an existing route</dd>
+					<dd>the unique identifier of an existing route</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
 					<code>struct</code><br>the deleted mailbox route information - id string the unique identifier of the
 route - pattern string the search pattern that the mailbox name should match -
-url string the webhook URL where inbound messages will be published<br />
+url string the webhook URL where inbound messages will be published<br>
 				</div>
 
 
@@ -580,20 +578,19 @@ and send it to the inbound hook exactly as if it had been sent over SMTP</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$raw_message</var></dt>
-					<dd><code>string</code><br>$raw_message the full MIME document of an email message</dd>
+					<dd>the full MIME document of an email message</dd>
 					<dt><var>$to</var></dt>
-					<dd><code>array|null</code><br>$to optionally define the recipients to receive the message - otherwise we'll
-use the To, Cc, and Bcc headers provided in the document - to[] string the email
+					<dd>optionally define the recipients to receive the message - otherwise we'll use
+the To, Cc, and Bcc headers provided in the document - to[] string the email
 address of the recipient</dd>
 					<dt><var>$mail_from</var></dt>
-					<dd><code>string</code><br>$mail_from the address specified in the MAIL FROM stage of the SMTP
-conversation. Required for the SPF check.</dd>
+					<dd>the address specified in the MAIL FROM stage of the SMTP conversation. Required
+for the SPF check.</dd>
 					<dt><var>$helo</var></dt>
-					<dd><code>string</code><br>$helo the identification provided by the client mta in the MTA state of the SMTP
+					<dd>the identification provided by the client mta in the MTA state of the SMTP
 conversation. Required for the SPF check.</dd>
 					<dt><var>$client_address</var></dt>
-					<dd><code>string</code><br>$client_address the remote MTA's ip address. Optional; required for the SPF
-check.</dd>
+					<dd>the remote MTA's ip address. Optional; required for the SPF check.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -602,7 +599,7 @@ check.</dd>
 matched an inbound route - return[] struct the individual recipient information
 - email string the email address of the matching recipient - pattern string the
 mailbox route pattern that the recipient matched - url string the webhook URL
-that the message was posted to<br />
+that the message was posted to<br>
 				</div>
 
 
@@ -637,5 +634,7 @@ that the message was posted to<br />
 	</div>
 </div>
 </div>
+<script src="resources/combined.js?2846385516"></script>
+<script src="elementlist.js?882160656"></script>
 </body>
 </html>
