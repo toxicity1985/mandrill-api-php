@@ -8,21 +8,21 @@ class Mandrill {
     public $ch;
     public $root = 'https://mandrillapp.com/api/1.0';
     public $debug = false;
-    private Request\Templates $templates;
-    private Request\Exports $exports;
-    private Request\Users $users;
-    private Request\Rejects $rejects;
-    private Request\Inbound $inbound;
-    private Request\Tags $tags;
-    private Request\Messages $messages;
-    private Request\Whitelists $whitelists;
-    private Request\Ips $ips;
-    private Request\Internal $internal;
-    private Request\Subaccounts $subaccounts;
-    private Request\Urls $urls;
-    private Request\Webhooks $webhooks;
-    private Request\Senders $senders;
-    private Request\Metadata $metadata;
+    public Request\Templates $templates;
+    public Request\Exports $exports;
+    public Request\Users $users;
+    public Request\Rejects $rejects;
+    public Request\Inbound $inbound;
+    public Request\Tags $tags;
+    public Request\Messages $messages;
+    public Request\Whitelists $whitelists;
+    public Request\Ips $ips;
+    public Request\Internal $internal;
+    public Request\Subaccounts $subaccounts;
+    public Request\Urls $urls;
+    public Request\Webhooks $webhooks;
+    public Request\Senders $senders;
+    public Request\Metadata $metadata;
 
     public static $error_map = array(
         "ValidationError" => Exception\ValidationError::class,

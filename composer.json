@@ -1,7 +1,7 @@
 {
     "name": "toxicity/mandrill-api-php",
     "type": "library",
-    "version": "1.0.0",
+    "version": "1.0.56",
     "description": "An updated fork (psr-0 to psr-4) from the original library \"Mandrill/Mandrill\" (https://bitbucket.org/mailchimp/mandrill-api-php)",
     "keywords": ["email", "api", "mandrill", "transactional email"],
     "homepage": "https://github.com/toxicity1985/mandrill-api-php",
