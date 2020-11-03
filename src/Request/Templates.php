@@ -1,21 +1,22 @@
 <?php
 
-class Mandrill_Templates {
-    public function __construct(Mandrill $master) {
-        $this->master = $master;
-    }
+namespace Mandrill\Request;
 
+class Templates extends BaseRequest
+{
     /**
      * Add a new template
-     * @param string $name the name for the new template - must be unique
-     * @param string $from_email a default sending address for emails sent using this template
-     * @param string $from_name a default from name to be used
-     * @param string $subject a default subject line to be used
-     * @param string $code the HTML code for the template with mc:edit attributes for the editable elements
-     * @param string $text a default text part to be used when sending with this template
-     * @param boolean $publish set to false to add a draft template without publishing
-     * @param array $labels an optional array of up to 10 labels to use for filtering templates
-     *     - labels[] string a single label
+     *
+     * @param string  $name       the name for the new template - must be unique
+     * @param string  $from_email a default sending address for emails sent using this template
+     * @param string  $from_name  a default from name to be used
+     * @param string  $subject    a default subject line to be used
+     * @param string  $code       the HTML code for the template with mc:edit attributes for the editable elements
+     * @param string  $text       a default text part to be used when sending with this template
+     * @param boolean $publish    set to false to add a draft template without publishing
+     * @param array   $labels     an optional array of up to 10 labels to use for filtering templates
+     *                            - labels[] string a single label
+     *
      * @return struct the information saved about the new template
      *     - slug string the immutable unique code name of the template
      *     - name string the name of the template
@@ -36,14 +37,35 @@ class Mandrill_Templates {
      *     - created_at string the date and time the template was first created as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - updated_at string the date and time the template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format
      */
-    public function add($name, $from_email=null, $from_name=null, $subject=null, $code=null, $text=null, $publish=true, $labels=array()) {
-        $_params = array("name" => $name, "from_email" => $from_email, "from_name" => $from_name, "subject" => $subject, "code" => $code, "text" => $text, "publish" => $publish, "labels" => $labels);
-        return $this->master->call('templates/add', $_params);
+    public function add(
+        $name,
+        $from_email = null,
+        $from_name = null,
+        $subject = null,
+        $code = null,
+        $text = null,
+        $publish = true,
+        $labels = array()
+    ) {
+        $_params = array(
+            "name" => $name,
+            "from_email" => $from_email,
+            "from_name" => $from_name,
+            "subject" => $subject,
+            "code" => $code,
+            "text" => $text,
+            "publish" => $publish,
+            "labels" => $labels,
+        );
+
+        return $this->mandrill->call('templates/add', $_params);
     }
 
     /**
      * Get the information for an existing template
+     *
      * @param string $name the immutable name of an existing template
+     *
      * @return struct the requested template information
      *     - slug string the immutable unique code name of the template
      *     - name string the name of the template
@@ -64,22 +86,26 @@ class Mandrill_Templates {
      *     - created_at string the date and time the template was first created as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - updated_at string the date and time the template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format
      */
-    public function info($name) {
+    public function info($name)
+    {
         $_params = array("name" => $name);
-        return $this->master->call('templates/info', $_params);
+
+        return $this->mandrill->call('templates/info', $_params);
     }
 
     /**
      * Update the code for an existing template. If null is provided for any fields, the values will remain unchanged.
-     * @param string $name the immutable name of an existing template
-     * @param string $from_email the new default sending address
-     * @param string $from_name the new default from name
-     * @param string $subject the new default subject line
-     * @param string $code the new code for the template
-     * @param string $text the new default text part to be used
-     * @param boolean $publish set to false to update the draft version of the template without publishing
-     * @param array $labels an optional array of up to 10 labels to use for filtering templates
-     *     - labels[] string a single label
+     *
+     * @param string  $name       the immutable name of an existing template
+     * @param string  $from_email the new default sending address
+     * @param string  $from_name  the new default from name
+     * @param string  $subject    the new default subject line
+     * @param string  $code       the new code for the template
+     * @param string  $text       the new default text part to be used
+     * @param boolean $publish    set to false to update the draft version of the template without publishing
+     * @param array   $labels     an optional array of up to 10 labels to use for filtering templates
+     *                            - labels[] string a single label
+     *
      * @return struct the template that was updated
      *     - slug string the immutable unique code name of the template
      *     - name string the name of the template
@@ -100,14 +126,35 @@ class Mandrill_Templates {
      *     - created_at string the date and time the template was first created as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - updated_at string the date and time the template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format
      */
-    public function update($name, $from_email=null, $from_name=null, $subject=null, $code=null, $text=null, $publish=true, $labels=null) {
-        $_params = array("name" => $name, "from_email" => $from_email, "from_name" => $from_name, "subject" => $subject, "code" => $code, "text" => $text, "publish" => $publish, "labels" => $labels);
-        return $this->master->call('templates/update', $_params);
+    public function update(
+        $name,
+        $from_email = null,
+        $from_name = null,
+        $subject = null,
+        $code = null,
+        $text = null,
+        $publish = true,
+        $labels = null
+    ) {
+        $_params = array(
+            "name" => $name,
+            "from_email" => $from_email,
+            "from_name" => $from_name,
+            "subject" => $subject,
+            "code" => $code,
+            "text" => $text,
+            "publish" => $publish,
+            "labels" => $labels,
+        );
+
+        return $this->mandrill->call('templates/update', $_params);
     }
 
     /**
      * Publish the content for the template. Any new messages sent using this template will start using the content that was previously in draft.
+     *
      * @param string $name the immutable name of an existing template
+     *
      * @return struct the template that was published
      *     - slug string the immutable unique code name of the template
      *     - name string the name of the template
@@ -128,14 +175,18 @@ class Mandrill_Templates {
      *     - created_at string the date and time the template was first created as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - updated_at string the date and time the template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format
      */
-    public function publish($name) {
+    public function publish($name)
+    {
         $_params = array("name" => $name);
-        return $this->master->call('templates/publish', $_params);
+
+        return $this->mandrill->call('templates/publish', $_params);
     }
 
     /**
      * Delete a template
+     *
      * @param string $name the immutable name of an existing template
+     *
      * @return struct the template that was deleted
      *     - slug string the immutable unique code name of the template
      *     - name string the name of the template
@@ -156,14 +207,18 @@ class Mandrill_Templates {
      *     - created_at string the date and time the template was first created as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - updated_at string the date and time the template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format
      */
-    public function delete($name) {
+    public function delete($name)
+    {
         $_params = array("name" => $name);
-        return $this->master->call('templates/delete', $_params);
+
+        return $this->mandrill->call('templates/delete', $_params);
     }
 
     /**
      * Return a list of all the templates available to this user
+     *
      * @param string $label an optional label to filter the templates
+     *
      * @return array an array of structs with information about each template
      *     - return[] struct the information on each template in the account
      *         - slug string the immutable unique code name of the template
@@ -185,14 +240,18 @@ class Mandrill_Templates {
      *         - created_at string the date and time the template was first created as a UTC string in YYYY-MM-DD HH:MM:SS format
      *         - updated_at string the date and time the template was last modified as a UTC string in YYYY-MM-DD HH:MM:SS format
      */
-    public function getList($label=null) {
+    public function getList($label = null)
+    {
         $_params = array("label" => $label);
-        return $this->master->call('templates/list', $_params);
+
+        return $this->mandrill->call('templates/list', $_params);
     }
 
     /**
      * Return the recent history (hourly stats for the last 30 days) for a template
+     *
      * @param string $name the name of an existing template
+     *
      * @return array the array of history information
      *     - return[] struct the stats for a single hour
      *         - time string the hour as a UTC date string in YYYY-MM-DD HH:MM:SS format
@@ -206,28 +265,38 @@ class Mandrill_Templates {
      *         - clicks integer the number of tracked URLs clicked during the hour
      *         - unique_clicks integer the number of unique clicks generated by messages sent during the hour
      */
-    public function timeSeries($name) {
+    public function timeSeries($name)
+    {
         $_params = array("name" => $name);
-        return $this->master->call('templates/time-series', $_params);
+
+        return $this->mandrill->call('templates/time-series', $_params);
     }
 
     /**
      * Inject content and optionally merge fields into a template, returning the HTML that results
-     * @param string $template_name the immutable name of a template that exists in the user's account
-     * @param array $template_content an array of template content to render.  Each item in the array should be a struct with two keys - name: the name of the content block to set the content for, and content: the actual content to put into the block
-     *     - template_content[] struct the injection of a single piece of content into a single editable region
-     *         - name string the name of the mc:edit editable region to inject into
-     *         - content string the content to inject
-     * @param array $merge_vars optional merge variables to use for injecting merge field content.  If this is not provided, no merge fields will be replaced.
-     *     - merge_vars[] struct a single merge variable
-     *         - name string the merge variable's name. Merge variable names are case-insensitive and may not start with _
-     *         - content string the merge variable's content
+     *
+     * @param string $template_name    the immutable name of a template that exists in the user's account
+     * @param array  $template_content an array of template content to render.  Each item in the array should be a struct with two keys - name: the name of the content block to set the content for, and content: the actual content to put into the block
+     *                                 - template_content[] struct the injection of a single piece of content into a single editable region
+     *                                 - name string the name of the mc:edit editable region to inject into
+     *                                 - content string the content to inject
+     * @param array  $merge_vars       optional merge variables to use for injecting merge field content.  If this is not provided, no merge fields will be replaced.
+     *                                 - merge_vars[] struct a single merge variable
+     *                                 - name string the merge variable's name. Merge variable names are case-insensitive and may not start with _
+     *                                 - content string the merge variable's content
+     *
      * @return struct the result of rendering the given template with the content and merge field values injected
      *     - html string the rendered HTML as a string
      */
-    public function render($template_name, $template_content, $merge_vars=null) {
-        $_params = array("template_name" => $template_name, "template_content" => $template_content, "merge_vars" => $merge_vars);
-        return $this->master->call('templates/render', $_params);
+    public function render($template_name, $template_content, $merge_vars = null)
+    {
+        $_params = array(
+            "template_name" => $template_name,
+            "template_content" => $template_content,
+            "merge_vars" => $merge_vars,
+        );
+
+        return $this->mandrill->call('templates/render', $_params);
     }
 
 }

@@ -1,10 +1,9 @@
 <?php
 
-class Mandrill_Subaccounts {
-    public function __construct(Mandrill $master) {
-        $this->master = $master;
-    }
+namespace Mandrill\Request;
 
+class Subaccounts extends BaseRequest
+{
     /**
      * Get the list of subaccounts defined for the account, optionally filtered by a prefix
      * @param string $q an optional prefix to filter the subaccounts' ids and names
@@ -23,7 +22,7 @@ class Mandrill_Subaccounts {
      */
     public function getList($q=null) {
         $_params = array("q" => $q);
-        return $this->master->call('subaccounts/list', $_params);
+        return $this->mandrill->call('subaccounts/list', $_params);
     }
 
     /**
@@ -46,7 +45,7 @@ class Mandrill_Subaccounts {
      */
     public function add($id, $name=null, $notes=null, $custom_quota=null) {
         $_params = array("id" => $id, "name" => $name, "notes" => $notes, "custom_quota" => $custom_quota);
-        return $this->master->call('subaccounts/add', $_params);
+        return $this->mandrill->call('subaccounts/add', $_params);
     }
 
     /**
@@ -80,7 +79,7 @@ class Mandrill_Subaccounts {
      */
     public function info($id) {
         $_params = array("id" => $id);
-        return $this->master->call('subaccounts/info', $_params);
+        return $this->mandrill->call('subaccounts/info', $_params);
     }
 
     /**
@@ -103,7 +102,7 @@ class Mandrill_Subaccounts {
      */
     public function update($id, $name=null, $notes=null, $custom_quota=null) {
         $_params = array("id" => $id, "name" => $name, "notes" => $notes, "custom_quota" => $custom_quota);
-        return $this->master->call('subaccounts/update', $_params);
+        return $this->mandrill->call('subaccounts/update', $_params);
     }
 
     /**
@@ -123,7 +122,7 @@ class Mandrill_Subaccounts {
      */
     public function delete($id) {
         $_params = array("id" => $id);
-        return $this->master->call('subaccounts/delete', $_params);
+        return $this->mandrill->call('subaccounts/delete', $_params);
     }
 
     /**
@@ -143,7 +142,7 @@ class Mandrill_Subaccounts {
      */
     public function pause($id) {
         $_params = array("id" => $id);
-        return $this->master->call('subaccounts/pause', $_params);
+        return $this->mandrill->call('subaccounts/pause', $_params);
     }
 
     /**
@@ -163,7 +162,7 @@ class Mandrill_Subaccounts {
      */
     public function resume($id) {
         $_params = array("id" => $id);
-        return $this->master->call('subaccounts/resume', $_params);
+        return $this->mandrill->call('subaccounts/resume', $_params);
     }
 
 }

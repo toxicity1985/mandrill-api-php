@@ -1,10 +1,9 @@
 <?php
 
-class Mandrill_Users {
-    public function __construct(Mandrill $master) {
-        $this->master = $master;
-    }
+namespace Mandrill\Request;
 
+class Users extends BaseRequest
+{
     /**
      * Return the information about the API-connected user
      * @return struct the user information including username, key, reputation, quota, and historical sending stats
@@ -82,27 +81,33 @@ class Mandrill_Users {
      *             - clicks integer the number of URLs that have been clicked in the lifetime of the user's account
      *             - unique_clicks integer the number of unique clicks for emails sent in the lifetime of the user's account
      */
-    public function info() {
+    public function info()
+    {
         $_params = array();
-        return $this->master->call('users/info', $_params);
+
+        return $this->mandrill->call('users/info', $_params);
     }
 
     /**
      * Validate an API key and respond to a ping
      * @return string the string "PONG!"
      */
-    public function ping() {
+    public function ping()
+    {
         $_params = array();
-        return $this->master->call('users/ping', $_params);
+
+        return $this->mandrill->call('users/ping', $_params);
     }
 
     /**
      * Validate an API key and respond to a ping (anal JSON parser version)
      * @return struct a struct with one key "PING" with a static value "PONG!"
      */
-    public function ping2() {
+    public function ping2()
+    {
         $_params = array();
-        return $this->master->call('users/ping2', $_params);
+
+        return $this->mandrill->call('users/ping2', $_params);
     }
 
     /**
@@ -122,11 +127,10 @@ class Mandrill_Users {
      *         - unique_opens integer the number of unique opens for emails sent for this sender
      *         - unique_clicks integer the number of unique clicks for emails sent for this sender
      */
-    public function senders() {
+    public function senders()
+    {
         $_params = array();
-        return $this->master->call('users/senders', $_params);
+
+        return $this->mandrill->call('users/senders', $_params);
     }
-
 }
-
-
