@@ -1,12 +1,12 @@
 {
-    "name": "mandrill/mandrill",
+    "name": "toxicity/mandrill-api-php",
     "type": "library",
-    "version": "1.0.55",
-    "description": "API client library for the Mandrill email as a service platform",
-    "keywords": ["email", "api"],
-    "homepage": "https://bitbucket.org/mailchimp/mandrill-api-php",
+    "version": "1.0.0",
+    "description": "An updated fork (psr-0 to psr-4) from the original library \"Mandrill/Mandrill\" (https://bitbucket.org/mailchimp/mandrill-api-php)",
+    "keywords": ["email", "api", "mandrill", "transactional email"],
+    "homepage": "https://github.com/toxicity1985/mandrill-api-php",
     "license": "Apache-2.0",
-    "authors": [{"name": "Mandrill Devs", "email": "community@mandrill.com", "homepage": "http://mandrill.com", "role": "Developer"}],
+    "authors": [{"name": "Quairia John", "email": "tech@toxicity.be", "role": "Developer"}],
     "require": {
         "php": ">=5.2.0"
     },
