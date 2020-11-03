@@ -1,10 +1,9 @@
 <?php
 
-class Mandrill_Senders {
-    public function __construct(Mandrill $master) {
-        $this->master = $master;
-    }
+namespace Mandrill\Request;
 
+class Senders extends BaseRequest
+{
     /**
      * Return the senders that have tried to use this account.
      * @return array an array of sender data, one for each sending addresses used by the account
@@ -22,9 +21,11 @@ class Mandrill_Senders {
      *         - unique_opens integer the number of unique opens for emails sent for this sender
      *         - unique_clicks integer the number of unique clicks for emails sent for this sender
      */
-    public function getList() {
+    public function getList()
+    {
         $_params = array();
-        return $this->master->call('senders/list', $_params);
+
+        return $this->mandrill->call('senders/list', $_params);
     }
 
     /**
@@ -45,15 +46,19 @@ class Mandrill_Senders {
      *         - verified_at string if the domain has been verified, this indicates when that verification occurred as a UTC string in YYYY-MM-DD HH:MM:SS format
      *         - valid_signing boolean whether this domain can be used to authenticate mail, either for itself or as a custom signing domain. If this is false but spf and dkim are both valid, you will need to verify the domain before using it to authenticate mail
      */
-    public function domains() {
+    public function domains()
+    {
         $_params = array();
-        return $this->master->call('senders/domains', $_params);
+
+        return $this->mandrill->call('senders/domains', $_params);
     }
 
     /**
      * Adds a sender domain to your account. Sender domains are added automatically as you
-send, but you can use this call to add them ahead of time.
+     * send, but you can use this call to add them ahead of time.
+     *
      * @param string $domain a domain name
+     *
      * @return struct information about the domain
      *     - domain string the sender domain name
      *     - created_at string the date and time that the sending domain was first seen as a UTC string in YYYY-MM-DD HH:MM:SS format
@@ -69,15 +74,19 @@ send, but you can use this call to add them ahead of time.
      *     - verified_at string if the domain has been verified, this indicates when that verification occurred as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - valid_signing boolean whether this domain can be used to authenticate mail, either for itself or as a custom signing domain. If this is false but spf and dkim are both valid, you will need to verify the domain before using it to authenticate mail
      */
-    public function addDomain($domain) {
+    public function addDomain($domain)
+    {
         $_params = array("domain" => $domain);
-        return $this->master->call('senders/add-domain', $_params);
+
+        return $this->mandrill->call('senders/add-domain', $_params);
     }
 
     /**
      * Checks the SPF and DKIM settings for a domain. If you haven't already added this domain to your
-account, it will be added automatically.
+     * account, it will be added automatically.
+     *
      * @param string $domain a domain name
+     *
      * @return struct information about the sender domain
      *     - domain string the sender domain name
      *     - created_at string the date and time that the sending domain was first seen as a UTC string in YYYY-MM-DD HH:MM:SS format
@@ -93,32 +102,40 @@ account, it will be added automatically.
      *     - verified_at string if the domain has been verified, this indicates when that verification occurred as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - valid_signing boolean whether this domain can be used to authenticate mail, either for itself or as a custom signing domain. If this is false but spf and dkim are both valid, you will need to verify the domain before using it to authenticate mail
      */
-    public function checkDomain($domain) {
+    public function checkDomain($domain)
+    {
         $_params = array("domain" => $domain);
-        return $this->master->call('senders/check-domain', $_params);
+
+        return $this->mandrill->call('senders/check-domain', $_params);
     }
 
     /**
      * Sends a verification email in order to verify ownership of a domain.
-Domain verification is a required step to confirm ownership of a domain. Once a
-domain has been verified in a Mandrill account, other accounts may not have their
-messages signed by that domain unless they also verify the domain. This prevents
-other Mandrill accounts from sending mail signed by your domain.
-     * @param string $domain a domain name at which you can receive email
+     * Domain verification is a required step to confirm ownership of a domain. Once a
+     * domain has been verified in a Mandrill account, other accounts may not have their
+     * messages signed by that domain unless they also verify the domain. This prevents
+     * other Mandrill accounts from sending mail signed by your domain.
+     *
+     * @param string $domain  a domain name at which you can receive email
      * @param string $mailbox a mailbox at the domain where the verification email should be sent
+     *
      * @return struct information about the verification that was sent
      *     - status string "sent" indicates that the verification has been sent, "already_verified" indicates that the domain has already been verified with your account
      *     - domain string the domain name you provided
      *     - email string the email address the verification email was sent to
      */
-    public function verifyDomain($domain, $mailbox) {
+    public function verifyDomain($domain, $mailbox)
+    {
         $_params = array("domain" => $domain, "mailbox" => $mailbox);
-        return $this->master->call('senders/verify-domain', $_params);
+
+        return $this->mandrill->call('senders/verify-domain', $_params);
     }
 
     /**
      * Return more detailed information about a single sender, including aggregates of recent stats
+     *
      * @param string $address the email address of the sender
+     *
      * @return struct the detailed information on the sender
      *     - address string the sender's email address
      *     - created_at string the date and time that the sender was first seen by Mandrill as a UTC date string in YYYY-MM-DD HH:MM:SS format
@@ -187,14 +204,18 @@ other Mandrill accounts from sending mail signed by your domain.
      *             - clicks integer the number of URLs that have been clicked for this sender in the last 90 days
      *             - unique_clicks integer the number of unique clicks for emails sent for this sender in the last 90 days
      */
-    public function info($address) {
+    public function info($address)
+    {
         $_params = array("address" => $address);
-        return $this->master->call('senders/info', $_params);
+
+        return $this->mandrill->call('senders/info', $_params);
     }
 
     /**
      * Return the recent history (hourly stats for the last 30 days) for a sender
+     *
      * @param string $address the email address of the sender
+     *
      * @return array the array of history information
      *     - return[] struct the stats for a single hour
      *         - time string the hour as a UTC date string in YYYY-MM-DD HH:MM:SS format
@@ -208,11 +229,10 @@ other Mandrill accounts from sending mail signed by your domain.
      *         - clicks integer the number of tracked URLs clicked during the hour
      *         - unique_clicks integer the number of unique clicks generated by messages sent during the hour
      */
-    public function timeSeries($address) {
+    public function timeSeries($address)
+    {
         $_params = array("address" => $address);
-        return $this->master->call('senders/time-series', $_params);
+
+        return $this->mandrill->call('senders/time-series', $_params);
     }
-
 }
-
-

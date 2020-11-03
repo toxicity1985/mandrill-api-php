@@ -8,11 +8,13 @@
     "license": "Apache-2.0",
     "authors": [{"name": "Quairia John", "email": "tech@toxicity.be", "role": "Developer"}],
     "require": {
-        "php": ">=5.2.0"
+        "php": ">=7.4",
+        "ext-curl": "*",
+        "ext-json": "*"
     },
     "autoload": {
-        "psr-0": {
-            "Mandrill": "src/"
+        "psr-4": {
+            "Mandrill\\": "src/"
         }
     }
 }
